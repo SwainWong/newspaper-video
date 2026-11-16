@@ -1,0 +1,25 @@
+{
+  "colors": {
+    "paper": "#d6cebd",
+    "ink": "#22211f",
+    "red": "#b92729",
+    "yellow": "#dac17c",
+    "photo": "#f5f1e7"
+  },
+  "motion": {
+    "enterFrames": 16,
+    "photoTravel": 95,
+    "photoScaleFrom": 0.92,
+    "damping": 15,
+    "stiffness": 110,
+    "mass": 0.8
+  },
+  "captions": {
+    "fontSize": 42,
+    "bottom": 405
+  },
+  "fonts": {
+    "heading": "Georgia,serif",
+    "body": "Arial,sans-serif"
+  }
+}

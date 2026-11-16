@@ -1,0 +1,24 @@
+{
+  "name": "newspaper-collage-remotion-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts NewspaperShort out/still.png --frame=400",
+    "render": "remotion render src/index.ts NewspaperShort out/short.mp4",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.540",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.540"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "masthead": "THE DAILY JOURNAL",
+  "eyebrow": "SPECIAL REPORT",
+  "scenes": [
+    {
+      "id": "wide",
+      "start": 0,
+      "end": 90,
+      "title": "WIDE",
+      "kicker": "EXAMPLE",
+      "layout": "wide",
+      "images": [
+        "template-example.svg"
+      ],
+      "labels": [
+        "EXAMPLE"
+      ],
+      "captions": []
+    },
+    {
+      "id": "stack",
+      "start": 90,
+      "end": 180,
+      "title": "STACK",
+      "kicker": "EXAMPLE",
+      "layout": "stack",
+      "images": [
+        "template-example.svg",
+        "template-example-2.svg"
+      ],
+      "labels": [
+        "FIRST",
+        "SECOND"
+      ],
+      "captions": []
+    }
+  ]
+}

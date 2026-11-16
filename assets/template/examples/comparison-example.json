@@ -1,0 +1,5 @@
+{
+  "masthead":"THE DAILY BRIEF",
+  "eyebrow":"ANIMATED COMPARISON EXAMPLE",
+  "scenes":[{"id":"comparison","start":0,"end":180,"kind":"story","title":"TWO MEASURES","kicker":"Illustrative values","detail":"Replace these example figures with sourced data.","comparison":{"maxValue":40,"precision":0,"items":[{"label":"FIRST PERIOD","value":12,"color":"#203d67","unit":" units"},{"label":"SECOND PERIOD","value":35,"color":"#b92729","unit":" units"}]},"captions":[{"start":10,"end":85,"text":"The first period had 12 units."},{"start":90,"end":165,"text":"The second had 35 units."}]}]
+}

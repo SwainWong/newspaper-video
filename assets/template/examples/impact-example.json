@@ -1,0 +1,20 @@
+{
+  "masthead": "THE DAILY JOURNAL",
+  "eyebrow": "SPECIAL REPORT",
+  "scenes": [
+    {
+      "id": "impact",
+      "start": 0,
+      "end": 180,
+      "title": "A BIG CHANGE",
+      "kicker": "AN EXAMPLE",
+      "layout": "impact",
+      "impactLabel": "START",
+      "impactCaption": "ILLUSTRATIVE FLOW",
+      "metric": "10 NETWORKS",
+      "detail": "An illustrative flow diagram",
+      "images": [],
+      "captions": []
+    }
+  ]
+}

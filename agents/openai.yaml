@@ -1,0 +1,6 @@
+interface:
+  display_name: "报纸拼贴视频"
+  short_description: "使用内置视觉素材与 Remotion 模板制作可编辑的报纸拼贴讲解视频"
+  default_prompt: "使用 $newspaper-video 将我的文稿制作成报纸拼贴风格的竖屏视频。"
+policy:
+  allow_implicit_invocation: true

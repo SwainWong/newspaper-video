@@ -1,0 +1,86 @@
+{
+  "masthead": "THE DAILY BRIEF",
+  "eyebrow": "A REUSABLE EXAMPLE",
+  "slogan": "Your brand. Your story.",
+  "scenes": [
+    {
+      "id": "intro",
+      "start": 0,
+      "end": 150,
+      "kind": "brand",
+      "title": "",
+      "kicker": "",
+      "captions": [
+        {
+          "start": 15,
+          "end": 110,
+          "text": "A reusable newspaper collage."
+        }
+      ]
+    },
+    {
+      "id": "feature",
+      "start": 150,
+      "end": 390,
+      "kind": "story",
+      "layout": "feature",
+      "attachment": "pin",
+      "title": "WHAT CHANGED?",
+      "kicker": "The headline",
+      "metric": "3 IDEAS",
+      "detail": "Replace text, images and timing in JSON.",
+      "images": [
+        "template-example.svg"
+      ],
+      "labels": [
+        "REPLACE THIS IMAGE"
+      ],
+      "captions": [
+        {
+          "start": 175,
+          "end": 300,
+          "text": "Your story begins here."
+        }
+      ],
+      "counter": {
+        "to": 3,
+        "suffix": " IDEAS",
+        "durationFrames": 16
+      }
+    },
+    {
+      "id": "timeline",
+      "start": 390,
+      "end": 600,
+      "kind": "story",
+      "layout": "compact",
+      "attachment": "tape",
+      "title": "HOW IT DEVELOPED",
+      "kicker": "A short timeline",
+      "detail": "Two steps, clearly explained.",
+      "images": [
+        "template-example.svg"
+      ],
+      "labels": [
+        "ILLUSTRATION"
+      ],
+      "timeline": [
+        {
+          "label": "THEN",
+          "caption": "First event"
+        },
+        {
+          "label": "NOW",
+          "caption": "Second event"
+        }
+      ],
+      "captions": [
+        {
+          "start": 410,
+          "end": 550,
+          "text": "Build the sequence from your evidence."
+        }
+      ]
+    }
+  ]
+}
