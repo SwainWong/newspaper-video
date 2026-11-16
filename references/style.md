@@ -1,6 +1,6 @@
 # 风格与素材
 
-对三部新增参考片的观察、证据边界和模板差距见 [镜头研究](origin-study.md)。
+对三部新增参考片的观察、证据边界和模板差距见 [镜头研究](origin-study.md)及其[区域色彩样本](origin-palette-samples.json)。
 
 - 纸色/墨色/红/黄默认来自 `assets/template/src/theme.json`，约为 #d6cebd/#22211f/#b92729/#dac17c。
 - 背景：稳定纸面，大号裁切报头、三栏低对比正文、明确标为示意的淡图表。背景装饰不代表真实数据。

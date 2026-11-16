@@ -1,0 +1,329 @@
+{
+  "method": "Single decoded frame at each timestamp. Crop regions at original 1080x1920, downsample by 10, bin RGB channels to 16-value buckets. Shares are within region, descriptive only.",
+  "samples": [
+    {
+      "file": "newspaper-origin-2.mp4",
+      "time_s": 45.9,
+      "size": [
+        1080,
+        1920
+      ],
+      "regional_rgb_bins": {
+        "lower_paper": [
+          {
+            "rgb_bin": "#c0c0b0",
+            "share": 0.167
+          },
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.122
+          },
+          {
+            "rgb_bin": "#d0c0b0",
+            "share": 0.106
+          },
+          {
+            "rgb_bin": "#b0b0a0",
+            "share": 0.081
+          },
+          {
+            "rgb_bin": "#c0b0a0",
+            "share": 0.081
+          }
+        ],
+        "headline_zone": [
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.11
+          },
+          {
+            "rgb_bin": "#a0a090",
+            "share": 0.092
+          },
+          {
+            "rgb_bin": "#c0c0b0",
+            "share": 0.092
+          },
+          {
+            "rgb_bin": "#b0b0a0",
+            "share": 0.089
+          },
+          {
+            "rgb_bin": "#c0b0a0",
+            "share": 0.054
+          }
+        ]
+      }
+    },
+    {
+      "file": "newspaper-origin-2.mp4",
+      "time_s": 137.5,
+      "size": [
+        1080,
+        1920
+      ],
+      "regional_rgb_bins": {
+        "lower_paper": [
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.304
+          },
+          {
+            "rgb_bin": "#e0e0d0",
+            "share": 0.163
+          },
+          {
+            "rgb_bin": "#c0c0b0",
+            "share": 0.112
+          },
+          {
+            "rgb_bin": "#e0d0c0",
+            "share": 0.097
+          },
+          {
+            "rgb_bin": "#d0c0b0",
+            "share": 0.09
+          }
+        ],
+        "headline_zone": [
+          {
+            "rgb_bin": "#c0c0b0",
+            "share": 0.118
+          },
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.117
+          },
+          {
+            "rgb_bin": "#e0e0d0",
+            "share": 0.076
+          },
+          {
+            "rgb_bin": "#b0b0a0",
+            "share": 0.064
+          },
+          {
+            "rgb_bin": "#a0a090",
+            "share": 0.05
+          }
+        ]
+      }
+    },
+    {
+      "file": "newspaper-origin-3.mp4",
+      "time_s": 22.0,
+      "size": [
+        1080,
+        1920
+      ],
+      "regional_rgb_bins": {
+        "lower_paper": [
+          {
+            "rgb_bin": "#909080",
+            "share": 0.104
+          },
+          {
+            "rgb_bin": "#a0a090",
+            "share": 0.097
+          },
+          {
+            "rgb_bin": "#808070",
+            "share": 0.087
+          },
+          {
+            "rgb_bin": "#707060",
+            "share": 0.073
+          },
+          {
+            "rgb_bin": "#a09080",
+            "share": 0.068
+          }
+        ],
+        "headline_zone": [
+          {
+            "rgb_bin": "#d0c0b0",
+            "share": 0.068
+          },
+          {
+            "rgb_bin": "#b0b0a0",
+            "share": 0.061
+          },
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.054
+          },
+          {
+            "rgb_bin": "#909080",
+            "share": 0.053
+          },
+          {
+            "rgb_bin": "#b0a090",
+            "share": 0.052
+          }
+        ]
+      }
+    },
+    {
+      "file": "newspaper-origin-3.mp4",
+      "time_s": 121.9,
+      "size": [
+        1080,
+        1920
+      ],
+      "regional_rgb_bins": {
+        "lower_paper": [
+          {
+            "rgb_bin": "#a0a090",
+            "share": 0.099
+          },
+          {
+            "rgb_bin": "#909080",
+            "share": 0.094
+          },
+          {
+            "rgb_bin": "#808070",
+            "share": 0.091
+          },
+          {
+            "rgb_bin": "#a09080",
+            "share": 0.076
+          },
+          {
+            "rgb_bin": "#b0a090",
+            "share": 0.068
+          }
+        ],
+        "headline_zone": [
+          {
+            "rgb_bin": "#203060",
+            "share": 0.043
+          },
+          {
+            "rgb_bin": "#d0c0b0",
+            "share": 0.04
+          },
+          {
+            "rgb_bin": "#204060",
+            "share": 0.04
+          },
+          {
+            "rgb_bin": "#b02010",
+            "share": 0.04
+          },
+          {
+            "rgb_bin": "#909080",
+            "share": 0.039
+          }
+        ]
+      }
+    },
+    {
+      "file": "newspaper-origin-4.mp4",
+      "time_s": 95.0,
+      "size": [
+        1080,
+        1920
+      ],
+      "regional_rgb_bins": {
+        "lower_paper": [
+          {
+            "rgb_bin": "#c0c0b0",
+            "share": 0.167
+          },
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.128
+          },
+          {
+            "rgb_bin": "#d0c0b0",
+            "share": 0.114
+          },
+          {
+            "rgb_bin": "#b0b0a0",
+            "share": 0.085
+          },
+          {
+            "rgb_bin": "#c0b0a0",
+            "share": 0.081
+          }
+        ],
+        "headline_zone": [
+          {
+            "rgb_bin": "#f0f0f0",
+            "share": 0.194
+          },
+          {
+            "rgb_bin": "#d0d0d0",
+            "share": 0.109
+          },
+          {
+            "rgb_bin": "#e0e0e0",
+            "share": 0.077
+          },
+          {
+            "rgb_bin": "#c0c0c0",
+            "share": 0.072
+          },
+          {
+            "rgb_bin": "#c0c0b0",
+            "share": 0.052
+          }
+        ]
+      }
+    },
+    {
+      "file": "newspaper-origin-4.mp4",
+      "time_s": 243.7,
+      "size": [
+        1080,
+        1920
+      ],
+      "regional_rgb_bins": {
+        "lower_paper": [
+          {
+            "rgb_bin": "#f0e0d0",
+            "share": 0.368
+          },
+          {
+            "rgb_bin": "#e0e0d0",
+            "share": 0.202
+          },
+          {
+            "rgb_bin": "#e0d0c0",
+            "share": 0.151
+          },
+          {
+            "rgb_bin": "#e0e0c0",
+            "share": 0.097
+          },
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.054
+          }
+        ],
+        "headline_zone": [
+          {
+            "rgb_bin": "#f0e0d0",
+            "share": 0.256
+          },
+          {
+            "rgb_bin": "#e0e0d0",
+            "share": 0.123
+          },
+          {
+            "rgb_bin": "#e0d0c0",
+            "share": 0.081
+          },
+          {
+            "rgb_bin": "#e0e0c0",
+            "share": 0.063
+          },
+          {
+            "rgb_bin": "#d0d0c0",
+            "share": 0.048
+          }
+        ]
+      }
+    }
+  ]
+}
