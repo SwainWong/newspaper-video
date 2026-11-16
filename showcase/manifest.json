@@ -1,19 +1,21 @@
 {
-  "status": "review candidates; continuous normal-speed viewing, actual listening, and owner acceptance are pending",
+  "status": "V3 review candidates; continuous normal-speed viewing, real listening, and owner acceptance pending",
   "videos": {
     "huang": {
       "file": "huang.mp4",
-      "sha256": "776f2da76e5dc2f6144917e868f42a6af624c9aa6befb886b575d9fb8f51d700",
-      "duration_seconds": 169.579,
+      "sha256": "0879923a763f72752965dc47d0b0e8cbe5f9c384ef4f4afed4da525ceaee9c53",
+      "duration_seconds": 172.309,
       "resolution": "1080x1920",
-      "fps": 30
+      "fps": 30,
+      "brand_voice_at_both_ends": true
     },
     "apec": {
       "file": "apec.mp4",
-      "sha256": "a81b4a5108fc7abddae7f04bb3e0930c1399f4bf4bc965d49a4c4ac1f63f6c71",
-      "duration_seconds": 177.579,
+      "sha256": "338f6afdb7eb37d6a242743542f0674fb10be6dcb6cba2a017783c1ab2c64b79",
+      "duration_seconds": 170.837,
       "resolution": "1080x1920",
-      "fps": 30
+      "fps": 30,
+      "brand_voice_at_both_ends": true
     }
   }
 }
