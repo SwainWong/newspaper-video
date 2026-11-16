@@ -4,7 +4,16 @@
 
 [20 秒静音样片](assets/previews/style-demo.mp4) · [样例画面](assets/previews/style-preview.png) · [参考风格研究](references/origin-study.md) · [验证记录](references/validation.md)
 
-样片是中性技术演示，不含配音或频道品牌。真实选题视频完成、复核后会在这里展示；目前不把样片称作两个选题的成片。
+中性样片不含配音或频道品牌。下面是用本 Skill 制作的两条中文候选片；点击封面播放。已做技术解码和分场抽帧检查，正常速度全片观看、真实听音及作者验收尚待完成。
+
+## 两个竖屏制作实例
+
+| 选题 | 视频与资料 | 规格 |
+| --- | --- | --- |
+| 黄仁勋辞任、美国两党政策争论及 AI 行业影响 | [![播放黄仁勋专题](showcase/huang-cover.png)](showcase/huang.mp4) [播放 MP4](showcase/huang.mp4) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [来源](showcase/huang-sources.md) · [字幕](showcase/huang-subtitles.srt) | 2:49.579，1080×1920，30 fps |
+| APEC 2026 中美俄深圳会晤前瞻 | [![播放 APEC 专题](showcase/apec-cover.png)](showcase/apec.mp4) [播放 MP4](showcase/apec.mp4) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [来源](showcase/apec-sources.md) · [字幕](showcase/apec-subtitles.srt) | 2:57.579，1080×1920，30 fps |
+
+[视频哈希与审查范围](showcase/manifest.json)。黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。两片的可编辑工作工程保留在本地 `work/`，仓库提供通用模板和数据接口。
 
 ## 安装
 

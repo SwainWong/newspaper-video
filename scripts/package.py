@@ -16,7 +16,7 @@ if out.exists():
 if out == root or root in out.parents:
     parser.error('Choose output outside the Skill directory')
 
-files = [root / 'SKILL.md', root / 'README.md']
+files = [root / 'SKILL.md']
 for directory in ('agents', 'scripts', 'references', 'assets'):
     files.extend((root / directory).rglob('*'))
 files = [p for p in files if p.is_file() and not p.is_symlink() and not any(x in p.parts for x in ('node_modules', '__pycache__', '.git')) and p.suffix != '.pyc']
