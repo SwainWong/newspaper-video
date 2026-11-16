@@ -54,6 +54,21 @@ for index,scene in enumerate(scenes):
   if isinstance(file,str) and (p/'public'/file).is_file() and file.lower().endswith('.wav') and isinstance(at,int):
    with wave.open(str(p/'public'/file)) as effect_audio: effect_frames=effect_audio.getnframes()/effect_audio.getframerate()*30
    if at+effect_frames>end-start+.1:err(f'{sid}: sfx tail exceeds scene')
+ editorial=scene.get('editorial')
+ if editorial is not None:
+  if not isinstance(editorial,dict) or editorial.get('type') not in ('document','schedule','relations'):err(f'{sid}: invalid editorial type')
+  else:
+   kind=editorial['type']
+   if any(scene.get(k) for k in ('images','visualBeats','metric','counter','metricBeats','nestedNotes','timeline','comparison','detail')):err(f'{sid}: editorial cannot share its layout with other visual elements')
+   if kind=='document':
+    if not all(isinstance(editorial.get(k),str) and editorial[k].strip() for k in ('file','publisher','published','headline')):err(f'{sid}: document needs file, publisher, published and headline')
+    elif not (p/'public'/editorial['file']).is_file():err(f'{sid}: missing document image {editorial["file"]}')
+   elif kind=='schedule':
+    items=editorial.get('items')
+    if not isinstance(items,list) or not 1<=len(items)<=4 or any(not isinstance(x,dict) or not isinstance(x.get('date'),str) or not isinstance(x.get('label'),str) for x in items):err(f'{sid}: schedule needs 1-4 dated items')
+   else:
+    nodes=editorial.get('nodes')
+    if not isinstance(nodes,list) or len(nodes)!=3 or any(not isinstance(x,str) or not x.strip() for x in nodes) or not isinstance(editorial.get('center'),str):err(f'{sid}: relations needs three nodes and center text')
  comparison=scene.get('comparison')
  if comparison is not None:
   if not isinstance(comparison,dict) or not isinstance(comparison.get('maxValue'),(int,float)) or comparison.get('maxValue',0)<=0:err(f'{sid}: comparison maxValue must be positive')

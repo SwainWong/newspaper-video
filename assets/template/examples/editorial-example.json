@@ -1,0 +1,68 @@
+{
+  "masthead": "THE DAILY BRIEF",
+  "eyebrow": "A REUSABLE EXAMPLE",
+  "slogan": "Your brand. Your story.",
+  "scenes": [
+    {
+      "id": "schedule",
+      "start": 0,
+      "end": 150,
+      "title": "What is scheduled?",
+      "kicker": "DATED PLAN",
+      "captions": [],
+      "editorial": {
+        "type": "schedule",
+        "items": [
+          {
+            "date": "16",
+            "label": "Announcement",
+            "status": "Confirmed"
+          },
+          {
+            "date": "18\u201319",
+            "label": "Leaders meet",
+            "status": "Scheduled"
+          },
+          {
+            "date": "19",
+            "label": "Talks",
+            "status": "Outcome pending"
+          }
+        ]
+      }
+    },
+    {
+      "id": "relations",
+      "start": 150,
+      "end": 300,
+      "title": "Who meets?",
+      "kicker": "RELATIONSHIP",
+      "captions": [],
+      "editorial": {
+        "type": "relations",
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "center": "Shared question",
+        "disclaimer": "Illustrative relationship"
+      }
+    },
+    {
+      "id": "document",
+      "start": 300,
+      "end": 450,
+      "title": "Read the original document",
+      "kicker": "PRIMARY SOURCE",
+      "captions": [],
+      "editorial": {
+        "type": "document",
+        "file": "template-example.svg",
+        "publisher": "Example publisher",
+        "published": "2026-01-01",
+        "headline": "Full item, then focused reading"
+      }
+    }
+  ]
+}

@@ -29,10 +29,10 @@
 
 ## 模板内容
 
-- `assets/template/src/template.tsx`：报纸舞台、照片卡、标题、字幕、数字、比较条与时间线。
+- `assets/template/src/template.tsx`：报纸舞台、照片卡、标题、字幕、数字、比较条与时间线；`src/editorial.tsx` 提供文件、日程轴和三方关系图。
 - `assets/template/src/theme.json`：主要色彩、字幕和入场运动参数。
 - `assets/template/public/`：原创中性纸纹、图钉、胶带及示例插图。
-- `assets/template/examples/`：不同场景结构示例。
+- `assets/template/examples/`：不同场景结构示例，含 `editorial-example.json`。
 - `scripts/project.py`：创建工程、抽帧与渲染；`scripts/package.py`：打包跨平台 Skill。
 
 [参考片分析](references/origin-study.md)列明了目前仍待做成可配置组件的效果。欢迎通过 Issues 报告实际环境、来源展示或视频排版问题。

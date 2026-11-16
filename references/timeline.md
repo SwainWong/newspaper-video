@@ -11,6 +11,7 @@
 - visualBeats: from/to 为场景内相对帧，images/labels 在该区间展示；metricBeats 同理。
 - counter: to,prefix,suffix,precision,durationFrames,delayFrames；comparison:maxValue,items[{label,value,color,unit}],precision。
 - timeline:[{label,caption}]；nestedNotes:[{label,color}]。
+- editorial 是可选的独立主画面，不能与 images、metric、detail、timeline、comparison 等重叠。三种类型：`document:{file,publisher,published,headline}` 展示完整图片后轻微放大，来源身份持续可见；`schedule:{items:[{date,label,status?}]}` 最多四项；`relations:{nodes:[A,B,C],center,disclaimer?}` 三点关系示意。见 `examples/editorial-example.json`。来源图必须在 `public/`，最终图要检查放大后关键文字仍可读；图的局部不能被冒充为完整来源。
 - sfx:[{file,at,gain}]，at 为相对场景帧。声音按动作组设计，不为每帧/每字符重复触发。
 
 示例包含 generic、beat-example、comparison-example、impact-example、layout-example。自定义主题在 src/theme.json；不支持字段不要仅写JSON，必须改实现并验证。
