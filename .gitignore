@@ -3,6 +3,8 @@ node_modules/
 __pycache__/
 *.pyc
 out/
+work/
 *.wav
 *.mp4
 !assets/previews/style-demo.mp4
+!showcase/*.mp4
