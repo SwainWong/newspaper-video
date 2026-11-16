@@ -14,4 +14,6 @@
 - editorial 是可选的独立主画面，不能与 images、metric、detail、timeline、comparison 等重叠。三种类型：`document:{file,publisher,published,headline}` 展示完整图片后轻微放大，来源身份持续可见；`schedule:{items:[{date,label,status?}]}` 最多四项；`relations:{nodes:[A,B,C],center,disclaimer?}` 三点关系示意。见 `examples/editorial-example.json`。来源图必须在 `public/`，最终图要检查放大后关键文字仍可读；图的局部不能被冒充为完整来源。
 - sfx:[{file,at,gain}]，at 为相对场景帧。声音按动作组设计，不为每帧/每字符重复触发。
 
+频道片头片尾可各用一个 `kind:"brand"` 场景，顶层 `slogan` 和可选 `logo` 复用；若要求口播，也要给两场分别配 `audio` 和同步 `captions`。见 `examples/brand-bookends.json`。
+
 示例包含 generic、beat-example、comparison-example、impact-example、layout-example。自定义主题在 src/theme.json；不支持字段不要仅写JSON，必须改实现并验证。

@@ -1,0 +1,38 @@
+{
+  "masthead": "THE DAILY BRIEF",
+  "eyebrow": "A REUSABLE EXAMPLE",
+  "slogan": "Follow the Tech. Follow the Money.",
+  "scenes": [
+    {
+      "id": "brand-open",
+      "start": 0,
+      "end": 90,
+      "title": "",
+      "kicker": "",
+      "captions": [],
+      "kind": "brand",
+      "episodeTitle": "A REUSABLE STORY"
+    },
+    {
+      "id": "story",
+      "start": 90,
+      "end": 210,
+      "title": "WHAT CHANGED?",
+      "kicker": "REPORT",
+      "captions": [],
+      "kind": "story",
+      "metric": "01",
+      "detail": "One sourced point at a time."
+    },
+    {
+      "id": "brand-close",
+      "start": 210,
+      "end": 300,
+      "title": "",
+      "kicker": "",
+      "captions": [],
+      "kind": "brand",
+      "episodeTitle": "RETURN FOR THE NEXT REPORT"
+    }
+  ]
+}
