@@ -1,0 +1,69 @@
+{
+  "source": "../apec.mp4",
+  "source_sha256": "8fc69d44d6c67b3d5a38cc5ea8069c0fde2291af5638e636b817600587397a44",
+  "width": 270,
+  "fps": 12,
+  "clips": [
+    {
+      "name": "three-leaders",
+      "start": 0,
+      "duration": 4.5,
+      "purpose": "Real portrait collage enters within the first second; headline progresses with speech.",
+      "file": "three-leaders.gif",
+      "sha256": "6d0c72d13645ce8272470d37bdda5495e916a67244795384cdb593a8ca606004",
+      "bytes": 400474,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "54"
+    },
+    {
+      "name": "mfa-continuous-zoom",
+      "start": 7.4,
+      "duration": 4.9,
+      "purpose": "Single original MFA page pans and zooms continuously, then highlights and summarizes.",
+      "file": "mfa-continuous-zoom.gif",
+      "sha256": "fe79ffb0afd34186858e5ed7fcc5f66947d621284b1951fa8d855e68b646b799",
+      "bytes": 197800,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "59"
+    },
+    {
+      "name": "imf-continuous-zoom",
+      "start": 114.10000000000001,
+      "duration": 4.6,
+      "purpose": "Single original IMF table moves continuously into the 2026 forecast column.",
+      "file": "imf-continuous-zoom.gif",
+      "sha256": "3f894ff2c926eec2ca35c593df7ea2020f79e6e7aa56cb71f4d463b0825a628c",
+      "bytes": 246010,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "55"
+    },
+    {
+      "name": "gdp-growth-bars",
+      "start": 123.2,
+      "duration": 4.8,
+      "purpose": "Same-scale real GDP bars reveal on spoken US and Russia values; China remains visible.",
+      "file": "gdp-growth-bars.gif",
+      "sha256": "257fbb5f461edc8a2ff3df1c00a717337f7b7b3da039fada3bbfff770337bd01",
+      "bytes": 102239,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "58"
+    },
+    {
+      "name": "yalta-to-potsdam",
+      "start": 34.3,
+      "duration": 4.8,
+      "purpose": "Historical Yalta photograph changes to Potsdam on its spoken name.",
+      "file": "yalta-to-potsdam.gif",
+      "sha256": "883aa923e42b6d21c83df6e3716d568a1b5ff6d4b5d9e5b2dcd9d89c566cfe83",
+      "bytes": 412510,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "58"
+    }
+  ],
+  "scope": "Encoded animation previews; not audio or full-video acceptance"
+}

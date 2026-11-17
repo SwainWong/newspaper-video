@@ -1,6 +1,6 @@
-# APEC V5 — sources and media credits
+# APEC V6 — sources and media credits
 
-Current-event images match 2026 events. The 1945 and 2025 images accompany explicit historical narration. Photo captions distinguish the May 2026 meetings from the announced November summit.
+Current-event images match 2026 events. The 1945 and 2025 images accompany explicit history or dated identity-portrait crops. Opening portraits are a composite, not a joint summit photograph. Photo captions distinguish the May 2026 meetings from the announced November summit.
 
 ## xi-putin-2025-0.png
 
@@ -43,6 +43,20 @@ Rights: Official source; photo reuse terms need verification; editorial referenc
 Changes: framing/cropping or highlighted excerpt; original words unchanged.
 
 SHA-256: 437e607901acaa95259cc9b5ac627272e8cbeef67b9d16bbfbd3d53d581729a7
+
+## xi-trump-may-3.jpg
+
+Source: https://www.fmprc.gov.cn/eng/gjhdq_665435/3376_665447/3432_664920/3435_664926/202605/t20260514_11910330.html
+
+Date: 2026-05-14
+
+Credit: Official source
+
+Rights: Official source; photo reuse terms need verification; editorial reference only until cleared
+
+Changes: framing/cropping or highlighted excerpt; original words unchanged.
+
+SHA-256: a4d7443247259214e6c640baa5258bc9d4bb291c4f370c30e37580ca559840ca
 
 ## xi-putin-may-0.jpg
 

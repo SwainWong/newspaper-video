@@ -1,0 +1,69 @@
+{
+  "source_file": "../huang.mp4",
+  "source_sha256": "44c6888d4424071926ced20cb504f3ffe48a19c60517931749c7198283bef1ae",
+  "source_fps": 30,
+  "output_width": 320,
+  "output_fps": 12,
+  "clips": [
+    {
+      "file": "01-hook.gif",
+      "start_frame": 0,
+      "start_seconds": 0.0,
+      "end_seconds": 4.0,
+      "requested_duration_seconds": 4,
+      "gif_duration_seconds": 4.0,
+      "frames": 48,
+      "width": 320,
+      "height": 569,
+      "fps": 12,
+      "purpose": "Frame-zero Huang image hook",
+      "source_sha256": "44c6888d4424071926ced20cb504f3ffe48a19c60517931749c7198283bef1ae",
+      "sha256": "e5dd2ed9a288cecc45aadaffa6171628aeec3bea6535cede71d8f201b02bcc51"
+    },
+    {
+      "file": "02-evidence-zoom.gif",
+      "start_frame": 1214,
+      "start_seconds": 40.46666666666667,
+      "end_seconds": 44.96666666666667,
+      "requested_duration_seconds": 4.5,
+      "gif_duration_seconds": 4.5,
+      "frames": 54,
+      "width": 320,
+      "height": 569,
+      "fps": 12,
+      "purpose": "Continuous same-source SEC page pan/zoom then highlight and summary",
+      "source_sha256": "44c6888d4424071926ced20cb504f3ffe48a19c60517931749c7198283bef1ae",
+      "sha256": "d07caf66d2cd6122bddb945ed7b8a5e98556b88b7c93df3c609c558427bc40a3"
+    },
+    {
+      "file": "03-picture-relations.gif",
+      "start_frame": 2370,
+      "start_seconds": 79.0,
+      "end_seconds": 84.0,
+      "requested_duration_seconds": 5,
+      "gif_duration_seconds": 5.0,
+      "frames": 60,
+      "width": 320,
+      "height": 569,
+      "fps": 12,
+      "purpose": "Picture nodes reveal opposition-to-administration oversight arrow",
+      "source_sha256": "44c6888d4424071926ced20cb504f3ffe48a19c60517931749c7198283bef1ae",
+      "sha256": "251f266e3bf18ebe9eb331b2e9af8b49f261526825c99931813d168b361e6b0a"
+    },
+    {
+      "file": "04-supply-chain.gif",
+      "start_frame": 3585,
+      "start_seconds": 119.5,
+      "end_seconds": 124.5,
+      "requested_duration_seconds": 5,
+      "gif_duration_seconds": 5.0,
+      "frames": 60,
+      "width": 320,
+      "height": 569,
+      "fps": 12,
+      "purpose": "Current product reference with explicit roadmap dependencies",
+      "source_sha256": "44c6888d4424071926ced20cb504f3ffe48a19c60517931749c7198283bef1ae",
+      "sha256": "5d0444f215e81deae572e76b426780fbf3a91421c6b006be1d6e3969a1347a16"
+    }
+  ]
+}

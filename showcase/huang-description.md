@@ -7,7 +7,3 @@ Follow the Tech, Follow the Money.
 English narration: The Anchor, generated in VoiceStudio using the approved script. Historical photographs are dated on screen or in the accompanying asset ledger. Complete fact sources and image attributions accompany this film. Original procedural BGM and effects contain no third-party samples.
 
 #SwainTalk #Nvidia #JensenHuang #AI #Semiconductors
-
-[Fact sources](huang-sources.md) · [Image credits](huang-image-credits.md)
-
-V5 adds narration-anchored relationship animation, readable highlighted SEC evidence, fixed SwainTalk identity with voice pauses, and rhythmic BGM.

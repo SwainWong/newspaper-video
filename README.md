@@ -6,18 +6,47 @@
 
 [下载最新 Skill 安装包](https://github.com/SwainWong/newspaper-video/releases/latest)。
 
-两条实例已更新为 **V5 英语审阅版**，采用 Skill 1.5.1：按口播推进照片、数据和关系图；头尾复用固定 SwainTalk Logo＋slogan，并加入真实旁白停顿。APEC 用 IMF 同口径预测数据作动态图表，历史会议随实际词时码切换；黄仁勋篇补上 SEC 原件放大高亮和政策、供应链关系动画。两片均加强了 BGM 律动并保留口播避让。
+两条实例已更新为 **V6 系列英语审阅版**，采用 Skill 1.6.1 的视觉规范：首秒主体影像、图片与分析同场、明确关系连线、同一原件连续平移缩放。固定 SwainTalk 品牌、英语 The Anchor 口播、纯英语字幕、品牌停顿和有节奏的配乐沿用。
 
-点击下方封面播放。已完成技术解码、旁白转录核对、实际品牌停顿检测及最终文件抽帧检查；正常速度全片观看、真实听音及作者验收仍待完成。中性模板样片不含配音或频道品牌。
+下方 GIF 可在 GitHub README 中直接展示动画。完整 MP4 另提供打开/下载入口；GIF 为无声片段，不代表全片或声音验收。
 
 ## 两个竖屏制作实例
 
-| 选题 | 视频与资料 | 规格 |
-| --- | --- | --- |
-| 黄仁勋辞任、美国两党政策争论及 AI 行业影响 | [![播放黄仁勋专题](showcase/huang-cover.png)](showcase/huang.mp4) [播放 MP4](showcase/huang.mp4) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [事实来源](showcase/huang-sources.md) · [图片署名](showcase/huang-image-credits.md) · [字幕](showcase/huang-subtitles.srt) | 2:59.243，1080×1920，30 fps |
-| APEC 2026 中美俄深圳会晤前瞻 | [![播放 APEC 专题](showcase/apec-cover.png)](showcase/apec.mp4) [播放 MP4](showcase/apec.mp4) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [事实来源](showcase/apec-sources.md) · [图片署名](showcase/apec-image-credits.md) · [字幕](showcase/apec-subtitles.srt) · [经济数据](showcase/apec-economy-data.csv) | 2:54.912，1080×1920，30 fps |
+### 黄仁勋专题 · V6.1
 
-[视频哈希与审查范围](showcase/manifest.json)。黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片的使用范围与未决事项详见各片署名清单，不代表取得全面转载授权。两片的可编辑工作工程及 VO/BGM/SFX 分轨保留在本地 `work/`，仓库提供通用模板和数据接口。
+**2:59.243 · 1080×1920 · 30 fps。** 8 个内容场景中有 6 个包含实质图片；关系图用人物/产品形象标识主体，用带标签的箭头说明关系。主标签和连接词经过手机尺寸复核并放大。
+
+| 人物影像开场 | SEC 原件连续放大、高亮 |
+| --- | --- |
+| ![人物影像开场](showcase/huang-gifs/01-hook.gif) | ![同一SEC页面连续缩放](showcase/huang-gifs/02-evidence-zoom.gif) |
+
+| 图片与政策关系 | 产品与供应链关系 |
+| --- | --- |
+| ![有明确含义的图片关系图](showcase/huang-gifs/03-picture-relations.gif) | ![供应链逐步揭示](showcase/huang-gifs/04-supply-chain.gif) |
+
+[打开／下载完整 MP4](showcase/huang.mp4) · [封面](showcase/huang-cover.png) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [事实来源](showcase/huang-sources.md) · [图片署名](showcase/huang-image-credits.md) · [英语字幕](showcase/huang-subtitles.srt) · [GIF 时间码与哈希](showcase/huang-gifs/manifest.json)
+
+### APEC 专题 · V6
+
+**2:54.912 · 1080×1920 · 30 fps。** 三位领导人照片构成开场；8 个内容场景中有 7 个包含实质图片。外交部与 IMF 原文保留同一原图连续放大；经济分析使用同口径、同刻度的实际 GDP 增长预测数据。
+
+| 三位领导人影像钩子 | 公告全貌到重点 |
+| --- | --- |
+| ![三位领导人入场](showcase/apec-gifs/three-leaders.gif) | ![外交部原件连续缩放](showcase/apec-gifs/mfa-continuous-zoom.gif) |
+
+| IMF 全貌到预测年份 | 随口播增长的数据条 |
+| --- | --- |
+| ![IMF表格连续缩放](showcase/apec-gifs/imf-continuous-zoom.gif) | ![GDP增长预测数据比较](showcase/apec-gifs/gdp-growth-bars.gif) |
+
+雅尔塔到波茨坦，随讲述切换历史影像：
+
+![历史会议影像切换](showcase/apec-gifs/yalta-to-potsdam.gif)
+
+[打开／下载完整 MP4](showcase/apec.mp4) · [封面](showcase/apec-cover.png) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [事实来源](showcase/apec-sources.md) · [图片署名](showcase/apec-image-credits.md) · [英语字幕](showcase/apec-subtitles.srt) · [经济数据](showcase/apec-economy-data.csv) · [GIF 时间码与哈希](showcase/apec-gifs/manifest.json)
+
+[视频哈希与审查范围](showcase/manifest.json)。已完成完整解码、制作记录与实际旁白停顿检查，以及最终文件关键画面和变焦中间帧检查；正常速度全片观看、真实听音及作者验收仍待完成。图片覆盖统计排除品牌段、文档截图、背景和微小水印。
+
+黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片使用范围与未决事项见署名清单，不代表取得全面转载授权。可编辑工程及 VO/BGM/SFX 分轨保留在本地 `work/`；仓库提供通用模板和数据接口。
 
 ## 安装
 

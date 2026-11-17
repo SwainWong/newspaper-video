@@ -43,3 +43,12 @@ Leadership transition and industry context.
 https://www.investing.com/news/stock-market-news/nvidia-ceo-jensen-huang-to-step-down-in-big-blow-to-ai-boom-5021980
 
 Industry and supply-chain consequences are conditional editorial analysis. Archive photos illustrate people, products and institutions; they are not evidence of the 2026 events. Image credits and original-source links are in image-credits.md/PDF.
+
+
+## V6 pictured-actor support
+
+Brian Mast is a named signatory in the [House Intelligence Committee announcement, November 5, 2026](https://intelligence.house.gov/2026/11/05/chairmen-mast-moolenaar-and-crawford-request-jensen-huang-brief-congress-on-link-to-chinese-intelligence-asset/). The portrait is identity reference from the 118th Congress, not a photograph of this event. This establishes the committee request, not independent proof of its allegations.
+
+## V6 product illustration support
+
+[NVIDIA Rubin platform announcement, January 5, 2026](https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer) and [Vera Rubin NVL72 product page](https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/) identify the pictured hardware. Used as illustrative product and infrastructure references only; no deployment, order-volume, export eligibility, revenue or disruption claim is inferred from the images. Manufacturer artwork is not independent reporting.

@@ -1,12 +1,12 @@
 {
-  "status": "V5 review candidates; owner full audiovisual review pending",
-  "skill_version": "1.5.1",
+  "status": "V6 series review candidates; owner full audiovisual review pending",
+  "skill_version": "1.6.1",
   "videos": {
     "huang": {
       "file": "huang.mp4",
-      "sha256": "dfa23e86ffc1a7f7a3dabe9db2ec20359d67b8ab9d5909590725dffe4d5237e8",
+      "sha256": "44c6888d4424071926ced20cb504f3ffe48a19c60517931749c7198283bef1ae",
       "duration_seconds": 179.243,
-      "size_bytes": 25593098,
+      "size_bytes": 29652705,
       "timeline_frames": 5377,
       "resolution": "1080x1920",
       "fps": 30,
@@ -45,7 +45,7 @@
           "samples": 19200
         }
       ],
-      "visual_method": "Narration-anchored evidence, comparisons and qualitative relationships",
+      "visual_method": "Image-led opening; illustrated relationship nodes with labelled directional edges; continuous same-source evidence zoom; larger mobile labels",
       "bgm": "Original rhythmic instrumental score with voice ducking",
       "sfx": "Original animation-linked effects",
       "checks": {
@@ -58,13 +58,20 @@
         "real_listening": "PENDING",
         "owner_acceptance": "PENDING"
       },
-      "image_rights": "See huang-image-credits.md"
+      "image_rights": "See huang-image-credits.md",
+      "version": "V6.1",
+      "imagery_coverage": {
+        "content_scenes": 8,
+        "substantial_imagery_scenes": 6,
+        "ratio": 0.75
+      },
+      "gif_manifest": "huang-gifs/manifest.json"
     },
     "apec": {
       "file": "apec.mp4",
-      "sha256": "ec9a33c8ebf04efd9cd79283ded586323e593e04c00cd032b8e299f6c0d5b473",
+      "sha256": "8fc69d44d6c67b3d5a38cc5ea8069c0fde2291af5638e636b817600587397a44",
       "duration_seconds": 174.912,
-      "size_bytes": 30251378,
+      "size_bytes": 32351614,
       "timeline_frames": 5247,
       "resolution": "1080x1920",
       "fps": 30,
@@ -103,7 +110,7 @@
           "samples": 19200
         }
       ],
-      "visual_method": "Narration-anchored evidence, comparisons and qualitative relationships",
+      "visual_method": "First-second leader imagery; same-source continuous document camera; imagery combined with labelled analysis",
       "bgm": "Original rhythmic instrumental score with voice ducking",
       "sfx": "Original animation-linked effects",
       "checks": {
@@ -116,7 +123,14 @@
         "real_listening": "PENDING",
         "owner_acceptance": "PENDING"
       },
-      "image_rights": "See apec-image-credits.md"
+      "image_rights": "See apec-image-credits.md",
+      "version": "V6",
+      "imagery_coverage": {
+        "content_scenes": 8,
+        "substantial_imagery_scenes": 7,
+        "ratio": 0.875
+      },
+      "gif_manifest": "apec-gifs/manifest.json"
     }
   }
 }
