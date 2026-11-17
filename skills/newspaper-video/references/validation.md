@@ -50,3 +50,9 @@ Ten unittest cases pass, including rejecting early future-event reveals, critica
 GIF工具已从20秒模板样片生成三段270×480、12fps、每段3秒的GIF，分别完整解码并核对36帧，清单包含来源和产物SHA。这验证生成流程，不等同于两部新闻片的GIF或完整视听验收；最终影片及GIF状态以showcase/manifest.json为准。CLI完整render强制检查1.6视觉计划，旧记录可单独检查历史合同但不能绕过新制作门禁。
 
 1.6.1 additionally fixes the generated starter: the image-led story precedes the brand, and the first image remains visible on frame zero during its entrance. TypeScript and all 16 unittest cases pass after this change; the actual generated default frame zero was rendered and inspected. The original 20-second style-demo is retained as a historical template sample, not a demo of the new opening order.
+
+## 1.7.0 跨平台封装与参考规则
+
+2026-11-17：23个unittest通过；Skill frontmatter验证通过；独立Skill ZIP打包成功。Codex CLI实际安装newspaper-video@swainwong-newspaper 1.7.0到版本缓存；Claude/WorkBuddy清单按官方契约提供，未运行这两个客户端。观察范围见origin-study-567.md；13种新配方尚未全部成为模板组件，生产门禁要求项目实现与抽帧记录。新增paper/tick/whoosh为原创程序合成声音，未完成真实听审。此次README已同步源码结构、模块输入输出、安装和验收边界；没有声称参考片完整看听验收。
+
+1.7.1：Codex app-server skills/list 实际返回启用的 newspaper-video:newspaper-video，pluginId为newspaper-video@swainwong-newspaper，路径指向1.7.1缓存。Claude CLI validate返回Invalid API key，未通过；未发现CodeBuddy CLI。独立安装包无软链接，不含work/.git/node_modules/原片截图；旧Skill ZIP可生成。

@@ -21,6 +21,7 @@ def main():
  if not any(s.get('sfx') for s in data.get('scenes',[])) and not brief_data.get('sfx_omission_reason'):p.error('SFX missing: map animation events to sound cues.')
  if data.get('scenes',[{}])[0].get('kind')=='brand':p.error('Start with the episode hook before the brand transition.')
  if a.action=='render':
+  subprocess.run([sys.executable,str(ROOT/'scripts/motion_gate.py'),str(dest/'motion-plan.json')],check=True)
   subprocess.run([sys.executable,str(ROOT/'scripts/review_plan.py'),str(dest/'review-plan.json'),'--require-visual'],check=True)
   if data.get('brandProfile')=='swaintalk-v1':
    plan=json.loads((dest/'review-plan.json').read_text())

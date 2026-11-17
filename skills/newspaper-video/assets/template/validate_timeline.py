@@ -65,6 +65,7 @@ for index,scene in enumerate(scenes):
   if isinstance(file,str) and (p/'public'/file).is_file() and file.lower().endswith('.wav') and isinstance(at,int):
    with wave.open(str(p/'public'/file)) as effect_audio: effect_frames=effect_audio.getnframes()/effect_audio.getframerate()*30
    if at+effect_frames>end-start+.1:err(f'{sid}: sfx tail exceeds scene')
+ if scene.get('layout')=='impact' and (scene.get('analysis') or scene.get('editorial') or scene.get('comparison')):err(f'{sid}: impact background conflicts with exclusive graphic')
  analysis=scene.get('analysis')
  if analysis is not None:
   if any(scene.get(k) for k in ('editorial','images','visualBeats','metric','counter','metricBeats','nestedNotes','timeline','comparison','detail')):err(f'{sid}: analysis graphic must own its content area')

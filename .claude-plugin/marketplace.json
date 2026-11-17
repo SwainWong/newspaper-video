@@ -1,0 +1,12 @@
+{
+  "name": "swainwong-newspaper",
+  "owner": {
+    "name": "SwainWong"
+  },
+  "plugins": [
+    {
+      "name": "newspaper-video",
+      "source": "./"
+    }
+  ]
+}

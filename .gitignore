@@ -8,3 +8,6 @@ work/
 *.mp4
 !assets/previews/style-demo.mp4
 !showcase/*.mp4
+
+!skills/newspaper-video/assets/previews/style-demo.mp4
+!skills/newspaper-video/assets/sfx/*.wav

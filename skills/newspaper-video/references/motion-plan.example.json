@@ -1,0 +1,43 @@
+{
+  "duration_frames": 120,
+  "events": [
+    {
+      "id": "subject",
+      "effect": "photo",
+      "start": 0,
+      "settle": 16,
+      "end": 120,
+      "bbox": [
+        65,
+        360,
+        900,
+        700
+      ],
+      "focus": true,
+      "meaning": "Identify the story subject",
+      "sound": {
+        "kind": "none",
+        "reason": "Narration emphasis; fixture has no audio"
+      }
+    },
+    {
+      "id": "subtitle",
+      "effect": "captions",
+      "start": 20,
+      "settle": 20,
+      "end": 100,
+      "bbox": [
+        80,
+        1470,
+        920,
+        80
+      ],
+      "focus": false,
+      "meaning": "Narration phrase",
+      "sound": {
+        "kind": "none",
+        "reason": "Subtitles are silent"
+      }
+    }
+  ]
+}
