@@ -4,24 +4,9 @@
   "slogan": "Your brand. Your story.",
   "scenes": [
     {
-      "id": "intro",
-      "start": 0,
-      "end": 150,
-      "kind": "brand",
-      "title": "",
-      "kicker": "",
-      "captions": [
-        {
-          "start": 15,
-          "end": 110,
-          "text": "A reusable newspaper collage."
-        }
-      ]
-    },
-    {
       "id": "feature",
-      "start": 150,
-      "end": 390,
+      "start": 0,
+      "end": 240,
       "kind": "story",
       "layout": "feature",
       "attachment": "pin",
@@ -37,8 +22,8 @@
       ],
       "captions": [
         {
-          "start": 175,
-          "end": 300,
+          "start": 25,
+          "end": 150,
           "text": "Your story begins here."
         }
       ],
@@ -47,6 +32,21 @@
         "suffix": " IDEAS",
         "durationFrames": 16
       }
+    },
+    {
+      "id": "intro",
+      "start": 240,
+      "end": 390,
+      "kind": "brand",
+      "title": "",
+      "kicker": "",
+      "captions": [
+        {
+          "start": 255,
+          "end": 350,
+          "text": "A reusable newspaper collage."
+        }
+      ]
     },
     {
       "id": "timeline",

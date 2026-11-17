@@ -39,3 +39,5 @@
 `Scene.audioOffsetFrames`（非负整数，默认0）可推迟旁白起点，配合场景末端空帧形成真实品牌停顿。字幕仍用全片绝对帧，必须同步偏移；验证器会检查偏移加WAV时长不超过镜头。也可在独立混音中插入静音后导入。
 
 1.6证据摄影机：`EvidenceFocus.data.zoomFrames`默认24（12–45帧），`focusAt`是连续变焦开始，整页至少先停留12帧。`marks[].at`与`summaryAt`不早于focusAt+zoomFrames。原件在同一DOM图像平面上做连续translate/scale；坐标均为原图像素，crop必须在原图范围内。源代码几何函数见`evidence-camera.ts`。
+
+1.6.1默认工程先影像钩子、再品牌段。首场景的第一张主体照片从frame 0可见，同时保持受限位移的入场运动；其他照片沿原顺序入场。若自定义首镜（如analysis），仍须自己确保实际首帧有可辨主体，制作记录不能替代画面。

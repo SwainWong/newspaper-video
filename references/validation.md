@@ -48,3 +48,5 @@ Ten unittest cases pass, including rejecting early future-event reveals, critica
 16个unittest用例通过，新增图片覆盖不足、文档冒充实质图片、悬空关系线、换源硬切和高亮早于摄影机落稳等负例。隔离工程中TypeScript通过；摄影机几何函数实际检查起终位置、中间连续性及越界拒绝。用真实原件渲染0/30/42/54/84帧并查看：整页、定位框、中途表格位置、局部、黄笔及编辑摘要保持同一图像坐标。源文件的5帧检查不是正常速度全片观看。
 
 GIF工具已从20秒模板样片生成三段270×480、12fps、每段3秒的GIF，分别完整解码并核对36帧，清单包含来源和产物SHA。这验证生成流程，不等同于两部新闻片的GIF或完整视听验收；最终影片及GIF状态以showcase/manifest.json为准。CLI完整render强制检查1.6视觉计划，旧记录可单独检查历史合同但不能绕过新制作门禁。
+
+1.6.1 additionally fixes the generated starter: the image-led story precedes the brand, and the first image remains visible on frame zero during its entrance. TypeScript and all 16 unittest cases pass after this change; the actual generated default frame zero was rendered and inspected. The original 20-second style-demo is retained as a historical template sample, not a demo of the new opening order.
