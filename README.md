@@ -6,18 +6,18 @@
 
 [下载最新 Skill 安装包](https://github.com/SwainWong/newspaper-video/releases/latest)。
 
-**当前两条 V3 已被用户要求返修，尚不符合 1.4 的图片、语言、BGM/SFX 与钩子规范；英文新版脚本已获修改后开工授权，正在重制；采用1.4.1成稿规则，移除审稿辩解式旁白。**
+两条实例已更新为 **V4.1 英语审阅版**：英语口播与纯英语字幕，使用经用户试音确认的 VoiceStudio **The Anchor**，节奏较试音放缓。新版以真实照片和来源页面承载内容，先钩子再进入 SwainTalk 品牌过渡，并加入原创 BGM、随动作触发的音效和口播避让混音。
 
-中性样片不含配音或频道品牌。下面是用本 Skill 制作的两条 V3 中文候选片；点击封面播放。已做技术解码和分场抽帧检查，正常速度全片观看、真实听音及作者验收尚待完成。
+点击下方封面播放。已完成技术解码、旁白转录核对和最终文件抽帧检查；正常速度全片观看、真实听音及作者验收仍待完成。中性模板样片不含配音或频道品牌。
 
 ## 两个竖屏制作实例
 
 | 选题 | 视频与资料 | 规格 |
 | --- | --- | --- |
-| 黄仁勋辞任、美国两党政策争论及 AI 行业影响 | [![播放黄仁勋专题](showcase/huang-cover.png)](showcase/huang.mp4) [播放 MP4](showcase/huang.mp4) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [来源](showcase/huang-sources.md) · [字幕](showcase/huang-subtitles.srt) | 2:52.309，1080×1920，30 fps |
-| APEC 2026 中美俄深圳会晤前瞻 | [![播放 APEC 专题](showcase/apec-cover.png)](showcase/apec.mp4) [播放 MP4](showcase/apec.mp4) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [来源](showcase/apec-sources.md) · [字幕](showcase/apec-subtitles.srt) | 2:50.837，1080×1920，30 fps |
+| 黄仁勋辞任、美国两党政策争论及 AI 行业影响 | [![播放黄仁勋专题](showcase/huang-cover.png)](showcase/huang.mp4) [播放 MP4](showcase/huang.mp4) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [事实来源](showcase/huang-sources.md) · [图片署名](showcase/huang-image-credits.md) · [字幕](showcase/huang-subtitles.srt) | 2:57.643，1080×1920，30 fps |
+| APEC 2026 中美俄深圳会晤前瞻 | [![播放 APEC 专题](showcase/apec-cover.png)](showcase/apec.mp4) [播放 MP4](showcase/apec.mp4) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [事实来源](showcase/apec-sources.md) · [图片署名](showcase/apec-image-credits.md) · [字幕](showcase/apec-subtitles.srt) | 2:57.534，1080×1920，30 fps |
 
-[视频哈希与审查范围](showcase/manifest.json)。黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。两片的可编辑工作工程保留在本地 `work/`，仓库提供通用模板和数据接口。
+[视频哈希与审查范围](showcase/manifest.json)。黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片的使用范围与未决事项详见各片署名清单，不代表取得全面转载授权。两片的可编辑工作工程及 VO/BGM/SFX 分轨保留在本地 `work/`，仓库提供通用模板和数据接口。
 
 ## 安装
 
@@ -30,7 +30,7 @@
 
 [平台细节与官方文档](references/platforms.md)。格式适配不等于每个平台已完成端到端测试；已验证范围见上方记录。
 
-## 制作流程（1.4.0）
+## 制作流程（1.4.1）
 
 1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](references/production-workflow.md) 与 [声音模块](references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
 2. 复制工程：`python3 scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。

@@ -1,235 +1,247 @@
 1
-00:00:00,000 --> 00:00:01,100
-这里是 SwainTalk。
+00:00:00,067 --> 00:00:02,333
+Jensen Huang helped turn Nvidia into the
 
 2
-00:00:01,100 --> 00:00:02,900
-关注科技，追踪资金。
+00:00:02,333 --> 00:00:05,233
+engine of the AI boom. Now a
 
 3
-00:00:03,300 --> 00:00:04,433
-黄仁勋辞任了。
+00:00:05,233 --> 00:00:07,600
+personal scandal has forced him out, and
 
 4
-00:00:04,433 --> 00:00:06,767
-但从出轨风波，到间谍指控，
+00:00:07,600 --> 00:00:09,967
+the shock reaches far beyond one executive.
 
 5
-00:00:06,767 --> 00:00:08,367
-再到美国两党纷争，
+00:00:10,667 --> 00:00:13,167
+Who controls the chips, who inherits his
 
 6
-00:00:08,367 --> 00:00:10,767
-中间每一步，都需要不同的证据。
+00:00:13,167 --> 00:00:16,033
+influence, and what happens when an industry
 
 7
-00:00:10,767 --> 00:00:12,967
-这场风波，究竟改变了什么？
+00:00:16,033 --> 00:00:17,833
+loses its most recognizable champion?
 
 8
-00:00:13,367 --> 00:00:15,033
-先看最硬的一份文件。
+00:00:18,500 --> 00:00:20,700
+This is SwainTalk. Follow the Tech, Follow
 
 9
-00:00:15,033 --> 00:00:18,600
-英伟达十一月十二日披露的八K公告确认，
+00:00:20,700 --> 00:00:21,233
+the Money.
 
 10
-00:00:18,600 --> 00:00:21,167
-董事会在十一日接受黄仁勋辞任，
+00:00:21,667 --> 00:00:24,633
+The controversy escalated on October twenty-ninth, when
 
 11
-00:00:21,167 --> 00:00:24,733
-总裁、首席执行官和董事职务，即时终止。
+00:00:24,633 --> 00:00:27,600
+the New York Times reported intelligence concerns
 
 12
-00:00:25,133 --> 00:00:29,233
-财务负责人科莱特·克雷斯，出任临时首席执行官，
+00:00:27,600 --> 00:00:31,000
+surrounding his relationship with businesswoman Alice Huang.
 
 13
-00:00:29,233 --> 00:00:31,300
-同时继续担任财务负责人。
+00:00:31,933 --> 00:00:35,200
+On November eighth, he acknowledged marital infidelity.
 
 14
-00:00:31,300 --> 00:00:33,500
-哈维·琼斯被任命为董事长。
+00:00:35,633 --> 00:00:38,200
+Reports of a relationship with an employee
 
 15
-00:00:33,500 --> 00:00:36,533
-这是过渡安排，正式接班人仍待寻找。
+00:00:38,200 --> 00:00:41,167
+followed. Nvidia accepted his resignation on November
 
 16
-00:00:36,933 --> 00:00:39,200
-按路透社梳理，十月二十九日，
+00:00:41,600 --> 00:00:44,233
+eleventh and announced it the next day.
 
 17
-00:00:39,200 --> 00:00:42,433
-纽约时报报道了这段关系及情报部门的疑虑。
+00:00:44,867 --> 00:00:47,733
+The allegations drew Washington into a fight
 
 18
-00:00:42,433 --> 00:00:45,867
-十一月八日，黄仁勋向员工承认婚姻不忠。
+00:00:47,733 --> 00:00:50,600
+already underway: access to China’s market versus
 
 19
-00:00:45,867 --> 00:00:47,933
-董事会同时启动独立调查。
+00:00:50,600 --> 00:00:54,000
+national security. Democrats Warren and Coons demanded
 
 20
-00:00:48,333 --> 00:00:51,433
-此后，媒体又报道他与公司下属的关系。
+00:00:54,000 --> 00:00:57,367
+records about export enforcement. Republican lawmakers also
 
 21
-00:00:51,433 --> 00:00:54,433
-但个人关系与间谍身份，是两回事。
+00:00:57,367 --> 00:01:01,167
+pressed for answers. Trump defended Huang’s achievements.
 
 22
-00:00:54,433 --> 00:00:58,300
-有关爱丽丝·黄的情报指控，必须保留涉嫌的限定。
+00:01:01,533 --> 00:01:03,633
+Political pressure now comes from both sides
 
 23
-00:00:58,300 --> 00:01:01,633
-要求调查的国会信函，也不是司法定罪。
+00:01:03,633 --> 00:01:05,767
+of the aisle, putting chip exports at
 
 24
-00:01:02,033 --> 00:01:05,700
-把这一切解释成民主党打击共和党，并不完整。
+00:01:05,767 --> 00:01:06,967
+the center of the controversy.
 
 25
-00:01:05,700 --> 00:01:08,733
-十一月十二日，民主党议员戈特海默，
+00:01:07,567 --> 00:01:10,533
+Behind those positions sit competing interests. Nvidia
 
 26
-00:01:08,733 --> 00:01:11,800
-与共和党议员拉胡德，联名要求调查。
+00:01:10,533 --> 00:01:13,267
+wants customers and influence over the global
 
 27
-00:01:11,800 --> 00:01:14,600
-安全担忧，已经形成跨党派压力。
+00:01:13,267 --> 00:01:16,700
+AI ecosystem. Security hawks want tighter control
 
 28
-00:01:15,000 --> 00:01:17,467
-共和党的三个众议院委员会主席，
+00:01:16,700 --> 00:01:20,000
+over powerful chips. Opposition lawmakers want accountability
 
 29
-00:01:17,467 --> 00:01:20,467
-也要求黄仁勋、英伟达法务负责人，
+00:01:20,000 --> 00:01:23,200
+from the administration. The scandal brings these
 
 30
-00:01:20,467 --> 00:01:23,333
-以及商务部官员，向国会作说明。
+00:01:23,200 --> 00:01:25,933
+interests into direct collision, turning a corporate
 
 31
-00:01:23,333 --> 00:01:26,633
-所以，支持科技产业，和追问安全责任，
+00:01:25,933 --> 00:01:28,433
+leadership crisis into a battle over America’s
 
 32
-00:01:26,633 --> 00:01:29,100
-可以同时出现在同一个政党内部。
+00:01:28,433 --> 00:01:29,133
+AI strategy.
 
 33
-00:01:29,500 --> 00:01:33,733
-民主党参议员沃伦和库恩斯，则要求政府保全记录。
+00:01:29,800 --> 00:01:32,067
+That is why this departure is unusually
 
 34
-00:01:33,733 --> 00:01:36,200
-他们追问芯片出口的审批和执法，
+00:01:32,067 --> 00:01:34,967
+disruptive. Huang is a co-founder who became
 
 35
-00:01:36,200 --> 00:01:39,133
-以及官员何时知情、如何处理风险。
+00:01:34,967 --> 00:01:37,300
+the public face of Nvidia: the leather
 
 36
-00:01:39,133 --> 00:01:40,900
-这些是公开的监督行动，
+00:01:37,300 --> 00:01:40,100
+jacket on stage, the product launches, the
 
 37
-00:01:40,900 --> 00:01:43,000
-不能直接证明政府已经违法。
+00:01:40,100 --> 00:01:43,700
+promise of the next AI revolution. For
 
 38
-00:01:43,400 --> 00:01:46,067
-从这些文件看，实际推动政策的，
+00:01:43,700 --> 00:01:46,167
+many customers and investors, the man and
 
 39
-00:01:46,067 --> 00:01:49,900
-是国家安全、出口利益和政府问责之间的冲突。
+00:01:46,167 --> 00:01:47,900
+the company became almost inseparable.
 
 40
-00:01:49,900 --> 00:01:52,900
-国会要强化监督，企业要保住市场。
+00:01:48,433 --> 00:01:51,767
+His successor inherits more than a title.
 
 41
-00:01:52,900 --> 00:01:55,433
-风波让原有的芯片出口争论加速，
+00:01:51,767 --> 00:01:55,100
+Upstream, chip fabrication, advanced packaging and memory
 
 42
-00:01:55,433 --> 00:01:58,633
-但这不等于，某个政党策划了这场风波。
+00:01:55,100 --> 00:01:59,033
+suppliers plan around Nvidia’s product roadmap. Downstream,
 
 43
-00:01:59,033 --> 00:02:03,000
-辞任之后，英伟达首先面临的是交接与执行风险。
+00:01:59,033 --> 00:02:03,033
+server builders, cloud providers and AI developers
 
 44
-00:02:03,000 --> 00:02:06,667
-技术和团队不会因为一个人离开，就立即消失。
+00:02:03,033 --> 00:02:07,067
+commit money against delivery expectations. If leadership
 
 45
-00:02:06,667 --> 00:02:09,700
-但客户合作、合规审查和战略协调，
+00:02:07,067 --> 00:02:10,200
+uncertainty slows decisions or changes that roadmap,
 
 46
-00:02:09,700 --> 00:02:11,967
-都要由新管理层证明能够接住。
+00:02:10,200 --> 00:02:12,967
+the consequences can travel through the entire
 
 47
-00:02:11,967 --> 00:02:15,400
-长期影响，还要看调查结果和接班安排。
+00:02:12,967 --> 00:02:13,367
+chain.
 
 48
-00:02:15,800 --> 00:02:19,200
-对人工智能行业，风险可能沿着出口政策、
+00:02:13,767 --> 00:02:16,733
+There is a second risk: confidence. Rivals
 
 49
-00:02:19,200 --> 00:02:21,833
-芯片供货预期和投资信心传导。
+00:02:16,733 --> 00:02:19,767
+can challenge Nvidia’s leadership narrative while customers
 
 50
-00:02:21,833 --> 00:02:25,233
-如果限制收紧，企业可能重新安排采购。
+00:02:19,767 --> 00:02:23,200
+reassess dependence on one supplier. Its engineers,
 
 51
-00:02:25,233 --> 00:02:28,233
-如果治理恢复稳定，影响也可能减弱。
+00:02:23,200 --> 00:02:26,667
+software ecosystem and existing products remain. But
 
 52
-00:02:28,233 --> 00:02:31,833
-辞任本身，不能证明人工智能需求已经消失。
+00:02:26,667 --> 00:02:30,200
+rebuilding trust in strategic direction takes time.
 
 53
-00:02:32,233 --> 00:02:35,367
-接下来，关注董事会公告、调查结果，
+00:02:30,200 --> 00:02:33,533
+A prolonged transition could reshape purchasing, investment
 
 54
-00:02:35,367 --> 00:02:36,900
-以及真正通过的政策。
+00:02:33,533 --> 00:02:36,600
+and the balance of power across AI
 
 55
-00:02:36,900 --> 00:02:38,433
-这场风波值得追问的，
+00:02:36,600 --> 00:02:37,033
+infrastructure.
 
 56
-00:02:38,433 --> 00:02:41,767
-是私人行为如何牵动公共权力与产业利益。
+00:02:37,633 --> 00:02:39,700
+The next test is whether Nvidia can
 
 57
-00:02:41,767 --> 00:02:44,467
-事实已经走到哪里，我们就讲到哪里。
+00:02:39,700 --> 00:02:42,500
+turn a founder’s personal authority into durable
 
 58
-00:02:49,867 --> 00:02:50,967
-这里是 SwainTalk。
+00:02:42,500 --> 00:02:46,800
+institutional leadership. Watch the succession, the investigation
 
 59
-00:02:50,967 --> 00:02:51,900
-我们下期见。
+00:02:46,800 --> 00:02:50,767
+and actual export-policy changes. Those decisions will
+
+60
+00:02:50,767 --> 00:02:53,633
+determine how far this shock travels. This
+
+61
+00:02:53,633 --> 00:02:56,800
+is SwainTalk. Follow the Tech, Follow the
+
+62
+00:02:56,800 --> 00:02:57,100
+Money.

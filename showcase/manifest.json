@@ -1,21 +1,70 @@
 {
-  "status": "V3 review candidates; continuous normal-speed viewing, real listening, and owner acceptance pending",
+  "status": "V4.1 English review candidates; continuous normal-speed viewing, real listening and owner acceptance pending",
+  "skill_version": "1.4.1",
   "videos": {
     "huang": {
       "file": "huang.mp4",
-      "sha256": "0879923a763f72752965dc47d0b0e8cbe5f9c384ef4f4afed4da525ceaee9c53",
-      "duration_seconds": 172.309,
+      "sha256": "c586ab84ccbffea93a0c9c83df2f14fa4dfa52077a8f1be8b2392f5fae520781",
+      "duration_seconds": 177.643,
+      "size_bytes": 29778641,
+      "timeline_frames": 5329,
       "resolution": "1080x1920",
       "fps": 30,
-      "brand_voice_at_both_ends": true
+      "main_language": "en",
+      "subtitles": "en",
+      "voice": "VoiceStudio / OmniVoice / The Anchor",
+      "native_generation_speed": {
+        "baseline": 0.82,
+        "selected_explanatory_sections": 0.94
+      },
+      "post_synthesis_time_stretch": false,
+      "hook_before_brand": true,
+      "brand_transition_seconds": 18.5,
+      "brand_voice_at_close": true,
+      "bgm": "Original procedural instrumental music with narration ducking",
+      "sfx": "Original synthesized motion-linked effects",
+      "checks": {
+        "full_decode": "PASS",
+        "asr_text_review": "completed",
+        "sampled_final_frame_review": "completed",
+        "continuous_normal_speed_viewing": "PENDING",
+        "real_listening": "PENDING",
+        "owner_acceptance": "PENDING"
+      },
+      "caption_timing": "ASR anchored with estimated subdivisions; final listening review pending",
+      "image_rights": "See huang-image-credits.md; no blanket reuse permission claimed"
     },
     "apec": {
       "file": "apec.mp4",
-      "sha256": "338f6afdb7eb37d6a242743542f0674fb10be6dcb6cba2a017783c1ab2c64b79",
-      "duration_seconds": 170.837,
+      "sha256": "f87f2285697d02ce7b15ec7ce0a3b37a387e0a7aabc9028b4fc5b098fab9e07e",
+      "duration_seconds": 177.534,
+      "size_bytes": 61396077,
+      "timeline_frames": 5326,
       "resolution": "1080x1920",
       "fps": 30,
-      "brand_voice_at_both_ends": true
+      "main_language": "en",
+      "subtitles": "en",
+      "voice": "VoiceStudio / OmniVoice / The Anchor",
+      "native_generation_speed": {
+        "baseline": 0.82,
+        "selected_explanatory_sections": 0.94
+      },
+      "post_synthesis_time_stretch": false,
+      "hook_before_brand": true,
+      "brand_transition_seconds": 21.3,
+      "brand_voice_at_close": true,
+      "bgm": "Original procedural instrumental music with narration ducking",
+      "sfx": "Original synthesized motion-linked effects",
+      "checks": {
+        "full_decode": "PASS",
+        "asr_text_review": "completed",
+        "sampled_final_frame_review": "completed",
+        "continuous_normal_speed_viewing": "PENDING",
+        "real_listening": "PENDING",
+        "owner_acceptance": "PENDING"
+      },
+      "caption_timing": "ASR anchored with estimated subdivisions; final listening review pending",
+      "image_rights": "See apec-image-credits.md; no blanket reuse permission claimed"
     }
   }
 }

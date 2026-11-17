@@ -1,9 +1,11 @@
-这里是 SwainTalk，关注科技，追踪资金。
+Who controls the chips—and who inherits the influence of Nvidia’s most recognizable leader?
 
-黄仁勋辞任后，为什么美国两党都在追问？本期依据 SEC 公告、国会公开信及路透社报道，梳理事件时间线、芯片出口和行政问责的政策争论，以及对英伟达与 AI 行业的潜在影响。
+SwainTalk examines Jensen Huang’s departure, the political fight over chip exports, and what leadership uncertainty could mean for suppliers, customers and AI infrastructure. Based on SEC filings, Reuters reporting and public congressional records reviewed on November 16, 2026. Future industry effects are presented as conditional analysis.
 
-关系报道与情报指控分别标记；公开信是监督行动，不是司法认定。产业影响为条件分析。核实截至 2026 年 11 月 16 日。
+Follow the Tech, Follow the Money.
 
-V3 增加有配音的 SwainTalk 片头与片尾，保留正文全部关键事实。完整来源及逐句时间映射见 sources-v3.md；来源卡 PDF 随片提供。中文合成配音：macOS Tingting。
+English narration: The Anchor, generated in VoiceStudio using the approved script. Historical photographs are dated on screen or in the accompanying asset ledger. Complete fact sources and image attributions accompany this film. Original procedural BGM and effects contain no third-party samples.
 
-#SwainTalk #黄仁勋 #英伟达 #芯片 #人工智能 #美国政治
+#SwainTalk #Nvidia #JensenHuang #AI #Semiconductors
+
+[Fact sources](huang-sources.md) · [Image credits and licenses](huang-image-credits.md)

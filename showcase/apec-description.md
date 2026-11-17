@@ -1,9 +1,12 @@
-2026年11月19日，中、美、俄三国领导人计划在深圳会晤。本片为截至11月16日的会前预告，结合1945年雅尔塔会议、1972年尼克松访华和1986年雷克雅未克峰会，审慎讨论历史类比的边界，以及中美俄经济、政治背景。
+Xi Jinping, Donald Trump and Vladimir Putin are scheduled to meet in Shenzhen on November 19, 2026. What can this meeting change? From Yalta and Potsdam to the recent rhythm of meetings in Beijing and Washington, this SwainTalk brief examines the history, the economic stakes and the practical outcomes to watch.
 
-IMF数字为2026年10月版全年增长预测，非最终实绩；潜在成果属于情景推演。会后应观察沟通机制、共同文本和执行时间表。
+This is a pre-meeting analysis, based on information available November 16, 2026. Possible outcomes are analysis, not announced agreements.
 
-完整来源：随片 sources.html / sources.md（S1—S9）。中文合成配音；历史照片有来源标注；未使用模拟的当代会面现场。
+SwainTalk. Follow the Tech, Follow the Money.
 
-#APEC2026 #深圳 #国际观察 #会前预告 #SwainTalk
+#APEC2026 #Shenzhen #Geopolitics #GlobalTrade #SwainTalk
 
-V3：片头、片尾均加入 SwainTalk 频道口播与画面，口号“关注科技，追踪资金”。
+Sources and media credits: see [media credits](apec-image-credits.md) and [fact sources](apec-sources.md). This is a review candidate; source-use clearance is separately recorded there.
+
+
+English narration: VoiceStudio The Anchor, approved by the user. Original procedural instrumental BGM and animation-linked effects; no third-party music samples.
