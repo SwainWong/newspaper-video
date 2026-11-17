@@ -1,0 +1,855 @@
+{
+  "duration": 400,
+  "fixtures": [
+    {
+      "name": "stage",
+      "width": 1000,
+      "height": 840,
+      "frame": 205,
+      "spec": {
+        "title": "Four stages \u00b7 demo",
+        "source": "Synthetic fixture; not market observations",
+        "unit": "model units",
+        "timeUnit": "steps",
+        "domain": [
+          0,
+          100
+        ],
+        "timeDomain": [
+          0,
+          100
+        ],
+        "setup": {
+          "at": 0,
+          "settle": 10
+        },
+        "kind": "stage-board",
+        "schematic": true,
+        "segments": [
+          {
+            "label": "Basing",
+            "note": "costs time",
+            "color": "#b4bcc1",
+            "points": [
+              {
+                "time": 0,
+                "value": 10
+              },
+              {
+                "time": 4,
+                "value": 12
+              },
+              {
+                "time": 8,
+                "value": 10
+              },
+              {
+                "time": 12,
+                "value": 12
+              },
+              {
+                "time": 16,
+                "value": 10
+              },
+              {
+                "time": 20,
+                "value": 12
+              },
+              {
+                "time": 25,
+                "value": 11
+              }
+            ],
+            "reveal": {
+              "at": 12,
+              "settle": 40
+            },
+            "caption": {
+              "at": 40,
+              "settle": 48
+            },
+            "marker": {
+              "type": "clock",
+              "time": 12,
+              "value": 42,
+              "reveal": {
+                "at": 41,
+                "settle": 47
+              }
+            }
+          },
+          {
+            "label": "Advancing",
+            "note": "healthy phase",
+            "color": "#94c78e",
+            "points": [
+              {
+                "time": 25,
+                "value": 11
+              },
+              {
+                "time": 30,
+                "value": 20
+              },
+              {
+                "time": 35,
+                "value": 36
+              },
+              {
+                "time": 40,
+                "value": 55
+              },
+              {
+                "time": 45,
+                "value": 72
+              },
+              {
+                "time": 50,
+                "value": 83
+              }
+            ],
+            "reveal": {
+              "at": 60,
+              "settle": 88
+            },
+            "caption": {
+              "at": 88,
+              "settle": 96
+            },
+            "marker": {
+              "type": "check",
+              "time": 35,
+              "value": 83,
+              "reveal": {
+                "at": 89,
+                "settle": 95
+              }
+            },
+            "emphasis": true
+          },
+          {
+            "label": "Topping",
+            "note": "wider swings",
+            "color": "#dec76b",
+            "points": [
+              {
+                "time": 50,
+                "value": 83
+              },
+              {
+                "time": 54,
+                "value": 80
+              },
+              {
+                "time": 58,
+                "value": 88
+              },
+              {
+                "time": 62,
+                "value": 82
+              },
+              {
+                "time": 65,
+                "value": 95
+              },
+              {
+                "time": 68,
+                "value": 81
+              },
+              {
+                "time": 72,
+                "value": 99
+              },
+              {
+                "time": 75,
+                "value": 77
+              }
+            ],
+            "reveal": {
+              "at": 108,
+              "settle": 136
+            },
+            "caption": {
+              "at": 136,
+              "settle": 144
+            },
+            "marker": {
+              "type": "range",
+              "time": 65,
+              "value": 42,
+              "reveal": {
+                "at": 137,
+                "settle": 143
+              }
+            }
+          },
+          {
+            "label": "Declining",
+            "note": "falling phase",
+            "color": "#c95b4c",
+            "points": [
+              {
+                "time": 75,
+                "value": 77
+              },
+              {
+                "time": 80,
+                "value": 59
+              },
+              {
+                "time": 85,
+                "value": 40
+              },
+              {
+                "time": 90,
+                "value": 24
+              },
+              {
+                "time": 95,
+                "value": 10
+              },
+              {
+                "time": 100,
+                "value": 0
+              }
+            ],
+            "reveal": {
+              "at": 156,
+              "settle": 184
+            },
+            "caption": {
+              "at": 184,
+              "settle": 192
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "check",
+      "width": 1000,
+      "height": 900,
+      "frame": 200,
+      "spec": {
+        "title": "Stage 2 \u00b7 8-point check",
+        "source": "Synthetic fixture; not market observations",
+        "unit": "model units",
+        "timeUnit": "steps",
+        "domain": [
+          0,
+          100
+        ],
+        "timeDomain": [
+          0,
+          100
+        ],
+        "setup": {
+          "at": 0,
+          "settle": 10
+        },
+        "kind": "check-board",
+        "instruction": "Eight independent conditions; synthetic examples only.",
+        "statuses": [
+          {
+            "label": "Condition 1",
+            "reveal": {
+              "at": 58,
+              "settle": 64
+            },
+            "pass": true
+          },
+          {
+            "label": "Condition 2",
+            "reveal": {
+              "at": 98,
+              "settle": 104
+            },
+            "pass": true
+          },
+          {
+            "label": "Condition 3",
+            "reveal": {
+              "at": 138,
+              "settle": 144
+            },
+            "pass": true
+          },
+          {
+            "label": "Condition 4",
+            "reveal": {
+              "at": 178,
+              "settle": 184
+            },
+            "pass": true
+          },
+          {
+            "label": "Condition 5",
+            "reveal": {
+              "at": 218,
+              "settle": 224
+            },
+            "pass": null
+          },
+          {
+            "label": "Condition 6",
+            "reveal": {
+              "at": 258,
+              "settle": 264
+            },
+            "pass": null
+          },
+          {
+            "label": "Condition 7",
+            "reveal": {
+              "at": 298,
+              "settle": 304
+            },
+            "pass": null
+          },
+          {
+            "label": "Condition 8",
+            "reveal": {
+              "at": 338,
+              "settle": 344
+            },
+            "pass": null
+          }
+        ],
+        "miniPlots": [
+          {
+            "domain": [
+              0,
+              100
+            ],
+            "timeDomain": [
+              0,
+              100
+            ],
+            "unit": "model units",
+            "timeUnit": "steps",
+            "title": "1 Above the average",
+            "source": "Synthetic",
+            "statusIndex": 0,
+            "reveal": {
+              "at": 12,
+              "settle": 22
+            },
+            "series": [
+              {
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 20
+                  },
+                  {
+                    "time": 20,
+                    "value": 35
+                  },
+                  {
+                    "time": 40,
+                    "value": 40
+                  },
+                  {
+                    "time": 60,
+                    "value": 58
+                  },
+                  {
+                    "time": 80,
+                    "value": 64
+                  },
+                  {
+                    "time": 100,
+                    "value": 78
+                  }
+                ],
+                "color": "#94c78e",
+                "reveal": {
+                  "at": 25,
+                  "settle": 50
+                },
+                "label": "model"
+              },
+              {
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 8
+                  },
+                  {
+                    "time": 25,
+                    "value": 15
+                  },
+                  {
+                    "time": 50,
+                    "value": 20
+                  },
+                  {
+                    "time": 75,
+                    "value": 27
+                  },
+                  {
+                    "time": 100,
+                    "value": 35
+                  }
+                ],
+                "color": "#dec76b",
+                "reveal": {
+                  "at": 25,
+                  "settle": 45
+                },
+                "dashed": true,
+                "label": "average"
+              }
+            ]
+          },
+          {
+            "domain": [
+              0,
+              100
+            ],
+            "timeDomain": [
+              0,
+              100
+            ],
+            "unit": "model units",
+            "timeUnit": "steps",
+            "title": "2 Average rising",
+            "source": "Synthetic",
+            "statusIndex": 1,
+            "reveal": {
+              "at": 52,
+              "settle": 62
+            },
+            "series": [
+              {
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 20
+                  },
+                  {
+                    "time": 20,
+                    "value": 35
+                  },
+                  {
+                    "time": 40,
+                    "value": 40
+                  },
+                  {
+                    "time": 60,
+                    "value": 58
+                  },
+                  {
+                    "time": 80,
+                    "value": 64
+                  },
+                  {
+                    "time": 100,
+                    "value": 78
+                  }
+                ],
+                "color": "#dec76b",
+                "reveal": {
+                  "at": 65,
+                  "settle": 90
+                },
+                "label": "model"
+              }
+            ],
+            "marker": {
+              "type": "arrow",
+              "time": 90,
+              "value": 80,
+              "reveal": {
+                "at": 91,
+                "settle": 97
+              }
+            }
+          },
+          {
+            "domain": [
+              0,
+              100
+            ],
+            "timeDomain": [
+              0,
+              100
+            ],
+            "unit": "model units",
+            "timeUnit": "steps",
+            "title": "3 Near the high",
+            "source": "Synthetic",
+            "statusIndex": 2,
+            "reveal": {
+              "at": 92,
+              "settle": 102
+            },
+            "series": [
+              {
+                "points": [
+                  {
+                    "time": 25,
+                    "value": 65
+                  }
+                ],
+                "color": "#94c78e",
+                "reveal": {
+                  "at": 105,
+                  "settle": 130
+                },
+                "label": "close",
+                "mode": "dots"
+              }
+            ],
+            "benchmark": {
+              "value": 85,
+              "label": "model high",
+              "color": "#b9443e"
+            }
+          },
+          {
+            "domain": [
+              0,
+              100
+            ],
+            "timeDomain": [
+              0,
+              100
+            ],
+            "unit": "model units",
+            "timeUnit": "steps",
+            "title": "4 Beats the market",
+            "source": "Synthetic",
+            "statusIndex": 3,
+            "reveal": {
+              "at": 132,
+              "settle": 142
+            },
+            "series": [
+              {
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 20
+                  },
+                  {
+                    "time": 20,
+                    "value": 35
+                  },
+                  {
+                    "time": 40,
+                    "value": 40
+                  },
+                  {
+                    "time": 60,
+                    "value": 58
+                  },
+                  {
+                    "time": 80,
+                    "value": 64
+                  },
+                  {
+                    "time": 100,
+                    "value": 78
+                  }
+                ],
+                "color": "#94c78e",
+                "reveal": {
+                  "at": 145,
+                  "settle": 170
+                },
+                "label": "model"
+              },
+              {
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 8
+                  },
+                  {
+                    "time": 25,
+                    "value": 15
+                  },
+                  {
+                    "time": 50,
+                    "value": 20
+                  },
+                  {
+                    "time": 75,
+                    "value": 27
+                  },
+                  {
+                    "time": 100,
+                    "value": 35
+                  }
+                ],
+                "color": "#93958b",
+                "reveal": {
+                  "at": 145,
+                  "settle": 165
+                },
+                "dashed": false,
+                "label": "benchmark"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "market",
+      "width": 1000,
+      "height": 1040,
+      "frame": 175,
+      "spec": {
+        "title": "DEMO \u00b7 Synthetic price path",
+        "source": "Synthetic fixture; not market observations",
+        "unit": "model units",
+        "timeUnit": "steps",
+        "domain": [
+          0,
+          100
+        ],
+        "timeDomain": [
+          0,
+          32
+        ],
+        "setup": {
+          "at": 0,
+          "settle": 10
+        },
+        "kind": "market-board",
+        "points": [
+          {
+            "time": 0,
+            "value": 70
+          },
+          {
+            "time": 1,
+            "value": 63
+          },
+          {
+            "time": 2,
+            "value": 76
+          },
+          {
+            "time": 3,
+            "value": 67
+          },
+          {
+            "time": 4,
+            "value": 60
+          },
+          {
+            "time": 5,
+            "value": 71
+          },
+          {
+            "time": 6,
+            "value": 56
+          },
+          {
+            "time": 7,
+            "value": 64
+          },
+          {
+            "time": 8,
+            "value": 53
+          },
+          {
+            "time": 9,
+            "value": 62
+          },
+          {
+            "time": 10,
+            "value": 51
+          },
+          {
+            "time": 11,
+            "value": 59
+          },
+          {
+            "time": 12,
+            "value": 67
+          },
+          {
+            "time": 13,
+            "value": 62
+          },
+          {
+            "time": 14,
+            "value": 70
+          },
+          {
+            "time": 15,
+            "value": 77
+          },
+          {
+            "time": 16,
+            "value": 64
+          },
+          {
+            "time": 17,
+            "value": 72
+          },
+          {
+            "time": 18,
+            "value": 69
+          },
+          {
+            "time": 19,
+            "value": 78
+          },
+          {
+            "time": 20,
+            "value": 73
+          },
+          {
+            "time": 21,
+            "value": 81
+          },
+          {
+            "time": 22,
+            "value": 74
+          },
+          {
+            "time": 23,
+            "value": 85
+          },
+          {
+            "time": 24,
+            "value": 82
+          },
+          {
+            "time": 25,
+            "value": 76
+          },
+          {
+            "time": 26,
+            "value": 69
+          },
+          {
+            "time": 27,
+            "value": 72
+          },
+          {
+            "time": 28,
+            "value": 60
+          },
+          {
+            "time": 29,
+            "value": 65
+          },
+          {
+            "time": 30,
+            "value": 50
+          },
+          {
+            "time": 31,
+            "value": 32
+          },
+          {
+            "time": 32,
+            "value": 15
+          }
+        ],
+        "line": {
+          "at": 12,
+          "settle": 60
+        },
+        "endpoint": {
+          "at": 60,
+          "settle": 70
+        },
+        "benchmark": {
+          "value": 55,
+          "label": "Demo average",
+          "reveal": {
+            "at": 100,
+            "settle": 115
+          }
+        },
+        "secondary": {
+          "title": "Secondary model series",
+          "source": "Synthetic fixture",
+          "unit": "model units",
+          "domain": [
+            0,
+            100
+          ],
+          "points": [
+            {
+              "time": 0,
+              "value": 30
+            },
+            {
+              "time": 4,
+              "value": 45
+            },
+            {
+              "time": 8,
+              "value": 54
+            },
+            {
+              "time": 12,
+              "value": 65
+            },
+            {
+              "time": 16,
+              "value": 57
+            },
+            {
+              "time": 20,
+              "value": 45
+            },
+            {
+              "time": 24,
+              "value": 42
+            },
+            {
+              "time": 28,
+              "value": 25
+            },
+            {
+              "time": 32,
+              "value": 10
+            }
+          ],
+          "reveal": {
+            "at": 65,
+            "settle": 90
+          }
+        },
+        "score": {
+          "value": 2.5,
+          "total": 8,
+          "label": "Demonstration score",
+          "reveal": {
+            "at": 75,
+            "settle": 90
+          }
+        },
+        "deltas": [
+          {
+            "value": -72.73,
+            "unit": "%",
+            "label": "vs demo average",
+            "reveal": {
+              "at": 95,
+              "settle": 110
+            }
+          },
+          {
+            "value": -82.35,
+            "unit": "%",
+            "label": "vs demo high",
+            "reveal": {
+              "at": 125,
+              "settle": 140
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

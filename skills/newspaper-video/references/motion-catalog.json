@@ -389,5 +389,17 @@
     "excludes": [],
     "api": "references/motion-api.md",
     "implementation": "assets/template/src/motion.tsx"
+  },
+  "collage": {
+    "name": "参考版式组合场景",
+    "status": "implemented",
+    "zone": "content",
+    "match": "照片/短语/比较/图表需非固定上中下排布",
+    "use": "Scene.collage",
+    "constraints": "子层按语义编组；逐层运动范围和字幕安全区校验；明确重叠原因；人物与证据不得遮挡",
+    "sound": "paper",
+    "excludes": [],
+    "api": "references/collage-api.md",
+    "implementation": "assets/template/src/collage.tsx"
   }
 }

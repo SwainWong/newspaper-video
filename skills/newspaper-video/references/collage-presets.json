@@ -1,0 +1,3240 @@
+{
+  "schemaVersion": 1,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationPerScene": 400,
+  "fixtures": [
+    {
+      "id": "photo-timeline-question",
+      "reference": "IMG_4793.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "photo-timeline-question",
+        "nodes": [
+          {
+            "id": "evidence-photo",
+            "kind": "photo",
+            "box": [
+              70,
+              80,
+              640,
+              430
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: evidence-photo",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -3,
+            "attachment": "tape"
+          },
+          {
+            "id": "period-tag",
+            "kind": "text",
+            "box": [
+              680,
+              100,
+              330,
+              85
+            ],
+            "at": 20,
+            "settle": 32,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: period-tag",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "LAST 2 WEEKS",
+            "style": {
+              "fontSize": 36,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 8
+            }
+          },
+          {
+            "id": "dates",
+            "kind": "timeline",
+            "box": [
+              60,
+              585,
+              960,
+              250
+            ],
+            "at": 40,
+            "settle": 40,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: dates",
+            "entry": {
+              "kind": "fade"
+            },
+            "items": [
+              {
+                "label": "11.04",
+                "detail": "起点",
+                "at": 40
+              },
+              {
+                "label": "11.05",
+                "detail": "材料",
+                "at": 60
+              },
+              {
+                "label": "11.12",
+                "detail": "核验",
+                "at": 80
+              },
+              {
+                "label": "11.13",
+                "detail": "结论",
+                "at": 100
+              }
+            ],
+            "fontSize": 34
+          },
+          {
+            "id": "question",
+            "kind": "text",
+            "box": [
+              120,
+              920,
+              840,
+              180
+            ],
+            "at": 130,
+            "settle": 146,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: question",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "下一步？",
+            "style": {
+              "fontSize": 132,
+              "color": "#629a28",
+              "lineHeight": 1.12,
+              "align": "center",
+              "shadow": "4px 5px #201c10"
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30,
+        "allowOverlaps": [
+          {
+            "a": "evidence-photo",
+            "b": "period-tag",
+            "reason": "Period sticker intentionally overlaps the upper photo corner."
+          }
+        ]
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "four-stage-teaching-board",
+      "reference": "IMG_4794.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "four-stage-teaching-board",
+        "nodes": [
+          {
+            "id": "teaching-board",
+            "kind": "board",
+            "box": [
+              35,
+              80,
+              1010,
+              960
+            ],
+            "at": 0,
+            "settle": 0,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: teaching-board",
+            "entry": {
+              "kind": "none"
+            },
+            "spec": {
+              "title": "Four stages · demo",
+              "source": "Synthetic fixture; not market observations",
+              "unit": "model units",
+              "timeUnit": "steps",
+              "domain": [
+                0,
+                100
+              ],
+              "timeDomain": [
+                0,
+                100
+              ],
+              "setup": {
+                "at": 0,
+                "settle": 10
+              },
+              "kind": "stage-board",
+              "schematic": true,
+              "segments": [
+                {
+                  "label": "Basing",
+                  "note": "costs time",
+                  "color": "#b4bcc1",
+                  "points": [
+                    {
+                      "time": 0,
+                      "value": 10
+                    },
+                    {
+                      "time": 4,
+                      "value": 12
+                    },
+                    {
+                      "time": 8,
+                      "value": 10
+                    },
+                    {
+                      "time": 12,
+                      "value": 12
+                    },
+                    {
+                      "time": 16,
+                      "value": 10
+                    },
+                    {
+                      "time": 20,
+                      "value": 12
+                    },
+                    {
+                      "time": 25,
+                      "value": 11
+                    }
+                  ],
+                  "reveal": {
+                    "at": 12,
+                    "settle": 40
+                  },
+                  "caption": {
+                    "at": 40,
+                    "settle": 48
+                  },
+                  "marker": {
+                    "type": "clock",
+                    "time": 12,
+                    "value": 42,
+                    "reveal": {
+                      "at": 41,
+                      "settle": 47
+                    }
+                  }
+                },
+                {
+                  "label": "Advancing",
+                  "note": "healthy phase",
+                  "color": "#94c78e",
+                  "points": [
+                    {
+                      "time": 25,
+                      "value": 11
+                    },
+                    {
+                      "time": 30,
+                      "value": 20
+                    },
+                    {
+                      "time": 35,
+                      "value": 36
+                    },
+                    {
+                      "time": 40,
+                      "value": 55
+                    },
+                    {
+                      "time": 45,
+                      "value": 72
+                    },
+                    {
+                      "time": 50,
+                      "value": 83
+                    }
+                  ],
+                  "reveal": {
+                    "at": 60,
+                    "settle": 88
+                  },
+                  "caption": {
+                    "at": 88,
+                    "settle": 96
+                  },
+                  "marker": {
+                    "type": "check",
+                    "time": 35,
+                    "value": 83,
+                    "reveal": {
+                      "at": 89,
+                      "settle": 95
+                    }
+                  },
+                  "emphasis": true
+                },
+                {
+                  "label": "Topping",
+                  "note": "wider swings",
+                  "color": "#dec76b",
+                  "points": [
+                    {
+                      "time": 50,
+                      "value": 83
+                    },
+                    {
+                      "time": 54,
+                      "value": 80
+                    },
+                    {
+                      "time": 58,
+                      "value": 88
+                    },
+                    {
+                      "time": 62,
+                      "value": 82
+                    },
+                    {
+                      "time": 65,
+                      "value": 95
+                    },
+                    {
+                      "time": 68,
+                      "value": 81
+                    },
+                    {
+                      "time": 72,
+                      "value": 99
+                    },
+                    {
+                      "time": 75,
+                      "value": 77
+                    }
+                  ],
+                  "reveal": {
+                    "at": 108,
+                    "settle": 136
+                  },
+                  "caption": {
+                    "at": 136,
+                    "settle": 144
+                  },
+                  "marker": {
+                    "type": "range",
+                    "time": 65,
+                    "value": 42,
+                    "reveal": {
+                      "at": 137,
+                      "settle": 143
+                    }
+                  }
+                },
+                {
+                  "label": "Declining",
+                  "note": "falling phase",
+                  "color": "#c95b4c",
+                  "points": [
+                    {
+                      "time": 75,
+                      "value": 77
+                    },
+                    {
+                      "time": 80,
+                      "value": 59
+                    },
+                    {
+                      "time": 85,
+                      "value": 40
+                    },
+                    {
+                      "time": 90,
+                      "value": 24
+                    },
+                    {
+                      "time": 95,
+                      "value": 10
+                    },
+                    {
+                      "time": 100,
+                      "value": 0
+                    }
+                  ],
+                  "reveal": {
+                    "at": 156,
+                    "settle": 184
+                  },
+                  "caption": {
+                    "at": 184,
+                    "settle": 192
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      },
+      "boardFixtures": {
+        "teaching-board": "stage"
+      }
+    },
+    {
+      "id": "eight-check-teaching-board",
+      "reference": "IMG_4795.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 200,
+      "collage": {
+        "preset": "eight-check-teaching-board",
+        "nodes": [
+          {
+            "id": "teaching-board",
+            "kind": "board",
+            "box": [
+              35,
+              70,
+              1010,
+              1010
+            ],
+            "at": 0,
+            "settle": 0,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: teaching-board",
+            "entry": {
+              "kind": "none"
+            },
+            "spec": {
+              "title": "Stage 2 · 8-point check",
+              "source": "Synthetic fixture; not market observations",
+              "unit": "model units",
+              "timeUnit": "steps",
+              "domain": [
+                0,
+                100
+              ],
+              "timeDomain": [
+                0,
+                100
+              ],
+              "setup": {
+                "at": 0,
+                "settle": 10
+              },
+              "kind": "check-board",
+              "instruction": "Eight independent conditions; synthetic examples only.",
+              "statuses": [
+                {
+                  "label": "Condition 1",
+                  "reveal": {
+                    "at": 58,
+                    "settle": 64
+                  },
+                  "pass": true
+                },
+                {
+                  "label": "Condition 2",
+                  "reveal": {
+                    "at": 98,
+                    "settle": 104
+                  },
+                  "pass": true
+                },
+                {
+                  "label": "Condition 3",
+                  "reveal": {
+                    "at": 138,
+                    "settle": 144
+                  },
+                  "pass": true
+                },
+                {
+                  "label": "Condition 4",
+                  "reveal": {
+                    "at": 178,
+                    "settle": 184
+                  },
+                  "pass": true
+                },
+                {
+                  "label": "Condition 5",
+                  "reveal": {
+                    "at": 218,
+                    "settle": 224
+                  },
+                  "pass": null
+                },
+                {
+                  "label": "Condition 6",
+                  "reveal": {
+                    "at": 258,
+                    "settle": 264
+                  },
+                  "pass": null
+                },
+                {
+                  "label": "Condition 7",
+                  "reveal": {
+                    "at": 298,
+                    "settle": 304
+                  },
+                  "pass": null
+                },
+                {
+                  "label": "Condition 8",
+                  "reveal": {
+                    "at": 338,
+                    "settle": 344
+                  },
+                  "pass": null
+                }
+              ],
+              "miniPlots": [
+                {
+                  "domain": [
+                    0,
+                    100
+                  ],
+                  "timeDomain": [
+                    0,
+                    100
+                  ],
+                  "unit": "model units",
+                  "timeUnit": "steps",
+                  "title": "1 Above the average",
+                  "source": "Synthetic",
+                  "statusIndex": 0,
+                  "reveal": {
+                    "at": 12,
+                    "settle": 22
+                  },
+                  "series": [
+                    {
+                      "points": [
+                        {
+                          "time": 0,
+                          "value": 20
+                        },
+                        {
+                          "time": 20,
+                          "value": 35
+                        },
+                        {
+                          "time": 40,
+                          "value": 40
+                        },
+                        {
+                          "time": 60,
+                          "value": 58
+                        },
+                        {
+                          "time": 80,
+                          "value": 64
+                        },
+                        {
+                          "time": 100,
+                          "value": 78
+                        }
+                      ],
+                      "color": "#94c78e",
+                      "reveal": {
+                        "at": 25,
+                        "settle": 50
+                      },
+                      "label": "model"
+                    },
+                    {
+                      "points": [
+                        {
+                          "time": 0,
+                          "value": 8
+                        },
+                        {
+                          "time": 25,
+                          "value": 15
+                        },
+                        {
+                          "time": 50,
+                          "value": 20
+                        },
+                        {
+                          "time": 75,
+                          "value": 27
+                        },
+                        {
+                          "time": 100,
+                          "value": 35
+                        }
+                      ],
+                      "color": "#dec76b",
+                      "reveal": {
+                        "at": 25,
+                        "settle": 45
+                      },
+                      "dashed": true,
+                      "label": "average"
+                    }
+                  ]
+                },
+                {
+                  "domain": [
+                    0,
+                    100
+                  ],
+                  "timeDomain": [
+                    0,
+                    100
+                  ],
+                  "unit": "model units",
+                  "timeUnit": "steps",
+                  "title": "2 Average rising",
+                  "source": "Synthetic",
+                  "statusIndex": 1,
+                  "reveal": {
+                    "at": 52,
+                    "settle": 62
+                  },
+                  "series": [
+                    {
+                      "points": [
+                        {
+                          "time": 0,
+                          "value": 20
+                        },
+                        {
+                          "time": 20,
+                          "value": 35
+                        },
+                        {
+                          "time": 40,
+                          "value": 40
+                        },
+                        {
+                          "time": 60,
+                          "value": 58
+                        },
+                        {
+                          "time": 80,
+                          "value": 64
+                        },
+                        {
+                          "time": 100,
+                          "value": 78
+                        }
+                      ],
+                      "color": "#dec76b",
+                      "reveal": {
+                        "at": 65,
+                        "settle": 90
+                      },
+                      "label": "model"
+                    }
+                  ],
+                  "marker": {
+                    "type": "arrow",
+                    "time": 90,
+                    "value": 80,
+                    "reveal": {
+                      "at": 91,
+                      "settle": 97
+                    }
+                  }
+                },
+                {
+                  "domain": [
+                    0,
+                    100
+                  ],
+                  "timeDomain": [
+                    0,
+                    100
+                  ],
+                  "unit": "model units",
+                  "timeUnit": "steps",
+                  "title": "3 Near the high",
+                  "source": "Synthetic",
+                  "statusIndex": 2,
+                  "reveal": {
+                    "at": 92,
+                    "settle": 102
+                  },
+                  "series": [
+                    {
+                      "points": [
+                        {
+                          "time": 25,
+                          "value": 65
+                        }
+                      ],
+                      "color": "#94c78e",
+                      "reveal": {
+                        "at": 105,
+                        "settle": 130
+                      },
+                      "label": "close",
+                      "mode": "dots"
+                    }
+                  ],
+                  "benchmark": {
+                    "value": 85,
+                    "label": "model high",
+                    "color": "#b9443e"
+                  }
+                },
+                {
+                  "domain": [
+                    0,
+                    100
+                  ],
+                  "timeDomain": [
+                    0,
+                    100
+                  ],
+                  "unit": "model units",
+                  "timeUnit": "steps",
+                  "title": "4 Beats the market",
+                  "source": "Synthetic",
+                  "statusIndex": 3,
+                  "reveal": {
+                    "at": 132,
+                    "settle": 142
+                  },
+                  "series": [
+                    {
+                      "points": [
+                        {
+                          "time": 0,
+                          "value": 20
+                        },
+                        {
+                          "time": 20,
+                          "value": 35
+                        },
+                        {
+                          "time": 40,
+                          "value": 40
+                        },
+                        {
+                          "time": 60,
+                          "value": 58
+                        },
+                        {
+                          "time": 80,
+                          "value": 64
+                        },
+                        {
+                          "time": 100,
+                          "value": 78
+                        }
+                      ],
+                      "color": "#94c78e",
+                      "reveal": {
+                        "at": 145,
+                        "settle": 170
+                      },
+                      "label": "model"
+                    },
+                    {
+                      "points": [
+                        {
+                          "time": 0,
+                          "value": 8
+                        },
+                        {
+                          "time": 25,
+                          "value": 15
+                        },
+                        {
+                          "time": 50,
+                          "value": 20
+                        },
+                        {
+                          "time": 75,
+                          "value": 27
+                        },
+                        {
+                          "time": 100,
+                          "value": 35
+                        }
+                      ],
+                      "color": "#93958b",
+                      "reveal": {
+                        "at": 145,
+                        "settle": 165
+                      },
+                      "dashed": false,
+                      "label": "benchmark"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      },
+      "boardFixtures": {
+        "teaching-board": "check"
+      }
+    },
+    {
+      "id": "market-path-and-secondary",
+      "reference": "IMG_4796.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 92,
+      "collage": {
+        "preset": "market-path-and-secondary",
+        "nodes": [
+          {
+            "id": "teaching-board",
+            "kind": "board",
+            "box": [
+              20,
+              30,
+              1040,
+              1050
+            ],
+            "at": 0,
+            "settle": 0,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: teaching-board",
+            "entry": {
+              "kind": "none"
+            },
+            "spec": {
+              "title": "DEMO · Synthetic price path",
+              "source": "Synthetic fixture; not market observations",
+              "unit": "model units",
+              "timeUnit": "steps",
+              "domain": [
+                0,
+                100
+              ],
+              "timeDomain": [
+                0,
+                32
+              ],
+              "setup": {
+                "at": 0,
+                "settle": 10
+              },
+              "kind": "market-board",
+              "points": [
+                {
+                  "time": 0,
+                  "value": 70
+                },
+                {
+                  "time": 1,
+                  "value": 63
+                },
+                {
+                  "time": 2,
+                  "value": 76
+                },
+                {
+                  "time": 3,
+                  "value": 67
+                },
+                {
+                  "time": 4,
+                  "value": 60
+                },
+                {
+                  "time": 5,
+                  "value": 71
+                },
+                {
+                  "time": 6,
+                  "value": 56
+                },
+                {
+                  "time": 7,
+                  "value": 64
+                },
+                {
+                  "time": 8,
+                  "value": 53
+                },
+                {
+                  "time": 9,
+                  "value": 62
+                },
+                {
+                  "time": 10,
+                  "value": 51
+                },
+                {
+                  "time": 11,
+                  "value": 59
+                },
+                {
+                  "time": 12,
+                  "value": 67
+                },
+                {
+                  "time": 13,
+                  "value": 62
+                },
+                {
+                  "time": 14,
+                  "value": 70
+                },
+                {
+                  "time": 15,
+                  "value": 77
+                },
+                {
+                  "time": 16,
+                  "value": 64
+                },
+                {
+                  "time": 17,
+                  "value": 72
+                },
+                {
+                  "time": 18,
+                  "value": 69
+                },
+                {
+                  "time": 19,
+                  "value": 78
+                },
+                {
+                  "time": 20,
+                  "value": 73
+                },
+                {
+                  "time": 21,
+                  "value": 81
+                },
+                {
+                  "time": 22,
+                  "value": 74
+                },
+                {
+                  "time": 23,
+                  "value": 85
+                },
+                {
+                  "time": 24,
+                  "value": 82
+                },
+                {
+                  "time": 25,
+                  "value": 76
+                },
+                {
+                  "time": 26,
+                  "value": 69
+                },
+                {
+                  "time": 27,
+                  "value": 72
+                },
+                {
+                  "time": 28,
+                  "value": 60
+                },
+                {
+                  "time": 29,
+                  "value": 65
+                },
+                {
+                  "time": 30,
+                  "value": 50
+                },
+                {
+                  "time": 31,
+                  "value": 32
+                },
+                {
+                  "time": 32,
+                  "value": 15
+                }
+              ],
+              "line": {
+                "at": 12,
+                "settle": 60
+              },
+              "endpoint": {
+                "at": 60,
+                "settle": 70
+              },
+              "benchmark": {
+                "value": 55,
+                "label": "Demo average",
+                "reveal": {
+                  "at": 100,
+                  "settle": 115
+                }
+              },
+              "secondary": {
+                "title": "Secondary model series",
+                "source": "Synthetic fixture",
+                "unit": "model units",
+                "domain": [
+                  0,
+                  100
+                ],
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 30
+                  },
+                  {
+                    "time": 4,
+                    "value": 45
+                  },
+                  {
+                    "time": 8,
+                    "value": 54
+                  },
+                  {
+                    "time": 12,
+                    "value": 65
+                  },
+                  {
+                    "time": 16,
+                    "value": 57
+                  },
+                  {
+                    "time": 20,
+                    "value": 45
+                  },
+                  {
+                    "time": 24,
+                    "value": 42
+                  },
+                  {
+                    "time": 28,
+                    "value": 25
+                  },
+                  {
+                    "time": 32,
+                    "value": 10
+                  }
+                ],
+                "reveal": {
+                  "at": 65,
+                  "settle": 90
+                }
+              },
+              "score": {
+                "value": 2.5,
+                "total": 8,
+                "label": "Demonstration score",
+                "reveal": {
+                  "at": 280,
+                  "settle": 295
+                }
+              },
+              "deltas": [
+                {
+                  "value": -72.73,
+                  "unit": "%",
+                  "label": "vs demo average",
+                  "reveal": {
+                    "at": 310,
+                    "settle": 325
+                  }
+                },
+                {
+                  "value": -82.35,
+                  "unit": "%",
+                  "label": "vs demo high",
+                  "reveal": {
+                    "at": 340,
+                    "settle": 355
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      },
+      "boardFixtures": {
+        "teaching-board": "market"
+      },
+      "boardOverrides": {
+        "teaching-board": {
+          "score": {
+            "value": 2.5,
+            "total": 8,
+            "label": "Demonstration score",
+            "reveal": {
+              "at": 280,
+              "settle": 295
+            }
+          },
+          "deltas": [
+            {
+              "value": -72.73,
+              "unit": "%",
+              "label": "vs demo average",
+              "reveal": {
+                "at": 310,
+                "settle": 325
+              }
+            },
+            {
+              "value": -82.35,
+              "unit": "%",
+              "label": "vs demo high",
+              "reveal": {
+                "at": 340,
+                "settle": 355
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "market-score-and-deltas",
+      "reference": "IMG_4797.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 180,
+      "collage": {
+        "preset": "market-score-and-deltas",
+        "nodes": [
+          {
+            "id": "teaching-board",
+            "kind": "board",
+            "box": [
+              20,
+              30,
+              1040,
+              1050
+            ],
+            "at": 0,
+            "settle": 0,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: teaching-board",
+            "entry": {
+              "kind": "none"
+            },
+            "spec": {
+              "title": "DEMO · Synthetic price path",
+              "source": "Synthetic fixture; not market observations",
+              "unit": "model units",
+              "timeUnit": "steps",
+              "domain": [
+                0,
+                100
+              ],
+              "timeDomain": [
+                0,
+                32
+              ],
+              "setup": {
+                "at": 0,
+                "settle": 10
+              },
+              "kind": "market-board",
+              "points": [
+                {
+                  "time": 0,
+                  "value": 70
+                },
+                {
+                  "time": 1,
+                  "value": 63
+                },
+                {
+                  "time": 2,
+                  "value": 76
+                },
+                {
+                  "time": 3,
+                  "value": 67
+                },
+                {
+                  "time": 4,
+                  "value": 60
+                },
+                {
+                  "time": 5,
+                  "value": 71
+                },
+                {
+                  "time": 6,
+                  "value": 56
+                },
+                {
+                  "time": 7,
+                  "value": 64
+                },
+                {
+                  "time": 8,
+                  "value": 53
+                },
+                {
+                  "time": 9,
+                  "value": 62
+                },
+                {
+                  "time": 10,
+                  "value": 51
+                },
+                {
+                  "time": 11,
+                  "value": 59
+                },
+                {
+                  "time": 12,
+                  "value": 67
+                },
+                {
+                  "time": 13,
+                  "value": 62
+                },
+                {
+                  "time": 14,
+                  "value": 70
+                },
+                {
+                  "time": 15,
+                  "value": 77
+                },
+                {
+                  "time": 16,
+                  "value": 64
+                },
+                {
+                  "time": 17,
+                  "value": 72
+                },
+                {
+                  "time": 18,
+                  "value": 69
+                },
+                {
+                  "time": 19,
+                  "value": 78
+                },
+                {
+                  "time": 20,
+                  "value": 73
+                },
+                {
+                  "time": 21,
+                  "value": 81
+                },
+                {
+                  "time": 22,
+                  "value": 74
+                },
+                {
+                  "time": 23,
+                  "value": 85
+                },
+                {
+                  "time": 24,
+                  "value": 82
+                },
+                {
+                  "time": 25,
+                  "value": 76
+                },
+                {
+                  "time": 26,
+                  "value": 69
+                },
+                {
+                  "time": 27,
+                  "value": 72
+                },
+                {
+                  "time": 28,
+                  "value": 60
+                },
+                {
+                  "time": 29,
+                  "value": 65
+                },
+                {
+                  "time": 30,
+                  "value": 50
+                },
+                {
+                  "time": 31,
+                  "value": 32
+                },
+                {
+                  "time": 32,
+                  "value": 15
+                }
+              ],
+              "line": {
+                "at": 12,
+                "settle": 60
+              },
+              "endpoint": {
+                "at": 60,
+                "settle": 70
+              },
+              "benchmark": {
+                "value": 55,
+                "label": "Demo average",
+                "reveal": {
+                  "at": 100,
+                  "settle": 115
+                }
+              },
+              "secondary": {
+                "title": "Secondary model series",
+                "source": "Synthetic fixture",
+                "unit": "model units",
+                "domain": [
+                  0,
+                  100
+                ],
+                "points": [
+                  {
+                    "time": 0,
+                    "value": 30
+                  },
+                  {
+                    "time": 4,
+                    "value": 45
+                  },
+                  {
+                    "time": 8,
+                    "value": 54
+                  },
+                  {
+                    "time": 12,
+                    "value": 65
+                  },
+                  {
+                    "time": 16,
+                    "value": 57
+                  },
+                  {
+                    "time": 20,
+                    "value": 45
+                  },
+                  {
+                    "time": 24,
+                    "value": 42
+                  },
+                  {
+                    "time": 28,
+                    "value": 25
+                  },
+                  {
+                    "time": 32,
+                    "value": 10
+                  }
+                ],
+                "reveal": {
+                  "at": 65,
+                  "settle": 90
+                }
+              },
+              "score": {
+                "value": 2.5,
+                "total": 8,
+                "label": "Demonstration score",
+                "reveal": {
+                  "at": 75,
+                  "settle": 90
+                }
+              },
+              "deltas": [
+                {
+                  "value": -72.73,
+                  "unit": "%",
+                  "label": "vs demo average",
+                  "reveal": {
+                    "at": 95,
+                    "settle": 110
+                  }
+                },
+                {
+                  "value": -82.35,
+                  "unit": "%",
+                  "label": "vs demo high",
+                  "reveal": {
+                    "at": 125,
+                    "settle": 140
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      },
+      "boardFixtures": {
+        "teaching-board": "market"
+      }
+    },
+    {
+      "id": "building-portrait-headline",
+      "reference": "IMG_4798.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "building-portrait-headline",
+        "nodes": [
+          {
+            "id": "building",
+            "kind": "photo",
+            "box": [
+              40,
+              100,
+              630,
+              490
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: building",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -3,
+            "attachment": "tape",
+            "label": "ILLUSTRATIVE BUILDING",
+            "labelSize": 28
+          },
+          {
+            "id": "portrait",
+            "kind": "photo",
+            "box": [
+              655,
+              150,
+              365,
+              500
+            ],
+            "at": 20,
+            "settle": 34,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: portrait",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": 4,
+            "attachment": "pin",
+            "label": "SYNTHETIC SUBJECT",
+            "labelSize": 23
+          },
+          {
+            "id": "date",
+            "kind": "text",
+            "box": [
+              65,
+              620,
+              570,
+              70
+            ],
+            "at": 42,
+            "settle": 54,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: date",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "NOVEMBER 13",
+            "style": {
+              "fontSize": 42,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 6
+            }
+          },
+          {
+            "id": "headline",
+            "kind": "text",
+            "box": [
+              60,
+              720,
+              850,
+              105
+            ],
+            "at": 64,
+            "settle": 80,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: headline",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例：事件与关键人物",
+            "style": {
+              "fontSize": 60,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 10
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30,
+        "allowOverlaps": [
+          {
+            "a": "building",
+            "b": "portrait",
+            "reason": "Pinned portrait intentionally overlaps the building image edge."
+          },
+          {
+            "a": "portrait",
+            "b": "date",
+            "reason": "Date sticker layers across paper portrait edge."
+          }
+        ]
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "document-portrait-number",
+      "reference": "IMG_4799.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "document-portrait-number",
+        "nodes": [
+          {
+            "id": "document",
+            "kind": "photo",
+            "box": [
+              65,
+              90,
+              330,
+              670
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: document",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -5,
+            "attachment": "tape",
+            "label": "EXAMPLE DOCUMENT",
+            "labelSize": 20
+          },
+          {
+            "id": "portrait",
+            "kind": "photo",
+            "box": [
+              660,
+              70,
+              350,
+              485
+            ],
+            "at": 20,
+            "settle": 34,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: portrait",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": 4,
+            "attachment": "pin",
+            "label": "SYNTHETIC SUBJECT",
+            "labelSize": 22
+          },
+          {
+            "id": "headline",
+            "kind": "text",
+            "box": [
+              440,
+              610,
+              590,
+              95
+            ],
+            "at": 45,
+            "settle": 60,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: headline",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例文件 · 核验条目",
+            "style": {
+              "fontSize": 49,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 10
+            }
+          },
+          {
+            "id": "large-number",
+            "kind": "text",
+            "box": [
+              460,
+              740,
+              160,
+              220
+            ],
+            "at": 72,
+            "settle": 92,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: large-number",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "3",
+            "style": {
+              "fontSize": 190,
+              "color": "#b82d23",
+              "lineHeight": 1.12,
+              "shadow": "4px 4px #171510"
+            }
+          },
+          {
+            "id": "number-label",
+            "kind": "text",
+            "box": [
+              660,
+              835,
+              350,
+              80
+            ],
+            "at": 100,
+            "settle": 112,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: number-label",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "条示意条款",
+            "style": {
+              "fontSize": 48,
+              "color": "#171510",
+              "lineHeight": 1.12
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "meeting-versus-portraits",
+      "reference": "IMG_4800.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "meeting-versus-portraits",
+        "nodes": [
+          {
+            "id": "meeting",
+            "kind": "photo",
+            "box": [
+              30,
+              70,
+              1020,
+              480
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: meeting",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "attachment": "pin",
+            "label": "SYNTHETIC MEETING",
+            "labelSize": 30
+          },
+          {
+            "id": "group-label",
+            "kind": "text",
+            "box": [
+              45,
+              580,
+              400,
+              75
+            ],
+            "at": 20,
+            "settle": 32,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: group-label",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "两方角色",
+            "style": {
+              "fontSize": 52,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 7
+            }
+          },
+          {
+            "id": "left-person",
+            "kind": "photo",
+            "box": [
+              65,
+              715,
+              320,
+              430
+            ],
+            "at": 45,
+            "settle": 60,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: left-person",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -4,
+            "label": "角色 A",
+            "labelSize": 30
+          },
+          {
+            "id": "right-person",
+            "kind": "photo",
+            "box": [
+              695,
+              735,
+              320,
+              430
+            ],
+            "at": 70,
+            "settle": 85,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: right-person",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": 4,
+            "label": "角色 B",
+            "labelSize": 30
+          },
+          {
+            "id": "versus",
+            "kind": "text",
+            "box": [
+              435,
+              830,
+              205,
+              165
+            ],
+            "at": 98,
+            "settle": 112,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: versus",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "VS",
+            "style": {
+              "fontSize": 108,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "background": "#e4c14b",
+              "align": "center",
+              "padding": 10
+            },
+            "rotation": -7
+          }
+        ],
+        "captionBox": [
+          180,
+          1280,
+          720,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "meeting-question-answer-strip",
+      "reference": "IMG_4801.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "meeting-question-answer-strip",
+        "nodes": [
+          {
+            "id": "meeting",
+            "kind": "photo",
+            "box": [
+              40,
+              140,
+              1004,
+              420
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: meeting",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "attachment": "pin"
+          },
+          {
+            "id": "question",
+            "kind": "text",
+            "box": [
+              50,
+              590,
+              902,
+              150
+            ],
+            "at": 20,
+            "settle": 35,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: question",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "哪条路径更适合？",
+            "style": {
+              "fontSize": 90,
+              "color": "#233d69",
+              "lineHeight": 1.12,
+              "shadow": "3px 4px #0008"
+            }
+          },
+          {
+            "id": "answer",
+            "kind": "text",
+            "box": [
+              90,
+              750,
+              800,
+              160
+            ],
+            "at": 45,
+            "settle": 60,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: answer",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例：先明确判断条件",
+            "style": {
+              "fontSize": 64,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#b82d23",
+              "padding": 10
+            },
+            "rotation": -2
+          },
+          {
+            "id": "comparison",
+            "kind": "compare",
+            "box": [
+              40,
+              938,
+              1004,
+              240
+            ],
+            "at": 80,
+            "settle": 80,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: comparison",
+            "entry": {
+              "kind": "none"
+            },
+            "variant": "strip",
+            "left": {
+              "title": "路径 A",
+              "detail": "建立材料清单",
+              "color": "#233d69"
+            },
+            "right": {
+              "title": "路径 B",
+              "detail": "核对原始来源",
+              "color": "#b82d23"
+            },
+            "relation": "<",
+            "relationMeaning": "Synthetic comparison; no empirical ranking",
+            "leftAt": 80,
+            "leftSettle": 96,
+            "rightAt": 100,
+            "rightSettle": 116,
+            "relationAt": 124,
+            "relationSettle": 136,
+            "titleSize": 68,
+            "detailSize": 30,
+            "badgeSize": 140
+          }
+        ],
+        "captionBox": [
+          180,
+          1250,
+          720,
+          170
+        ],
+        "captionSize": 42,
+        "translationSize": 30,
+        "allowOverlaps": [
+          {
+            "a": "question",
+            "b": "answer",
+            "reason": "Rotated answer strip conservatively intersects the question box by approximately 4 pixels; padding separates the text, requiring rendered verification."
+          }
+        ]
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing",
+        "calibration": {
+          "screenshotToVideoScale": 0.8916629514043692,
+          "screenshotHorizontalCropPixels": 38,
+          "evidence": "Source-video calibration supplied by source-analysis agent; other layouts remain manual estimates"
+        }
+      }
+    },
+    {
+      "id": "podium-quote-and-portraits",
+      "reference": "IMG_4802.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "podium-quote-and-portraits",
+        "nodes": [
+          {
+            "id": "podium",
+            "kind": "photo",
+            "box": [
+              25,
+              25,
+              1030,
+              430
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: podium",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "attachment": "pin"
+          },
+          {
+            "id": "question",
+            "kind": "text",
+            "box": [
+              30,
+              495,
+              675,
+              100
+            ],
+            "at": 20,
+            "settle": 35,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: question",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "发生了什么变化？",
+            "style": {
+              "fontSize": 64,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#b82d23",
+              "padding": 10
+            },
+            "rotation": -2
+          },
+          {
+            "id": "date",
+            "kind": "text",
+            "box": [
+              730,
+              500,
+              310,
+              80
+            ],
+            "at": 42,
+            "settle": 54,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: date",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例 · 11.05",
+            "style": {
+              "fontSize": 35,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 8
+            }
+          },
+          {
+            "id": "left-person",
+            "kind": "photo",
+            "box": [
+              70,
+              685,
+              300,
+              400
+            ],
+            "at": 65,
+            "settle": 80,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: left-person",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -3,
+            "label": "角色 A"
+          },
+          {
+            "id": "right-person",
+            "kind": "photo",
+            "box": [
+              730,
+              690,
+              300,
+              400
+            ],
+            "at": 92,
+            "settle": 108,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: right-person",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": 4,
+            "label": "角色 B"
+          },
+          {
+            "id": "quote",
+            "kind": "text",
+            "box": [
+              410,
+              745,
+              270,
+              230
+            ],
+            "at": 120,
+            "settle": 135,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: quote",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "“回到原文，\n核实语境。”",
+            "style": {
+              "fontSize": 44,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "background": "#f2ead4",
+              "align": "center",
+              "padding": 12
+            },
+            "group": "quote-explanation"
+          },
+          {
+            "id": "quote-tag",
+            "kind": "text",
+            "box": [
+              415,
+              670,
+              260,
+              60
+            ],
+            "at": 145,
+            "settle": 158,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: quote-tag",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例引语",
+            "style": {
+              "fontSize": 37,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "background": "#e4c14b",
+              "padding": 7
+            },
+            "group": "quote-explanation"
+          }
+        ],
+        "captionBox": [
+          150,
+          1220,
+          780,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "complementary-roles-hero",
+      "reference": "IMG_4803.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "complementary-roles-hero",
+        "nodes": [
+          {
+            "id": "context",
+            "kind": "text",
+            "box": [
+              35,
+              80,
+              350,
+              75
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: context",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "通俗来讲",
+            "style": {
+              "fontSize": 48,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 9
+            }
+          },
+          {
+            "id": "comparison",
+            "kind": "compare",
+            "box": [
+              0,
+              225,
+              1080,
+              520
+            ],
+            "at": 30,
+            "settle": 30,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: comparison",
+            "entry": {
+              "kind": "none"
+            },
+            "variant": "hero",
+            "left": {
+              "title": "采集",
+              "detail": "建立材料清单",
+              "color": "#233d69"
+            },
+            "right": {
+              "title": "核验",
+              "detail": "核对原始来源",
+              "color": "#b82d23"
+            },
+            "relation": "+",
+            "relationMeaning": "Synthetic demonstration of complementary roles",
+            "leftAt": 30,
+            "leftSettle": 46,
+            "rightAt": 50,
+            "rightSettle": 66,
+            "relationAt": 74,
+            "relationSettle": 86,
+            "titleSize": 158,
+            "detailSize": 40,
+            "badgeSize": 200
+          }
+        ],
+        "captionBox": [
+          170,
+          1250,
+          740,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "portrait-year-resignation",
+      "reference": "IMG_4804.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "portrait-year-resignation",
+        "nodes": [
+          {
+            "id": "portrait",
+            "kind": "photo",
+            "box": [
+              35,
+              45,
+              355,
+              550
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: portrait",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -3,
+            "label": "示例人物"
+          },
+          {
+            "id": "year",
+            "kind": "text",
+            "box": [
+              445,
+              65,
+              530,
+              200
+            ],
+            "at": 20,
+            "settle": 36,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: year",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "1980",
+            "style": {
+              "fontSize": 160,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "fontWeight": 900
+            }
+          },
+          {
+            "id": "subhead",
+            "kind": "text",
+            "box": [
+              455,
+              290,
+              550,
+              95
+            ],
+            "at": 45,
+            "settle": 58,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: subhead",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例历史章节",
+            "style": {
+              "fontSize": 56,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "background": "#f4ebd6",
+              "padding": 10
+            }
+          },
+          {
+            "id": "callout",
+            "kind": "text",
+            "box": [
+              470,
+              435,
+              550,
+              90
+            ],
+            "at": 68,
+            "settle": 82,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: callout",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "观点分歧 · 转折",
+            "style": {
+              "fontSize": 57,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 10
+            }
+          },
+          {
+            "id": "resignation",
+            "kind": "text",
+            "box": [
+              610,
+              625,
+              365,
+              170
+            ],
+            "at": 94,
+            "settle": 110,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: resignation",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "辞职",
+            "style": {
+              "fontSize": 112,
+              "color": "#e4c14b",
+              "lineHeight": 1.12,
+              "background": "#514a37",
+              "padding": 14
+            },
+            "rotation": -5
+          },
+          {
+            "id": "context",
+            "kind": "text",
+            "box": [
+              55,
+              795,
+              430,
+              90
+            ],
+            "at": 122,
+            "settle": 138,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: context",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "外患 + 内忧",
+            "style": {
+              "fontSize": 57,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "background": "#e4c14b",
+              "padding": 10
+            }
+          },
+          {
+            "id": "conclusion",
+            "kind": "text",
+            "box": [
+              55,
+              945,
+              970,
+              100
+            ],
+            "at": 150,
+            "settle": 165,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: conclusion",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例：决定改变了故事走向",
+            "style": {
+              "fontSize": 57,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 10
+            }
+          }
+        ],
+        "captionBox": [
+          80,
+          1190,
+          920,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "red-chapter-and-rising-chart",
+      "reference": "IMG_4805.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "red-chapter-and-rising-chart",
+        "nodes": [
+          {
+            "id": "chapter-photo",
+            "kind": "photo",
+            "box": [
+              0,
+              160,
+              1080,
+              480
+            ],
+            "at": 0,
+            "settle": 0,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: chapter-photo",
+            "entry": {
+              "kind": "none"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#b82d23",
+            "grayscale": false,
+            "focus": false
+          },
+          {
+            "id": "inflation-tag",
+            "kind": "text",
+            "box": [
+              585,
+              430,
+              415,
+              120
+            ],
+            "at": 0,
+            "settle": 14,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: inflation-tag",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示意上涨 ↑",
+            "style": {
+              "fontSize": 56,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#b82d23",
+              "padding": 12
+            }
+          },
+          {
+            "id": "headline",
+            "kind": "text",
+            "box": [
+              0,
+              650,
+              1080,
+              140
+            ],
+            "at": 25,
+            "settle": 40,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: headline",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例事件 · 价格变化",
+            "style": {
+              "fontSize": 76,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 13
+            }
+          },
+          {
+            "id": "rising-chart",
+            "kind": "line-chart",
+            "box": [
+              40,
+              825,
+              1000,
+              420
+            ],
+            "at": 55,
+            "settle": 55,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: rising-chart",
+            "entry": {
+              "kind": "none"
+            },
+            "points": [
+              {
+                "x": 0.0,
+                "y": 10
+              },
+              {
+                "x": 0.25,
+                "y": 20
+              },
+              {
+                "x": 0.5,
+                "y": 44
+              },
+              {
+                "x": 0.75,
+                "y": 66
+              },
+              {
+                "x": 1.0,
+                "y": 90
+              }
+            ],
+            "domain": [
+              0,
+              100
+            ],
+            "source": "合成示例；非真实行情",
+            "title": "合成价格路径",
+            "unit": "模型单位",
+            "color": "#b7241c",
+            "drawAt": 55,
+            "drawSettle": 115,
+            "annotation": "+80"
+          }
+        ],
+        "captionBox": [
+          180,
+          1270,
+          720,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30,
+        "allowOverlaps": [
+          {
+            "a": "chapter-photo",
+            "b": "inflation-tag",
+            "reason": "Inflation tag deliberately overlays the chapter image."
+          }
+        ]
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing",
+        "adaptation": "Compact chart reserves visible unit/source rows; caption below chart replaces reference caption overlay to avoid hiding data."
+      }
+    },
+    {
+      "id": "phrase-wallet-ballot",
+      "reference": "IMG_4806.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "phrase-wallet-ballot",
+        "nodes": [
+          {
+            "id": "phrase-subject",
+            "kind": "text",
+            "box": [
+              45,
+              350,
+              350,
+              130
+            ],
+            "at": 0,
+            "settle": 14,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: phrase-subject",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "选民的",
+            "style": {
+              "fontSize": 76,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 9
+            },
+            "group": "wallet-phrase"
+          },
+          {
+            "id": "phrase-wallet",
+            "kind": "text",
+            "box": [
+              420,
+              345,
+              300,
+              145
+            ],
+            "at": 20,
+            "settle": 34,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: phrase-wallet",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "钱包",
+            "style": {
+              "fontSize": 88,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#b82d23",
+              "padding": 12
+            },
+            "rotation": -3,
+            "group": "wallet-phrase"
+          },
+          {
+            "id": "phrase-action",
+            "kind": "text",
+            "box": [
+              45,
+              515,
+              570,
+              200
+            ],
+            "at": 42,
+            "settle": 58,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: phrase-action",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "被掏空",
+            "style": {
+              "fontSize": 118,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#b82d23",
+              "padding": 16
+            },
+            "rotation": 2,
+            "group": "wallet-phrase"
+          },
+          {
+            "id": "wallet",
+            "kind": "icon",
+            "box": [
+              95,
+              820,
+              350,
+              350
+            ],
+            "at": 75,
+            "settle": 95,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: wallet",
+            "entry": {
+              "kind": "fade"
+            },
+            "rotation": -5,
+            "symbol": "wallet",
+            "tile": "#e4c14b"
+          },
+          {
+            "id": "ballot",
+            "kind": "icon",
+            "box": [
+              650,
+              1320,
+              350,
+              350
+            ],
+            "at": 115,
+            "settle": 135,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Ballot box: voting consequence, not a television",
+            "entry": {
+              "kind": "fade"
+            },
+            "rotation": 13,
+            "symbol": "ballot",
+            "tile": "#233d69",
+            "ink": "#f4eddb",
+            "caption": "跑了",
+            "captionColor": "#b82d23"
+          }
+        ],
+        "captionBox": [
+          80,
+          1220,
+          480,
+          120
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "podium-trade-and-photo",
+      "reference": "IMG_4807.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "podium-trade-and-photo",
+        "nodes": [
+          {
+            "id": "podium",
+            "kind": "photo",
+            "box": [
+              20,
+              35,
+              1040,
+              410
+            ],
+            "at": 0,
+            "settle": 12,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: podium",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true
+          },
+          {
+            "id": "context",
+            "kind": "text",
+            "box": [
+              35,
+              495,
+              390,
+              70
+            ],
+            "at": 20,
+            "settle": 34,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: context",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "示例政策背景",
+            "style": {
+              "fontSize": 43,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "background": "#e4c14b",
+              "padding": 8
+            }
+          },
+          {
+            "id": "headline",
+            "kind": "text",
+            "box": [
+              455,
+              490,
+              570,
+              145
+            ],
+            "at": 45,
+            "settle": 62,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: headline",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "处处求稳",
+            "style": {
+              "fontSize": 95,
+              "color": "#171510",
+              "lineHeight": 1.12,
+              "shadow": "4px 5px #dfc34a"
+            }
+          },
+          {
+            "id": "trade-card",
+            "kind": "photo",
+            "box": [
+              65,
+              755,
+              420,
+              470
+            ],
+            "at": 78,
+            "settle": 95,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: trade-card",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": -5,
+            "label": "示例材料 A",
+            "labelSize": 30
+          },
+          {
+            "id": "harbor",
+            "kind": "photo",
+            "box": [
+              590,
+              790,
+              410,
+              440
+            ],
+            "at": 110,
+            "settle": 128,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: harbor",
+            "entry": {
+              "kind": "fade"
+            },
+            "file": "template-example.svg",
+            "border": 10,
+            "fit": "cover",
+            "paper": "#f2ead4",
+            "grayscale": true,
+            "rotation": 5,
+            "label": "示例材料 B",
+            "labelSize": 30
+          }
+        ],
+        "captionBox": [
+          230,
+          1330,
+          620,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    },
+    {
+      "id": "red-date-today-impact",
+      "reference": "IMG_4808.PNG",
+      "durationFrames": 400,
+      "sampleFrame": 220,
+      "collage": {
+        "preset": "red-date-today-impact",
+        "nodes": [
+          {
+            "id": "date",
+            "kind": "text",
+            "box": [
+              50,
+              160,
+              980,
+              230
+            ],
+            "at": 0,
+            "settle": 18,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: date",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "1 1 . 0 3",
+            "style": {
+              "fontSize": 160,
+              "color": "#f4eedc",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "align": "center",
+              "padding": 18,
+              "fontWeight": 900
+            }
+          },
+          {
+            "id": "today",
+            "kind": "text",
+            "box": [
+              80,
+              565,
+              920,
+              330
+            ],
+            "at": 32,
+            "settle": 54,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: today",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "今天",
+            "style": {
+              "fontSize": 230,
+              "color": "#fff4d8",
+              "lineHeight": 1.12,
+              "align": "center",
+              "fontWeight": 900,
+              "shadow": "10px 12px #171510"
+            },
+            "rotation": -6
+          },
+          {
+            "id": "condition",
+            "kind": "text",
+            "box": [
+              70,
+              1020,
+              620,
+              150
+            ],
+            "at": 70,
+            "settle": 88,
+            "end": 400,
+            "role": "primary",
+            "meaning": "Synthetic layout example: condition",
+            "entry": {
+              "kind": "fade"
+            },
+            "text": "不管输赢",
+            "style": {
+              "fontSize": 88,
+              "color": "#fff7df",
+              "lineHeight": 1.12,
+              "background": "#171510",
+              "padding": 12
+            },
+            "rotation": 2
+          }
+        ],
+        "captionBox": [
+          65,
+          1320,
+          950,
+          135
+        ],
+        "captionSize": 42,
+        "translationSize": 30,
+        "background": {
+          "color": "#ac251f",
+          "opacity": 0.93
+        }
+      },
+      "sourceGeometry": {
+        "canvas": [
+          1080,
+          1920
+        ],
+        "coordinateSpace": "video content; phone UI excluded",
+        "measurement": "manual geometry estimates from supplied screenshot contact sheet, with original screenshot inspection for 4801,4805,4806; 4801 uses source-video calibrated boxes",
+        "sourceFps": 29,
+        "fixtureFps": 30,
+        "frameConversion": "round(source_frame * 30 / 29)",
+        "timingStatus": "authored fixture timing; screenshot alone does not establish entrance timing"
+      }
+    }
+  ]
+}

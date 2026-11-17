@@ -66,15 +66,23 @@ def check_timeline(plan, timeline_path):
     path=Path(timeline_path); data=json.loads(path.read_text()); errors=[]
     motions=[(s,e) for s in data.get('scenes',[]) for e in s.get('motion',[])]
     transitions=data.get('transitions',[])
-    if not motions and not transitions:return errors
+    collages=[s for s in data.get('scenes',[]) if s.get('collage')]
+    if not motions and not transitions and not collages:return errors
     if plan.get('timeline_sha256')!=hashlib.sha256(path.read_bytes()).hexdigest():errors.append('motion plan must bind current timeline SHA-256')
     recorded={e.get('id'):e for e in plan.get('events',[])}
     root=path.parent.parent
+    for scene in collages:
+        record=recorded.get(scene['id']+':collage',{})
+        actual={'effect':'collage','start':scene['start'],'end':scene['end'],'bbox':[0,0,1080,1920],'focus':True,'settle':scene['end']-1}
+        if any(record.get(k)!=v for k,v in actual.items()):errors.append(scene['id']+': collage plan differs from rendered scene')
+        if record.get('sound',{}).get('kind')!='none':errors.append(scene['id']+': container must defer sound to child cues')
+        if record.get('child_sounds',[])!=scene['collage'].get('sounds',[]):errors.append(scene['id']+': child sound cues differ from render')
+        # Child geometry, focus, intentional overlaps and field validation are checked by the renderer's validator.
     expected=[]
     for scene,e in motions:expected.append((e,scene['start']+e['start'],scene['start']+e['end'],e['box']))
     for e in transitions:expected.append((e,e['start'],e['end'],[0,0,1080,1920]))
-    expected_ids={e['id'] for e,_,_,_ in expected}
-    new_effects={e['effect'] for e,_,_,_ in expected}
+    expected_ids={e['id'] for e,_,_,_ in expected}|{s['id']+':collage' for s in collages}
+    new_effects={e['effect'] for e,_,_,_ in expected}|({'collage'} if collages else set())
     if any(e.get('effect') in new_effects and e.get('id') not in expected_ids for e in plan.get('events',[])):errors.append('unrendered motion event in plan')
     for e,start,end,box in expected:
         record=recorded.get(e['id'],{})

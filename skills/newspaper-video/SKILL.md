@@ -2,7 +2,7 @@
 name: newspaper-video
 description: 制作或修改旧报纸、照片拼贴、图钉胶带、动态数字与时间轴风格的 Remotion 讲解视频；使用内置素材、样式参数和可运行模板。适用于复用报纸拼贴视觉风格，不承担通用剪辑或发布账号操作。
 metadata:
-  version: "1.8.0"
+  version: "1.9.0"
 ---
 
 # 报纸拼贴视频
@@ -60,3 +60,9 @@ python3 "<SKILL_ROOT>/scripts/project.py" render .
 ## 参考风格与组合检查
 
 设计动画前读取 [5/6/7参考研究](references/origin-study-567.md) 和 [动效合同](references/motion-contracts.md)。效果选择使用 `references/motion-catalog.json`；1.8已实现13种新增效果；通过 [可执行接口](references/motion-api.md) 配置 scene.motion 和 transitions。以后新增的recipe仍不得冒充实现。用 `scripts/motion_gate.py motion-plan.json` 检查时序与冲突，完整render自动要求此计划。截图只确定构图，运动与声音不得由单张截图推断。
+
+## 自由拼贴版式与像素回归（1.9）
+
+固定上中下不能表达参考布局时，使用 [Collage API](references/collage-api.md) 与 [16种版式](references/collage-presets.md)。4801窄条比较和4803主画面比较分开；4806核心短语、钱包和投票箱分层。支持标题轮廓填色、延迟关系徽章、卡片二次移位与节点动作锚定SFX。每个节点写明含义、区域、时序，检查入场/旋转/移位轨迹、字幕及焦点冲突。全场collage与旧布局互斥，1.9禁止同时叠加全屏转场，改用独立过渡镜头。
+
+先读 [像素对齐研究](references/pixel-reference-study.md) 与 [六组音画组合](references/reference-av-combinations.md)：截图构图、源视频实际运动和作者设计的替代音效是三类证据。`scripts/collage_demo.py`可创建合成组件测试；`scripts/pixel_compare.py`生成哈希绑定对照图/差分，复用照片/纸纹不得计入重绘图形精度。原片29fps与模板30fps要转换；4805–4808缺可靠视频前景匹配，不能宣称恢复其原始运动。

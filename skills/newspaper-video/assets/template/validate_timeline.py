@@ -147,6 +147,9 @@ for index,scene in enumerate(scenes):
 for name in ('logo','music'):
  file=data.get(name)
  if file and (not isinstance(file,str) or not (p/'public'/file).is_file()):err(f'missing {name}: {file}')
+from validate_collage_assets import check as check_collage_assets
+try: errors.extend(check_collage_assets(data,p))
+except (TypeError,ValueError,KeyError,AttributeError) as exc: err('malformed collage: '+str(exc))
 from validate_motion_structure import check as check_motion_structure
 try: errors.extend(check_motion_structure(data,p))
 except (TypeError,ValueError,KeyError,AttributeError) as exc: err('malformed motion: '+str(exc))

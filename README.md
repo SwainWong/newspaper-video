@@ -48,7 +48,7 @@
 
 黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片使用范围与未决事项见署名清单，不代表取得全面转载授权。可编辑工程及 VO/BGM/SFX 分轨保留在本地 `work/`；仓库提供通用模板和数据接口。
 
-## 安装插件（1.8.0）
+## 安装插件（1.9.0）
 
 源码只维护在 `skills/newspaper-video/`。根目录旧入口为兼容链接；安装缓存是分发副本，不在其中开发。
 
@@ -72,7 +72,23 @@ WorkBuddy：自定义市场的桌面入口依客户端而定，未作保证。�
 
 组合检查读取动作时段、区域、焦点和声音锚，先运行与渲染器共用的字段校验，再拒绝区域冲突、失配的时间线哈希、遗漏动作与声音记录；完整render会运行 `motion_gate.py --timeline`。它不能代替实际看听。[平台验证记录](skills/newspaper-video/references/platform-validation-20261117.md)区分清单与运行验收。
 
-## 制作流程（1.8.0）
+## 多版式动画与回归（1.9.0）
+
+版式模块接收脚本语义、真实媒体和时间锚，输出16种可编辑组合：斜照片与时间轴、文件与人物、大字年份、照片下方窄比较条、占据主画面的双色比较、中央关键词与图标、教学板和行情图。各子层可独立配置位置、字形、入场及二次移位，交给画面与字幕检查。[版式目录](skills/newspaper-video/references/collage-presets.md) · [完整接口与冲突条件](skills/newspaper-video/references/collage-api.md)。
+
+比较模块分别实现4801与4803的构图。两侧色块带文字从屏幕外移入，两侧落稳后才出现关系徽章；标题可先画轮廓再填色。4806使用分开的短语纸片、钱包和投票箱。声音绑定节点的入场、落稳、填色或关系揭示，输出实际渲染的候选SFX；没有把参考混音中的峰值冒充已识别音效。
+
+回归模块读取参考帧与候选帧，明确坐标变换、裁切和遮罩，把重绘图形与复用照片/纸纹分别计量，输出对照、叠加、差分与哈希报告，交给人工看听。[对齐研究](skills/newspaper-video/references/pixel-reference-study.md) · [像素比较工具](skills/newspaper-video/references/pixel-compare-api.md) · [六组运动与声音设计](skills/newspaper-video/references/reference-av-combinations.md)。16截图中12张已匹配视频前景；4805–4808仅有截图构图依据。字体、纹理和部分几何仍有差异，不声称完全像素一致。
+
+`python3 scripts/collage_demo.py /new/layout-fixture`生成16场景合成工程与绑定时间线的动作计划。配合`node tests/collage_runtime.cjs /new/layout-fixture`检查真实组件；它们不替代节目脚本批准、正常速度观看、真实听音或作者验收。全场拼贴与旧布局互斥；此版本保守地拒绝全场拼贴与全屏转场同时占用，需用独立过渡镜头。
+
+[播放16种版式完整合成样片](showcase/layout-showcase-1.9.mp4)（213.33秒，540×960，静音；全部图像/数据为合成示例）。[哈希与采样范围](showcase/layout-1.9/manifest.json) · [1.9验证记录](skills/newspaper-video/references/validation-1.9.md)。
+
+| 照片下方的窄比较条 | 主画面的双色比较 | 中央短语与投票箱 |
+| --- | --- | --- |
+| ![4801构图](showcase/layout-1.9/photo-question-strip.gif) | ![4803构图](showcase/layout-1.9/opposed-hero-panels.gif) | ![4806构图](showcase/layout-1.9/central-phrase-ballot.gif) |
+
+## 制作流程（1.9.0）
 
 1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](skills/newspaper-video/references/production-workflow.md) 与 [声音模块](skills/newspaper-video/references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
 2. 复制工程：`python3 skills/newspaper-video/scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。

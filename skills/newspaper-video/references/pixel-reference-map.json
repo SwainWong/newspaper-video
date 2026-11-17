@@ -1,0 +1,630 @@
+{
+  "schema_version": 1,
+  "scope": "Private reference evidence. No copied image assets belong in plugin repository.",
+  "method": "All 16 screenshots visually inspected in contact sheet; key4801/4803/4806 at full resolution. SIFT + RANSAC similarity alignment over all videos 2..7 every2s; primary matching frames searched +/-2s at stride1 (4801/4803) or3 (other matched screenshots). Minimize capped RGB MAE in upper content with platform UI masked. Background matches alone rejected.",
+  "coordinate_note": "Native source coordinates; affine maps source pixels to original1125x2436 screenshot. Normalized screenshots are inverse-warped, with validity masks. Masks conservatively exclude upper phone/navigation region, central play triangle, bottom platform controls; source content within these masks cannot be graded from screenshot.",
+  "primary_videos": [
+    {
+      "video": 5,
+      "size": [
+        1080,
+        1920
+      ],
+      "fps": 29,
+      "duration_s": 260.413793
+    },
+    {
+      "video": 6,
+      "size": [
+        720,
+        1280
+      ],
+      "fps": 29,
+      "duration_s": 194.310345
+    },
+    {
+      "video": 7,
+      "size": [
+        1080,
+        1920
+      ],
+      "fps": 29,
+      "duration_s": 290.206897
+    }
+  ],
+  "outside_primary_search": [
+    2,
+    3,
+    4
+  ],
+  "rows": [
+    {
+      "screenshot": "IMG_4793.PNG",
+      "layout": "Pinned Washington photograph, two-week timeline, green NVIDIA question",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 896,
+      "candidate_time_s": 30.896551724137932,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.6827606261540944,
+          -0.000585666960422788,
+          -42.74459199288977
+        ],
+        [
+          0.000585666960422788,
+          1.6827606261540944,
+          -0.6518411503824822
+        ]
+      ],
+      "feature_inliers": 616,
+      "masked_clipped_rgb_mae_0_255": 8.610378065154407,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4793-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4793-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4793-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4794.PNG",
+      "layout": "Four-stage stock lifecycle board",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 1388,
+      "candidate_time_s": 47.86206896551724,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.6819421099693772,
+          0.00026407348041588175,
+          -43.257086438644905
+        ],
+        [
+          -0.00026407348041588175,
+          1.6819421099693772,
+          0.13480824685920834
+        ]
+      ],
+      "feature_inliers": 431,
+      "masked_clipped_rgb_mae_0_255": 4.884121263514946,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4794-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4794-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4794-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4795.PNG",
+      "layout": "Eight-point checklist board at 4/8",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 1827,
+      "candidate_time_s": 63.0,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.683743635326098,
+          -0.0004606994732395829,
+          -43.236855086579325
+        ],
+        [
+          0.0004606994732395829,
+          1.683743635326098,
+          -0.6136924641840267
+        ]
+      ],
+      "feature_inliers": 325,
+      "masked_clipped_rgb_mae_0_255": 6.291066355734577,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4795-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4795-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4795-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4796.PNG",
+      "layout": "NVDA falling price chart",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 1980,
+      "candidate_time_s": 68.27586206896552,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.6825112069361499,
+          8.479592095799718e-05,
+          -43.203016099439616
+        ],
+        [
+          -8.479592095799718e-05,
+          1.6825112069361499,
+          -0.3013094403156513
+        ]
+      ],
+      "feature_inliers": 371,
+      "masked_clipped_rgb_mae_0_255": 5.075112712882483,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4796-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4796-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4796-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4797.PNG",
+      "layout": "Price chart plus -24%, -33%, 2.5/8",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 2160,
+      "candidate_time_s": 74.48275862068965,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.682114424032801,
+          1.786444057938057e-05,
+          -43.03985405737092
+        ],
+        [
+          -1.786444057938057e-05,
+          1.682114424032801,
+          0.10727684968945128
+        ]
+      ],
+      "feature_inliers": 430,
+      "masked_clipped_rgb_mae_0_255": 6.115005299978799,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4797-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4797-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4797-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4798.PNG",
+      "layout": "Commerce building and portrait collage",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 3631,
+      "candidate_time_s": 125.20689655172414,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.6824928642259394,
+          -0.00021793207675171205,
+          -42.95326194291478
+        ],
+        [
+          0.00021793207675171205,
+          1.6824928642259394,
+          -0.30748199365135076
+        ]
+      ],
+      "feature_inliers": 717,
+      "masked_clipped_rgb_mae_0_255": 5.889626174828634,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4798-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4798-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4798-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4799.PNG",
+      "layout": "Document/Thune portrait and red 3",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 6,
+      "candidate_frame": 4721,
+      "candidate_time_s": 162.79310344827587,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        720,
+        1280
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.6815734677123582,
+          3.245127215138516e-05,
+          -42.85391745038198
+        ],
+        [
+          -3.245127215138516e-05,
+          1.6815734677123582,
+          0.6174881883879577
+        ]
+      ],
+      "feature_inliers": 573,
+      "masked_clipped_rgb_mae_0_255": 5.774647728075755,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4799-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4799-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4799-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4800.PNG",
+      "layout": "Meeting photo, opposing portraits, yellow VS",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 5,
+      "candidate_frame": 1052,
+      "candidate_time_s": 36.275862068965516,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        1080,
+        1920
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.1216598268046165,
+          -3.454098821149463e-05,
+          -43.18415001182085
+        ],
+        [
+          3.454098821149463e-05,
+          1.1216598268046165,
+          -0.2220591874178599
+        ]
+      ],
+      "feature_inliers": 612,
+      "masked_clipped_rgb_mae_0_255": 6.577932301604126,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4800-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4800-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4800-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4801.PNG",
+      "layout": "Meeting photo, extruded headline, red strip, blue/black inequality",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 5,
+      "candidate_frame": 1370,
+      "candidate_time_s": 47.241379310344826,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 1,
+      "native_source_size": [
+        1080,
+        1920
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.1214514804292601,
+          1.8250494204828106e-05,
+          -43.04853698226224
+        ],
+        [
+          -1.8250494204828106e-05,
+          1.1214514804292601,
+          -0.07332219691562766
+        ]
+      ],
+      "feature_inliers": 749,
+      "masked_clipped_rgb_mae_0_255": 7.037699102536924,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4801-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4801-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4801-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4802.PNG",
+      "layout": "Press podium photo, red question, paired portraits and quote",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 5,
+      "candidate_frame": 1934,
+      "candidate_time_s": 66.6896551724138,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        1080,
+        1920
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.1214560422689202,
+          -4.917104463897841e-05,
+          -43.041378462528776
+        ],
+        [
+          4.917104463897841e-05,
+          1.1214560422689202,
+          -0.009543422558249755
+        ]
+      ],
+      "feature_inliers": 663,
+      "masked_clipped_rgb_mae_0_255": 6.303013214613808,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4802-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4802-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4802-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4803.PNG",
+      "layout": "Blue/red sell/control comparison with gold plus",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 5,
+      "candidate_frame": 3546,
+      "candidate_time_s": 122.27586206896552,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 1,
+      "native_source_size": [
+        1080,
+        1920
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.122213357750015,
+          -0.00013874774341655623,
+          -43.33563422761203
+        ],
+        [
+          0.00013874774341655623,
+          1.122213357750015,
+          -1.219010784542998
+        ]
+      ],
+      "feature_inliers": 385,
+      "masked_clipped_rgb_mae_0_255": 6.516437000918662,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4803-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4803-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4803-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4804.PNG",
+      "layout": "Vance portrait, 1980, resignation collage",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": 5,
+      "candidate_frame": 4743,
+      "candidate_time_s": 163.55172413793105,
+      "confidence": "high source/layout; best sampled frame, original screenshot time not uniquely proven",
+      "search_stride_frames": 3,
+      "native_source_size": [
+        1080,
+        1920
+      ],
+      "source_to_screenshot_affine": [
+        [
+          1.1214506517221958,
+          4.698616440161356e-05,
+          -43.1151998459066
+        ],
+        [
+          -4.698616440161356e-05,
+          1.1214506517221958,
+          0.003159914212072304
+        ]
+      ],
+      "feature_inliers": 718,
+      "masked_clipped_rgb_mae_0_255": 5.9836421454314195,
+      "clean_source_frame_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4804-source.png",
+      "normalized_screenshot_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4804-normalized.png",
+      "valid_mask_local": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/IMG_4804-valid-mask.png"
+    },
+    {
+      "screenshot": "IMG_4805.PNG",
+      "layout": "Oil silhouette and price curve with +80%",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": null,
+      "candidate_frame": null,
+      "candidate_time_s": null,
+      "confidence": "unresolved; no reliable foreground match found in sampled sources 2 through 7",
+      "trajectory_evidence": "single still only; direction, duration, entry and exit remain unverified"
+    },
+    {
+      "screenshot": "IMG_4806.PNG",
+      "layout": "Wallet emptied headline, wallet icon and ballot icon",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": null,
+      "candidate_frame": null,
+      "candidate_time_s": null,
+      "confidence": "unresolved; no reliable foreground match found in sampled sources 2 through 7",
+      "trajectory_evidence": "single still only; direction, duration, entry and exit remain unverified"
+    },
+    {
+      "screenshot": "IMG_4807.PNG",
+      "layout": "Podium photo, stabilization headline, trade card and oil photo",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": null,
+      "candidate_frame": null,
+      "candidate_time_s": null,
+      "confidence": "unresolved; no reliable foreground match found in sampled sources 2 through 7",
+      "trajectory_evidence": "single still only; direction, duration, entry and exit remain unverified"
+    },
+    {
+      "screenshot": "IMG_4808.PNG",
+      "layout": "11.03 flip date and large Today on red paper",
+      "screenshot_size": [
+        1125,
+        2436
+      ],
+      "visible_viewport_xyxy": [
+        0,
+        0,
+        1125,
+        2160
+      ],
+      "source_video": null,
+      "candidate_frame": null,
+      "candidate_time_s": null,
+      "confidence": "unresolved; no reliable foreground match found in sampled sources 2 through 7",
+      "trajectory_evidence": "single still only; direction, duration, entry and exit remain unverified"
+    }
+  ],
+  "reused_source_assets": [
+    {
+      "local_path": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/source5-cabinet-photo-only.png",
+      "source": 5,
+      "frame": 1370,
+      "crop_xyxy": [
+        45,
+        175,
+        1040,
+        550
+      ],
+      "classification": "reused_source_asset; photo interior only; exclude from recreated-graphics score"
+    },
+    {
+      "local_path": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/source5-paper-top-only.png",
+      "source": 5,
+      "frame": 0,
+      "crop_xyxy": [
+        0,
+        0,
+        1080,
+        1300
+      ],
+      "classification": "reused_source_asset; partial paper; exclude from recreated-graphics score"
+    },
+    {
+      "local_path": "/Users/swainwong/Desktop/newspaper-video/work/pixel-study-1.9/reference/source5-paper-frame0.png",
+      "source": 5,
+      "frame": 0,
+      "classification": "reference_frame_only; contains subtitle1365..1455; NOT a clean full background"
+    }
+  ]
+}
