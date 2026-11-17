@@ -1,0 +1,26 @@
+{
+  "id": "swaintalk-v1",
+  "slogan": "Follow the Tech, Follow the Money.",
+  "logo_sha256": "cdfdaad38a1e8eaf6496e20daaf33b9a7930c61beb6776d56be802345b6dca6c",
+  "font_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+  "font_source": "https://github.com/google/fonts/tree/main/ofl/inter",
+  "font_license": "OFL.txt",
+  "logo_rights": "User-owned channel identity, authorized for SwainTalk productions; no third-party endorsement grant",
+  "canvas": [
+    1080,
+    1920
+  ],
+  "origin": [
+    120,
+    620
+  ],
+  "logo_box": [
+    840,
+    280
+  ],
+  "slogan_top": 300,
+  "font_size": 44,
+  "line_height": 56,
+  "font_weight": 700,
+  "pause_seconds_each_side": 0.4
+}

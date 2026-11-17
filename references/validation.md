@@ -33,3 +33,8 @@
 新增入口选择与脚本哈希批准检查，未批准不得建制作工程；脚本改变即失效。新增旁白过程话语审核、图片语义规则、钩子顺序、主语言/字幕/异语划词翻译、VoiceStudio 选择与试音、BGM/SFX 合同。包装命令检查音乐/音效声明与首镜钩子。新增可编辑 musicEnvelope，TypeScript 检查通过（本轮运行环境 Node 18.20.8，复用已安装依赖，未声称独立安装/新渲染）。单元测试覆盖缺批准不建项目、脚本变动失效与选择缺项；结构验证不认证真实批准消息，也不替代逐句/图片/听音审核。
 
 当前 V3 两片被用户要求返修，不能作为 1.4 视听验收证据。英文 V4 审稿文件在本机审稿目录，未获得用户批准，因此未生成新版视频。Claude/WorkBuddy 仍未做端到端实测。
+
+
+## 1.5.0 validation
+
+Ten unittest cases pass, including rejecting early future-event reveals, critical estimated timing, unexplained long static holds, stale current-event photos, mismatched brand components/missing pauses, and incomplete chart measurement provenance. TypeScript compiled in a separate generated fixture project. Actual brand and synthetic data-comparison stills were rendered and inspected at 1080×1920; these are component checks, not full-video visual/listening acceptance. Original reference motion was re-sampled as described in origin-study.md. Inter font and OFL are bundled; SwainTalk logo retains canonical hash. Cross-client execution in Claude/WorkBuddy remains unverified.

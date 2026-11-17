@@ -20,6 +20,7 @@ def main():
  if not data.get('music') and not brief_data.get('no_music_user_message'):p.error('BGM missing: supply music or an explicit user no-music request.')
  if not any(s.get('sfx') for s in data.get('scenes',[])) and not brief_data.get('sfx_omission_reason'):p.error('SFX missing: map animation events to sound cues.')
  if data.get('scenes',[{}])[0].get('kind')=='brand':p.error('Start with the episode hook before the brand transition.')
+ if a.action=='render':subprocess.run([sys.executable,str(ROOT/'scripts/review_plan.py'),str(dest/'review-plan.json')],check=True)
  output='out/preview.png' if a.action=='still' else 'out/video.mp4'
  if (dest/output).exists():p.error('Output already exists; move it aside before rerendering.')
  cmd=['node',str(cli),a.action,'src/index.ts','NewspaperShort',output,'--log=error']

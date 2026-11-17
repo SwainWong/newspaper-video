@@ -23,3 +23,17 @@
 全片可传 `musicEnvelope:[{frame:0,gain:0},{frame:15,gain:0.5},{frame:120,gain:0.2}]`。点至少两个，frame 为非负严格递增整数，gain 为 0–1；绝对帧位置，线性插值并乘 musicVolume。根据真实旁白设计压低/恢复，不能称为自动侧链。
 
 执行 create/still/render 前必须有已确认 brief 和当前批准脚本。still/render 还检查 BGM、SFX 声明以及首镜不是品牌。纯技术示例 JSON 是组件输入示例，不是可跳过审批的生产工程。完整规则见 production-workflow.md 与 audio-production.md。
+
+
+## 1.5 语义图形和固定品牌
+
+`FilmProps.brandProfile: "swaintalk-v1"` 使所有 `kind:"brand"` 场景使用同一固定透明Logo+slogan组件，必须复制 `public/brand`。其他频道保留通用 `logo/slogan` 接口。
+
+`Scene.analysis` 与原有 images/editorial/comparison/detail 等内容区互斥：
+- `{type:"data",data:{title,unit,period,status,source,domain:[min,max],precision?,rows:[{label,value,at,color?}],summary?,summaryAt?}}`，同轴数据条，最多4行，domain必须包含零，at为场景内配音词锚帧。
+- `{type:"evidence",data:{file,publisher,published,documentLabel,imageWidth,imageHeight,crop:{x,y,width,height},focusAt,marks:[{x,y,width,height,at}],summary,summaryAt}}`，所有坐标以原图像素为准，focusAt之后放大，再按marks.at黄笔高亮。
+- `{type:"relations",steps:[{at,heading,detail,color?}]}`，最多4步，不把定性关系画成虚假比例。
+
+独立工程也可直接导入这些组件，传场景局部frame。现有照片/标题/字幕容器不要与analysis重复叠放。声音停顿仍需编辑真实音轨；组件不会自动创造静音或重新对齐字幕。
+
+`Scene.audioOffsetFrames`（非负整数，默认0）可推迟旁白起点，配合场景末端空帧形成真实品牌停顿。字幕仍用全片绝对帧，必须同步偏移；验证器会检查偏移加WAV时长不超过镜头。也可在独立混音中插入静音后导入。

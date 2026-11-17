@@ -35,6 +35,7 @@ for index,scene in enumerate(scenes):
  expected=end
  for field in ('title','kicker'):
   if not isinstance(scene.get(field),str):err(f'{sid}: {field} must be a string')
+ if not isinstance(scene.get('audioOffsetFrames',0),int) or scene.get('audioOffsetFrames',0)<0:err(f'{sid}: audioOffsetFrames must be a nonnegative integer');continue
  images=scene.get('images',[])
  if not isinstance(images,list):err(f'{sid}: images must be an array');images=[]
  if len(images)>2:err(f'{sid}: current layout supports at most two images')
@@ -53,7 +54,7 @@ for index,scene in enumerate(scenes):
   if not isinstance(file,str) or not (p/'public'/file).is_file():err(f'{sid}: missing asset {file}')
  if scene.get('audio') and (p/'public'/scene['audio']).is_file() and scene['audio'].lower().endswith('.wav'):
   with wave.open(str(p/'public'/scene['audio'])) as wav: frames=wav.getnframes()/wav.getframerate()*30
-  if frames>end-start+.1:err(f'{sid}: narration exceeds scene duration')
+  if frames+scene.get('audioOffsetFrames',0)>end-start+.1:err(f'{sid}: narration exceeds scene duration')
  effects=scene.get('sfx',[])
  if not isinstance(effects,list):err(f'{sid}: sfx must be an array');effects=[]
  for effect in effects:
@@ -64,6 +65,21 @@ for index,scene in enumerate(scenes):
   if isinstance(file,str) and (p/'public'/file).is_file() and file.lower().endswith('.wav') and isinstance(at,int):
    with wave.open(str(p/'public'/file)) as effect_audio: effect_frames=effect_audio.getnframes()/effect_audio.getframerate()*30
    if at+effect_frames>end-start+.1:err(f'{sid}: sfx tail exceeds scene')
+ analysis=scene.get('analysis')
+ if analysis is not None:
+  if any(scene.get(k) for k in ('editorial','images','visualBeats','metric','counter','metricBeats','nestedNotes','timeline','comparison','detail')):err(f'{sid}: analysis graphic must own its content area')
+  if not isinstance(analysis,dict) or analysis.get('type') not in ('data','evidence','relations'):err(f'{sid}: unknown analysis graphic')
+  elif analysis['type']=='data':
+   d=analysis.get('data',{});domain=d.get('domain',[]);rows=d.get('rows',[])
+   if not all(d.get(k) for k in ('title','unit','period','status','source')):err(f'{sid}: chart needs source, period, unit and actual/forecast status')
+   if len(domain)!=2 or not all(isinstance(v,(int,float)) for v in domain) or not domain[0]<=0<domain[1]:err(f'{sid}: invalid chart domain')
+   elif not 1<=len(rows)<=4 or any(not isinstance(r.get('value'),(int,float)) or not domain[0]<=r['value']<=domain[1] or not isinstance(r.get('at'),int) or not 0<=r['at']<end-start for r in rows):err(f'{sid}: invalid chart values or narration anchors')
+  elif analysis['type']=='evidence':
+   d=analysis.get('data',{})
+   if not all(d.get(k) for k in ('file','publisher','published','documentLabel','summary','crop','imageWidth','imageHeight')):err(f'{sid}: evidence identity/crop/summary missing')
+   if not (p/'public'/d.get('file','')).is_file():err(f'{sid}: evidence original screenshot missing')
+   if not isinstance(d.get('focusAt'),int) or d.get('summaryAt',-1)<d.get('focusAt',0):err(f'{sid}: evidence requires whole-page then focused summary')
+  elif not 1<=len(analysis.get('steps',[]))<=4 or any(not isinstance(r.get('at'),int) or not 0<=r['at']<end-start for r in analysis.get('steps',[])):err(f'{sid}: invalid relationship steps')
  editorial=scene.get('editorial')
  if editorial is not None:
   if not isinstance(editorial,dict) or editorial.get('type') not in ('document','schedule','relations'):err(f'{sid}: invalid editorial type')

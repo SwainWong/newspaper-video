@@ -2,7 +2,7 @@
 name: newspaper-video
 description: 制作或修改旧报纸、照片拼贴、图钉胶带、动态数字与时间轴风格的 Remotion 讲解视频；使用内置素材、样式参数和可运行模板。适用于复用报纸拼贴视觉风格，不承担通用剪辑或发布账号操作。
 metadata:
-  version: "1.4.1"
+  version: "1.5.0"
 ---
 
 # 报纸拼贴视频
@@ -11,11 +11,15 @@ metadata:
 
 ## 必须先完成入口与脚本确认
 
-先执行[制作流程与开工条件](references/production-workflow.md)：确认主语言、字幕模式/语言、配音工具；调研并交中英文对照的口播/画面审稿包，逐句排除制作过程话语及回应用户要求的辩解；核查在写稿前完成，非必要未证实说法直接省略，必要限定自然并入具体事实。用户确认具体脚本版本后才能生成视频。先钩子、再短 IP 过渡、再主体。实体以图片为主，文字解释关系；所有同类镜头一并检查。声音按[音频制作](references/audio-production.md)提供独立 BGM/SFX/VO 并试听。
+先执行[制作流程与开工条件](references/production-workflow.md)：确认主语言、字幕模式/语言、配音工具；调研并交中英文对照的口播/画面审稿包，逐句排除制作过程话语及回应用户要求的辩解；核查在写稿前完成，非必要未证实说法直接省略，必要限定自然并入具体事实。用户确认具体脚本版本后才能生成视频。先钩子、再短 IP 过渡、再主体。按口播含义选择真实图片、数据图表、关系动画或证据解释；不能做图片轮播PPT。所有同类镜头一并检查。声音按[音频制作](references/audio-production.md)提供独立 BGM/SFX/VO 并试听。
 
 ## 先看实际风格
 
 先看 [三部参考视频的镜头研究](references/origin-study.md)，再打开 [样例画面](assets/previews/style-preview.png)、[20 秒静音样片](assets/previews/style-demo.mp4) 和 [风格与素材说明](references/style.md)。样片为模板自身效果，不是参考原片的像素复刻证明。核心是稳定旧报纸背景、照片白边及图钉/胶带、黄色标题纸条、红色标签、短语字幕、随讲述分步揭示。
+
+## 语义、节奏与固定品牌
+
+制作前读 [语义动画与审查规范](references/semantic-motion.md)：同口径数据比较、按真实声词锚点推进、当前事件素材日期匹配、原件全貌→放大→黄笔→主语言摘要、手机尺寸避让。SwainTalk 使用内置固定品牌组合，头尾同字体/位置/Logo/slogan，品牌口播前后各至少0.4秒真实停顿。`review-plan.json` 是完整渲染前的记录门禁，不是视觉或听审证明。
 
 ## 创建与编辑
 
@@ -25,7 +29,7 @@ metadata:
 python3 "<SKILL_ROOT>/scripts/project.py" create "/absolute/path/my-video" --brief "/absolute/path/review/production-brief.json"
 ```
 
-只在生成的项目里改内容，不把运行状态、媒体或输出写回 Skill。模板不包含本期币安故事、私人配音或频道 Logo。运行依赖为 Python 3、Node/npm、Chromium；源代码锁定 Remotion 4.0.540，已用 Node 22 验证。
+只在生成的项目里改内容，不把运行状态、媒体或输出写回 Skill。模板不包含本期故事或私人配音；`public/brand/` 包含用户指定的 SwainTalk 品牌包，其他频道不用该配置。运行依赖为 Python 3、Node/npm、Chromium；源代码锁定 Remotion 4.0.540，已用 Node 22 验证。
 
 1. 读取用户文稿和媒体，确定每句对应的画面、证据及来源。真实帖子保留作者/头像/时间/上下文，先完整展示再放大关键段；不要手绘假帖子。角色介绍一次说明插画/化名，之后以角色职务为主。
 2. 按 [时间线接口](references/timeline.md) 编辑 `src/timeline.json`；将使用的素材和已有配音复制到 `public/`，使用相对文件名。完整配音的实测时长决定帧长，不为凑目标截断或硬拉伸。若用户要求频道 IP 开头和结尾出现，须核对它在画面与口播中均出现，并纳入总时长及字幕。未提供配音时，必须使用用户选定并经试音确认的工具与音色；不可静默换成系统声或用静音稿充当成片。

@@ -1,12 +1,12 @@
 # Newspaper Video
 
-把文稿与证据做成可编辑的 9:16 报纸拼贴讲解视频。此仓库同时是 Agent Skill 和 Remotion 工程模板；适用于 Codex，并提供 Claude Code、Claude 网页/Cowork 与 WorkBuddy 的安装入口。
+把文稿、证据与数据做成可编辑的 9:16 报纸拼贴讲解视频。此仓库同时是 Agent Skill 和 Remotion 工程模板；适用于 Codex，并提供 Claude Code、Claude 网页/Cowork 与 WorkBuddy 的安装入口。
 
 [20 秒静音样片](assets/previews/style-demo.mp4) · [样例画面](assets/previews/style-preview.png) · [参考风格研究](references/origin-study.md) · [验证记录](references/validation.md)
 
 [下载最新 Skill 安装包](https://github.com/SwainWong/newspaper-video/releases/latest)。
 
-两条实例已更新为 **V4.1 英语审阅版**：英语口播与纯英语字幕，使用经用户试音确认的 VoiceStudio **The Anchor**，节奏较试音放缓。新版以真实照片和来源页面承载内容，先钩子再进入 SwainTalk 品牌过渡，并加入原创 BGM、随动作触发的音效和口播避让混音。
+**当前 V4.1 已收到新一轮返修意见，V5 正在制作。** Skill 1.5 加入按口播语义选择图形、数据比较、固定频道IP、素材时效和真实声词时序检查；不再用增加照片数量替代分析。
 
 点击下方封面播放。已完成技术解码、旁白转录核对和最终文件抽帧检查；正常速度全片观看、真实听音及作者验收仍待完成。中性模板样片不含配音或频道品牌。
 
@@ -30,22 +30,24 @@
 
 [平台细节与官方文档](references/platforms.md)。格式适配不等于每个平台已完成端到端测试；已验证范围见上方记录。
 
-## 制作流程（1.4.1）
+## 制作流程（1.5.0）
 
 1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](references/production-workflow.md) 与 [声音模块](references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
 2. 复制工程：`python3 scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。
-3. 在新工程的 `src/timeline.json` 配场景、字幕、图片和音频；将媒体放入该工程的 `public/`。用 `src/theme.json` 调颜色、字幕和部分动画参数。[时间线字段说明](references/timeline.md)。
-4. 在新工程运行 `npm ci`、`npm run check`、`python3 validate_timeline.py src/timeline.json`，再回到本仓库通过 `python3 scripts/project.py still /absolute/path/my-video --frame 240` 和 `python3 scripts/project.py render /absolute/path/my-video` 输出静帧、MP4。
+3. 按[语义动画规范](references/semantic-motion.md)选择照片、数据比较、关系或证据焦点图，记录真实声词锚点及素材日期。在新工程的 `src/timeline.json` 配场景、字幕、图形和音频；将媒体放入该工程的 `public/`。用 `src/theme.json` 调颜色、字幕和部分动画参数。[时间线字段说明](references/timeline.md)。
+4. 在新工程运行 `npm ci`、`npm run check`、`python3 validate_timeline.py src/timeline.json`，并完成 `review-plan.json`；完整渲染前运行 `python3 scripts/review_plan.py /absolute/path/my-video/review-plan.json` 检查记录，再回到本仓库通过 `python3 scripts/project.py still /absolute/path/my-video --frame 240` 和 `python3 scripts/project.py render /absolute/path/my-video` 输出静帧、MP4。
 5. 按正常速度查看成片并试听，核对字幕、证据停留、配音和素材使用范围。解码通过只说明文件技术上可读。
 
 要求 Python 3、Node 22.12+、npm 和 Chromium/Chrome。工程锁定 Remotion 4.0.540。输出写在新工程的 `out/`，不会写进 Skill。Remotion 和其他第三方依赖遵循各自许可证；仓库不包含参考原片或其截图，也不授权使用第三方新闻图片。
 
 ## 模板内容
 
+- `assets/template/src/analysis-graphics.tsx`：按声词时码增长的数据条、原件放大/黄笔/摘要、逐步关系图和固定 SwainTalk 品牌组合。`public/brand/` 保留原透明 Logo、字体与许可；其他频道可用通用品牌接口。
 - `assets/template/src/template.tsx`：报纸舞台、照片卡、标题、字幕、数字、比较条与时间线；`src/editorial.tsx` 提供文件、日程轴和三方关系图。
 - `assets/template/src/theme.json`：主要色彩、字幕和入场运动参数。
 - `assets/template/public/`：原创中性纸纹、图钉、胶带及示例插图。
 - `assets/template/examples/`：不同场景结构示例，含 `editorial-example.json` 和频道片头片尾示例。
+- `scripts/review_plan.py`：检查语义时间、数据口径、当期素材日期和品牌前后停顿记录；不替代实际看听。
 - `scripts/preflight.py`：检查语言、字幕、声音选择及脚本批准哈希；不能替代真实用户批准。
 - `scripts/project.py`：创建工程、抽帧与渲染；`scripts/package.py`：打包跨平台 Skill。
 
