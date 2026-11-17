@@ -1,0 +1,249 @@
+[
+  {
+    "effect": "split",
+    "data": {
+      "left": {
+        "title": "采集",
+        "detail": "收集可核验的原始材料"
+      },
+      "right": {
+        "title": "核验",
+        "detail": "核对来源与上下文"
+      },
+      "relation": "+",
+      "meaning": "两项互补职能，不表示因果",
+      "atLeft": 0,
+      "settleLeft": 16,
+      "atRight": 20,
+      "settleRight": 36,
+      "atRelation": 48,
+      "settleRelation": 64
+    }
+  },
+  {
+    "effect": "stage-curve",
+    "data": {
+      "domain": [
+        0,
+        100
+      ],
+      "timeDomain": [
+        0,
+        12
+      ],
+      "timeLabels": [
+        "0",
+        "12"
+      ],
+      "unit": "示意指数",
+      "timeUnit": "模型时间",
+      "source": "合成测试数据；非真实市场数据",
+      "title": "阶段模型",
+      "schematic": true,
+      "axes": {
+        "at": 0,
+        "settle": 12
+      },
+      "segments": [
+        {
+          "at": 15,
+          "settle": 36,
+          "labelAt": 39,
+          "labelSettle": 46,
+          "label": "蓄势阶段",
+          "color": "#8ac9e0",
+          "points": [
+            {
+              "time": 0,
+              "value": 10
+            },
+            {
+              "time": 3,
+              "value": 20
+            }
+          ]
+        },
+        {
+          "at": 52,
+          "settle": 73,
+          "labelAt": 76,
+          "labelSettle": 83,
+          "label": "推进阶段",
+          "color": "#76dfa2",
+          "points": [
+            {
+              "time": 3,
+              "value": 20
+            },
+            {
+              "time": 6,
+              "value": 75
+            }
+          ]
+        },
+        {
+          "at": 89,
+          "settle": 110,
+          "labelAt": 113,
+          "labelSettle": 120,
+          "label": "顶部阶段",
+          "color": "#f0d678",
+          "points": [
+            {
+              "time": 6,
+              "value": 75
+            },
+            {
+              "time": 9,
+              "value": 85
+            }
+          ]
+        },
+        {
+          "at": 126,
+          "settle": 147,
+          "labelAt": 150,
+          "labelSettle": 157,
+          "label": "回落阶段",
+          "color": "#ff9a89",
+          "points": [
+            {
+              "time": 9,
+              "value": 85
+            },
+            {
+              "time": 12,
+              "value": 40
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "effect": "checklist",
+    "data": {
+      "title": "核验检查",
+      "source": "示意检查记录",
+      "denominator": 3,
+      "items": [
+        {
+          "label": "来源",
+          "explanation": "材料附有可定位的出处。",
+          "at": 10,
+          "explainSettle": 24,
+          "checkAt": 35,
+          "countAt": 39,
+          "pass": true
+        },
+        {
+          "label": "时间",
+          "explanation": "时间范围尚待确认，因此保持未知。",
+          "at": 48,
+          "explainSettle": 64,
+          "checkAt": 78,
+          "countAt": 82,
+          "pass": null
+        },
+        {
+          "label": "口径",
+          "explanation": "统计范围不一致，不能判定通过。",
+          "at": 95,
+          "explainSettle": 111,
+          "checkAt": 125,
+          "countAt": 129,
+          "pass": false
+        }
+      ]
+    }
+  },
+  {
+    "effect": "market-line",
+    "data": {
+      "domain": [
+        0,
+        100
+      ],
+      "timeDomain": [
+        0,
+        12
+      ],
+      "timeLabels": [
+        "0",
+        "12"
+      ],
+      "unit": "示意指数",
+      "timeUnit": "模型时间",
+      "source": "合成测试数据；非真实市场数据",
+      "title": "时序与基准 · 合成示例",
+      "points": [
+        {
+          "time": 0,
+          "value": 30
+        },
+        {
+          "time": 1,
+          "value": 55
+        },
+        {
+          "time": 5,
+          "value": 40
+        },
+        {
+          "time": 12,
+          "value": 75
+        }
+      ],
+      "baseline": 50,
+      "baselineLabel": "比较基准",
+      "line": {
+        "at": 0,
+        "settle": 44
+      },
+      "endpoint": {
+        "at": 50,
+        "settle": 62
+      },
+      "benchmark": {
+        "at": 70,
+        "settle": 85
+      },
+      "delta": {
+        "at": 94,
+        "settle": 112
+      },
+      "conclusion": {
+        "at": 125,
+        "settle": 141,
+        "text": "末值高于基准；示例不构成趋势预测。"
+      }
+    }
+  },
+  {
+    "effect": "threshold",
+    "data": {
+      "title": "配额与门槛 · 合成示例",
+      "value": 62,
+      "total": 100,
+      "threshold": 75,
+      "unit": "份",
+      "source": "合成示例，非真实统计",
+      "setup": {
+        "at": 0,
+        "settle": 18
+      },
+      "growth": {
+        "at": 30,
+        "settle": 75
+      },
+      "gap": {
+        "at": 90,
+        "settle": 108
+      },
+      "result": {
+        "at": 120,
+        "settle": 138
+      }
+    }
+  }
+]

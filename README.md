@@ -48,7 +48,7 @@
 
 黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片使用范围与未决事项见署名清单，不代表取得全面转载授权。可编辑工程及 VO/BGM/SFX 分轨保留在本地 `work/`；仓库提供通用模板和数据接口。
 
-## 安装插件（1.7.1）
+## 安装插件（1.8.0）
 
 源码只维护在 `skills/newspaper-video/`。根目录旧入口为兼容链接；安装缓存是分发副本，不在其中开发。
 
@@ -56,7 +56,7 @@ Codex：`codex plugin marketplace add /absolute/path/newspaper-video`，然后 `
 
 Claude Code：`claude plugin marketplace add /absolute/path/newspaper-video`，然后 `claude plugin install newspaper-video@swainwong-newspaper`。调用 `/newspaper-video:newspaper-video`。
 
-WorkBuddy：在插件页添加本仓库的市场地址；兼容 CodeBuddy CLI 的模式可用 `codebuddy plugin marketplace add /absolute/path/newspaper-video` 及 `codebuddy plugin install newspaper-video@swainwong-newspaper`。不支持市场导入的客户端可运行 `python3 skills/newspaper-video/scripts/package.py /outside/source/newspaper-video.zip`，从技能上传入口导入。平台客户端导入与实际渲染的验证状态分别记录，不把清单兼容当端到端成功。
+WorkBuddy：自定义市场的桌面入口依客户端而定，未作保证。兼容 CodeBuddy CLI 的模式可用 `codebuddy plugin marketplace add /absolute/path/newspaper-video` 及 `codebuddy plugin install newspaper-video@swainwong-newspaper`。不支持市场导入的客户端可运行 `python3 skills/newspaper-video/scripts/package.py /outside/source/newspaper-video.zip`，从技能上传入口导入。平台客户端导入与实际渲染的验证状态分别记录，不把清单兼容当端到端成功。
 
 官方契约：[Claude Code](https://code.claude.com/docs/en/plugins-reference)、[WorkBuddy插件](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Plug-In)、[CodeBuddy兼容清单](https://www.workbuddy.ai/docs/zh/cli/plugins-reference)。
 
@@ -64,15 +64,15 @@ WorkBuddy：在插件页添加本仓库的市场地址；兼容 CodeBuddy CLI �
 
 输入是批准脚本、真实时码与合法素材；先按语义选择图像、数据、证据或关系画面，加入标题/字幕，检查动作组合，再渲染并看听。输出为可编辑工程、MP4与来源/验收记录，交给用户审阅。
 
-参考研究模块读取5/6/7与截图，产出带来源哈希的[观察记录](skills/newspaper-video/references/origin-study-567.md)，交给动画设计。新增13种设计配方包含分区关系、阶段曲线、检查板、行情线、色层/遮挡、日历翻页等；它们不是全部已实现的模板组件。
+参考研究模块读取5/6/7与截图，产出带来源哈希的[观察记录](skills/newspaper-video/references/origin-study-567.md)，交给动画设计。新增13种设计配方包含分区关系、阶段曲线、检查板、行情线、色层/遮挡、日历翻页等；1.8已全部实现为11个画面组件与2种转场，接入[可执行接口](skills/newspaper-video/references/motion-api.md)。
 
-动画模块读取[逐项合同](skills/newspaper-video/references/motion-contracts.md)，选择输入、适用条件、运动阶段与互斥关系，产出 `motion-plan.json`，交给组合检查。已有实现与设计配方在[目录](skills/newspaper-video/references/motion-catalog.json)明确区分。
+动画模块读取[逐项合同](skills/newspaper-video/references/motion-contracts.md)，选择输入、适用条件、运动阶段与互斥关系，产出 `motion-plan.json`，交给组合检查。效果的状态、来源和互斥关系在[目录](skills/newspaper-video/references/motion-catalog.json)明确区分。
 
 声音模块以动作时码为输入，将原创paper/tick/whoosh短音或有许可素材绑定到动作，输出独立SFX和混音，交给听审。内置短音是设计候选，尚未做真实听音验收。
 
-组合检查读取动作时段、区域、焦点和声音锚，拒绝冲突及没有实现证据的配方；完整render会运行 `motion_gate.py`。它只检查计划，实际像素、运动与声音仍由视听审查确认。
+组合检查读取动作时段、区域、焦点和声音锚，先运行与渲染器共用的字段校验，再拒绝区域冲突、失配的时间线哈希、遗漏动作与声音记录；完整render会运行 `motion_gate.py --timeline`。它不能代替实际看听。[平台验证记录](skills/newspaper-video/references/platform-validation-20261117.md)区分清单与运行验收。
 
-## 制作流程（1.6.1）
+## 制作流程（1.8.0）
 
 1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](skills/newspaper-video/references/production-workflow.md) 与 [声音模块](skills/newspaper-video/references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
 2. 复制工程：`python3 skills/newspaper-video/scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。
@@ -94,4 +94,22 @@ WorkBuddy：在插件页添加本仓库的市场地址；兼容 CodeBuddy CLI �
 - `scripts/showcase_gifs.py`：从最终成片的3–5段选定窗口生成README动画GIF，并保存来源与产物哈希。
 - `scripts/project.py`：创建工程、抽帧与渲染；`scripts/package.py`：打包跨平台 Skill。
 
-[参考片分析](skills/newspaper-video/references/origin-study.md)列明了目前仍待做成可配置组件的效果。欢迎通过 Issues 报告实际环境、来源展示或视频排版问题。
+[早期参考片分析](skills/newspaper-video/references/origin-study.md)保留历史观察；当前可执行状态以[动效目录](skills/newspaper-video/references/motion-catalog.json)为准。欢迎通过 Issues 报告实际环境、来源展示或视频排版问题。
+
+## 组件预览与开发验证
+
+[打开 77 秒组件样片](showcase/motion-showcase-1.8.mp4)（540×960、30 fps，含原创候选 SFX，无旁白/BGM）。这是合成资料测试，包含 11 个组件和 2 种转场；源片 SHA 与动图窗口见[预览清单](showcase/motion-1.8/manifest.json)。
+
+| 双区关系与色块转场 | 深色教学板分段曲线 |
+| --- | --- |
+| ![双区关系与转场](showcase/motion-1.8/split-and-wipe.gif) | ![分段曲线](showcase/motion-1.8/dark-stage-curve.gif) |
+
+| 虹膜转场与日历翻页 | 关键词纸条 |
+| --- | --- |
+| ![虹膜和日历](showcase/motion-1.8/iris-calendar.gif) | ![关键词纸条](showcase/motion-1.8/keyword-strips.gif) |
+
+32 项 Python 回归、52 组真实组件运行检查、TypeScript、样片与 GIF 完整解码通过；关键画面及切镜帧已抽查。连续观看、真实听音及用户验收尚未完成。
+
+`python3 skills/newspaper-video/scripts/motion_demo.py /new/fixture` 创建明确标记的合成测试工程，包含全部13种效果及SFX；这不是新闻成片，也不代替脚本批准。运行npm ci、npm run check、node scripts/validate-motion.cjs src/timeline.json后可直接用Remotion渲染测试。
+
+源码回归：`python3 -m unittest discover -s tests -v`；有依赖的测试工程上运行 `node tests/motion_runtime.cjs /absolute/fixture` 检查真实组件的输入、时序、终态及转场。新克隆不依赖用户目录配置；Node要求22.12以上。

@@ -1,0 +1,58 @@
+{
+  "source": "../motion-showcase-1.8.mp4",
+  "source_sha256": "beadcaded4aead3b8d32203cadb5038aeaecd7c57cb4c85288b0419db9ab75ab",
+  "width": 270,
+  "fps": 12,
+  "clips": [
+    {
+      "name": "split-and-wipe",
+      "start": 3.5,
+      "duration": 5,
+      "purpose": "双区关系落稳后切镜遮挡",
+      "file": "split-and-wipe.gif",
+      "sha256": "9463eeea020e79e17d8230f7457d57721e01dcdd0cf68233a162a1020a557276",
+      "bytes": 342969,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "60"
+    },
+    {
+      "name": "dark-stage-curve",
+      "start": 8.5,
+      "duration": 5,
+      "purpose": "深色教学板分四阶段描线与标签落稳",
+      "file": "dark-stage-curve.gif",
+      "sha256": "e2bc7a023be418386e74680583bf7a620293c574a34240f1493380e7a9d72917",
+      "bytes": 111306,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "60"
+    },
+    {
+      "name": "iris-calendar",
+      "start": 41.5,
+      "duration": 5,
+      "purpose": "虹膜遮挡切入纸页日历翻动",
+      "file": "iris-calendar.gif",
+      "sha256": "f0c82a72c811949bc25e8e5b2189157805ec77b3869de6c8c71c8ef5ad47de80",
+      "bytes": 425068,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "60"
+    },
+    {
+      "name": "keyword-strips",
+      "start": 57,
+      "duration": 4,
+      "purpose": "关键词纸条按时码逐项进入",
+      "file": "keyword-strips.gif",
+      "sha256": "de3196d554c92b520bfa8178b6e139b754c584717f1e149524be345ab2b75253",
+      "bytes": 225160,
+      "width": 270,
+      "height": 480,
+      "nb_read_frames": "48"
+    }
+  ],
+  "scope": "Encoded animation previews; not audio or full-video acceptance",
+  "fixture": "Synthetic component test; no narration or BGM; all eleven components and two transitions"
+}

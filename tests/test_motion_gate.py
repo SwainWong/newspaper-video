@@ -8,7 +8,7 @@ class MotionTest(unittest.TestCase):
  def test_valid(self):self.assertEqual(self.check(event(),event('q',start=100,settle=116,end=200)),[])
  def test_collision(self):self.assertTrue(self.check(event(),event('q',effect='data')))
  def test_separate_regions_still_compete_for_focus(self):self.assertTrue(self.check(event(bbox=[0,0,100,100]),event('q',bbox=[500,500,100,100])))
- def test_recipe_not_silently_renderable(self):self.assertTrue(self.check(event(effect='calendar-flip')))
+ def test_implemented_calendar_is_admitted(self):self.assertEqual(self.check(event(effect='calendar-flip')),[])
  def test_unknown_deprecated(self):
   for effect in ['fake','impact-legacy','relations-legacy']:self.assertTrue(self.check(event(effect=effect)))
  def test_exclusions_symmetric(self):

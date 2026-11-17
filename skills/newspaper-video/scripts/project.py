@@ -15,13 +15,14 @@ def main():
  cli=dest/'node_modules/@remotion/cli/remotion-cli.js'
  if not cli.is_file():p.error('Run npm ci in the project first.')
  subprocess.run([sys.executable,'validate_timeline.py','src/timeline.json'],cwd=dest,check=True)
+ subprocess.run(['node','scripts/validate-motion.cjs','src/timeline.json'],cwd=dest,check=True)
  import json
  data=json.loads((dest/'src/timeline.json').read_text());brief_data=json.loads((dest/'production-brief.json').read_text())
  if not data.get('music') and not brief_data.get('no_music_user_message'):p.error('BGM missing: supply music or an explicit user no-music request.')
- if not any(s.get('sfx') for s in data.get('scenes',[])) and not brief_data.get('sfx_omission_reason'):p.error('SFX missing: map animation events to sound cues.')
+ if not any(s.get('sfx') or any(e.get('sound') for e in s.get('motion',[])) for s in data.get('scenes',[])) and not any(t.get('sound') for t in data.get('transitions',[])) and not brief_data.get('sfx_omission_reason'):p.error('SFX missing: map animation events to sound cues.')
  if data.get('scenes',[{}])[0].get('kind')=='brand':p.error('Start with the episode hook before the brand transition.')
  if a.action=='render':
-  subprocess.run([sys.executable,str(ROOT/'scripts/motion_gate.py'),str(dest/'motion-plan.json')],check=True)
+  subprocess.run([sys.executable,str(ROOT/'scripts/motion_gate.py'),str(dest/'motion-plan.json'),'--timeline',str(dest/'src/timeline.json')],check=True)
   subprocess.run([sys.executable,str(ROOT/'scripts/review_plan.py'),str(dest/'review-plan.json'),'--require-visual'],check=True)
   if data.get('brandProfile')=='swaintalk-v1':
    plan=json.loads((dest/'review-plan.json').read_text())

@@ -2,7 +2,7 @@
 name: newspaper-video
 description: 制作或修改旧报纸、照片拼贴、图钉胶带、动态数字与时间轴风格的 Remotion 讲解视频；使用内置素材、样式参数和可运行模板。适用于复用报纸拼贴视觉风格，不承担通用剪辑或发布账号操作。
 metadata:
-  version: "1.7.1"
+  version: "1.8.0"
 ---
 
 # 报纸拼贴视频
@@ -59,4 +59,4 @@ python3 "<SKILL_ROOT>/scripts/project.py" render .
 
 ## 参考风格与组合检查
 
-设计动画前读取 [5/6/7参考研究](references/origin-study-567.md) 和 [动效合同](references/motion-contracts.md)。效果选择使用 `references/motion-catalog.json`；recipe 状态表示设计配方，不能当作已有渲染组件。用 `scripts/motion_gate.py motion-plan.json` 检查时序与冲突，完整render自动要求此计划。截图只确定构图，运动与声音不得由单张截图推断。
+设计动画前读取 [5/6/7参考研究](references/origin-study-567.md) 和 [动效合同](references/motion-contracts.md)。效果选择使用 `references/motion-catalog.json`；1.8已实现13种新增效果；通过 [可执行接口](references/motion-api.md) 配置 scene.motion 和 transitions。以后新增的recipe仍不得冒充实现。用 `scripts/motion_gate.py motion-plan.json` 检查时序与冲突，完整render自动要求此计划。截图只确定构图，运动与声音不得由单张截图推断。

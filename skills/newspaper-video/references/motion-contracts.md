@@ -1,10 +1,10 @@
-# 动效合同 1.7
+# 动效合同 1.8
 
 此库将原有子动画按可调用模块归并；例如photo包含照片入场、白边、标签、图钉/胶带和视频槽，evidence包含摄影机、定位框、黄笔与摘要。没有删除原有子效果。
 
 ## 使用方法
 
-1. 先按语义选择catalog.match；根据use准备输入，遵守constraints。implemented是已有模板入口；recipe是可以在项目中实现的复刻配方，并非新增模板字段。deprecated拒绝新生产。
+1. 先按语义选择catalog.match；根据use准备输入，遵守constraints。implemented是已有模板入口；当前13种新增效果均已实现，输入以motion-api.md、graphics-api.md和paper-api.md为准；将来recipe扩展需先实现。deprecated拒绝新生产。
 2. 每个动作写入motion-plan.json，记录全片绝对整数帧start/settle/end、区域bbox=[x,y,width,height]、focus、meaning及声音。settle到end为阅读保持。默认入场9–18帧，转场12–24帧；参考测量只精确到0.25秒，不能声称逐帧拟合。
 3. 同时间同区域只允许一个主内容模块；装饰附着于父模块，不再重复注册为抢焦点动画。证据、行情线、关系图选择其一占主区，标题/字幕各占独立区。上下区域可组合，但同时运动的主焦点只能一个。
 4. 先做冲突检查：python3 scripts/motion_gate.py motion-plan.json。新增效果必须登记所有字段与双向excludes，跑负例；未知效果报错。每个新增主模块与所有已有主模块默认按空间和时间互斥，无需遗漏的逐对黑名单。同模块同区域也检查。
@@ -164,91 +164,91 @@
 - 约束：避免切断阅读及SFX尾音
 - 区域：transition；声音：none；显式互斥：color-wipe, iris
 
-### split · 红蓝双区关系 [recipe]
+### split · 红蓝双区关系 [implemented]
 
 - 匹配：两方立场/互补职能/不等关系
 - 使用：`left,right,relation,atLeft,atRight,atRelation`
 - 约束：先两边后关系符号；VS/+/<必须与语义一致；不是默认敌我编码
 - 区域：content；声音：paper；显式互斥：按区域/焦点通则
 
-### stage-curve · 分阶段教学曲线 [recipe]
+### stage-curve · 分阶段教学曲线 [implemented]
 
 - 匹配：解释阶段模型
 - 使用：`segments[{label,points,at,color}],schematic:true`
 - 约束：明确示意；各段保留已画轨迹；禁止伪装真实行情
 - 区域：content；声音：none；显式互斥：按区域/焦点通则
 
-### checklist · 检查板逐项勾选 [recipe]
+### checklist · 检查板逐项勾选 [implemented]
 
 - 匹配：有定义且可验证的条件组
 - 使用：`items[{label,explanation,pass,at}],denominator`
-- 约束：先解释后勾选再更新计数；未知不是通过；超过4个解释卡分屏
+- 约束：先解释后勾选再更新计数；未知不是通过；支持最多8项，超过4个解释卡自动分屏
 - 区域：content；声音：tick；显式互斥：按区域/焦点通则
 
-### market-line · 行情线与基准 [recipe]
+### market-line · 行情线与基准 [implemented]
 
 - 匹配：实际时序数据及比较基准
 - 使用：`points[{time,value}],domain,source,baseline,callouts`
 - 约束：按真实时间横轴；同轴；终点/基准/差值按VO分步；不得用手绘近似真实数据
 - 区域：content；声音：tick；显式互斥：按区域/焦点通则
 
-### chapter-tint · 章节纸面色层 [recipe]
+### chapter-tint · 章节纸面色层 [implemented]
 
 - 匹配：章节情绪改变
 - 使用：`color,opacity,at,duration`
 - 约束：保持纸纹和文字对比；原件区不染色；颜色不替代事实
 - 区域：background；声音：none；显式互斥：按区域/焦点通则
 
-### color-wipe · 整屏色块遮挡转场 [recipe]
+### color-wipe · 整屏色块遮挡转场 [implemented]
 
 - 匹配：论点或章节明确切换
 - 使用：`color,direction,start,covered,end`
 - 约束：完全遮住旧内容后换场；同区一次一种转场；禁与证据变焦并发
 - 区域：transition；声音：whoosh；显式互斥：evidence, cut, iris
 
-### iris · 圆形收放遮挡 [recipe]
+### iris · 圆形收放遮挡 [implemented]
 
 - 匹配：解释层次深入
 - 使用：`center,start,covered,end`
 - 约束：字幕区保留；旧新内容仅在覆盖时换；禁止连续滥用
 - 区域：transition；声音：whoosh；显式互斥：evidence, cut, color-wipe
 
-### calendar-flip · 日历翻页计数 [recipe]
+### calendar-flip · 日历翻页计数 [implemented]
 
 - 匹配：月份/天数流逝
 - 使用：`from,to,unit,start,end`
 - 约束：翻页中间数字非实测状态；终值可读；不每页打响
 - 区域：content；声音：paper；显式互斥：metric
 
-### film-frame · 胶片容器 [recipe]
+### film-frame · 胶片容器 [implemented]
 
 - 匹配：历史事件/视频引用
 - 使用：`media,label,source,in,out`
 - 约束：黑白孔边为装饰；不暗示档案真伪；孔边不持续闪烁
 - 区域：content；声音：paper；显式互斥：按区域/焦点通则
 
-### keyword · 关键词纸片组 [recipe]
+### keyword · 关键词纸片组 [implemented]
 
 - 匹配：论点重音/结论
 - 使用：`words[{text,color,at,rotation}],subject`
 - 约束：按短语出现；不逐字弹跳；不能复制全部字幕
 - 区域：annotation；声音：paper；显式互斥：按区域/焦点通则
 
-### threshold · 阈值进度条 [recipe]
+### threshold · 阈值进度条 [implemented]
 
 - 匹配：票数/配额距门槛
 - 使用：`value,total,threshold,unit,at,source`
 - 约束：阈值先交代；数值条长同轴；未达到不显示成功
 - 区域：content；声音：tick；显式互斥：data
 
-### icon-metaphor · 图标隐喻 [recipe]
+### icon-metaphor · 图标隐喻 [implemented]
 
 - 匹配：抽象影响的辅助说明
 - 使用：`icon,meaning,caption,at`
 - 约束：不得冒充数据/真实证据；避开额外无意义箭头
 - 区域：content；声音：paper；显式互斥：按区域/焦点通则
 
-### date-tiles · 日期字块 [recipe]
+### date-tiles · 日期字块 [implemented]
 
 - 匹配：日期成为论述重音
 - 使用：`date,format,at`
@@ -261,3 +261,7 @@
 assets/sfx/paper.wav、tick.wav、whoosh.wav为本次原创程序合成短音，CC0，未采样原片音轨。复制至项目public/sfx后使用原sfx接口；paper在接触/落稳，tick在勾选/终值，whoosh在运动速度峰值。它们是设计候选，真实听音和混音仍需逐项目完成，不能宣称匹配参考原声。
 
 示例：references/motion-plan.example.json 是独立动作计划，不是timeline输入。现有工程升级时须按最终时间线补全events；不能用该测试示例冒充整片记录。recipe_implementations按效果ID填写{file,sha256,frames:[起/中/终图片路径],review:实际检查说明}。该记录是可追溯要求，仍不自动认证像素与用户验收。
+
+## 1.8 实际入口
+
+新增13种效果已接入scene.motion / FilmProps.transitions，完整字段、时码和场景互斥见[motion-api.md](motion-api.md)。旧版上文配方参数是设计意图，具体JSON以API及fixtures为准。render先运行与组件共用的TypeScript验证器，再核对motion-plan绑定的timeline SHA与实际动作、声音。

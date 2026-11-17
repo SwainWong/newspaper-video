@@ -6,7 +6,10 @@
   "plugins": [
     {
       "name": "newspaper-video",
-      "source": "./"
+      "source": "./",
+      "version": "1.8.0",
+      "description": "Editable newspaper collage videos with executable motion components"
     }
-  ]
+  ],
+  "description": "Newspaper collage video tools and reusable motion components"
 }

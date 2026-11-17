@@ -147,5 +147,8 @@ for index,scene in enumerate(scenes):
 for name in ('logo','music'):
  file=data.get(name)
  if file and (not isinstance(file,str) or not (p/'public'/file).is_file()):err(f'missing {name}: {file}')
+from validate_motion_structure import check as check_motion_structure
+try: errors.extend(check_motion_structure(data,p))
+except (TypeError,ValueError,KeyError,AttributeError) as exc: err('malformed motion: '+str(exc))
 print(json.dumps({'status':'FAIL' if errors else 'PASS','file':str(pathlib.Path(args.file).resolve()),'scenes':len(scenes),'duration_frames':expected,'fps':30,'errors':errors,'scope':'input structure, frame continuity, cue bounds and local file existence; not creative, rights or audiovisual review'},indent=2))
 sys.exit(bool(errors))

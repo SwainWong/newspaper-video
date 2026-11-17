@@ -1,0 +1,8 @@
+[
+  {"effect":"chapter-tint","data":{"color":"#afc9d2","opacity":0.2,"at":8,"duration":15}},
+  {"effect":"calendar-flip","data":{"from":1,"to":12,"unit":"月份","start":12,"end":144}},
+  {"effect":"film-frame","data":{"media":{"type":"image","src":"template-example.svg"},"label":"模板示意素材","source":"本模板自带 SVG，非历史档案","in":6,"out":145}},
+  {"effect":"keyword","data":{"subject":"事实先行，再强调结论","words":[{"text":"证据有出处","color":"#97382c","at":10,"rotation":-3},{"text":"数字有口径","color":"#315c70","at":42,"rotation":2},{"text":"推测须标明","color":"#8b621f","at":78,"rotation":-1}]}},
+  {"effect":"icon-metaphor","data":{"icon":"template-example.svg","meaning":"一张纸承载一个观点","caption":"用纸张比喻信息载体；图形本身不构成事实证据。","at":12}},
+  {"effect":"date-tiles","data":{"date":"2026-11-17","format":"zh","at":18}}
+]

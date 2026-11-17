@@ -41,3 +41,7 @@
 1.6证据摄影机：`EvidenceFocus.data.zoomFrames`默认24（12–45帧），`focusAt`是连续变焦开始，整页至少先停留12帧。`marks[].at`与`summaryAt`不早于focusAt+zoomFrames。原件在同一DOM图像平面上做连续translate/scale；坐标均为原图像素，crop必须在原图范围内。源代码几何函数见`evidence-camera.ts`。
 
 1.6.1默认工程先影像钩子、再品牌段。首场景的第一张主体照片从frame 0可见，同时保持受限位移的入场运动；其他照片沿原顺序入场。若自定义首镜（如analysis），仍须自己确保实际首帧有可辨主体，制作记录不能替代画面。
+
+## 1.8 可执行扩展
+
+scene.motion与顶层transitions见[motion-api.md](motion-api.md)。新增分区、阶段曲线、检查板、行情、阈值、纸面色层、日历、胶片、词片、图标、日期与两种转场；字段由同一TypeScript验证器用于预检和渲染。生产render须绑定motion-plan与timeline哈希、实际效果和声音。

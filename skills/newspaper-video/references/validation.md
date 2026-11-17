@@ -55,6 +55,20 @@ GIF工具已从20秒模板样片生成三段270×480、12fps、每段3秒的GIF�
 
 2026-11-17：23个unittest通过；Skill frontmatter验证通过；独立Skill ZIP打包成功。Codex CLI实际安装newspaper-video@swainwong-newspaper 1.7.0到版本缓存；Claude/WorkBuddy清单按官方契约提供，未运行这两个客户端。观察范围见origin-study-567.md；13种新配方尚未全部成为模板组件，生产门禁要求项目实现与抽帧记录。新增paper/tick/whoosh为原创程序合成声音，未完成真实听审。此次README已同步源码结构、模块输入输出、安装和验收边界；没有声称参考片完整看听验收。
 
-1.7.1：Codex app-server skills/list 实际返回启用的 newspaper-video:newspaper-video，pluginId为newspaper-video@swainwong-newspaper，路径指向1.7.1缓存。Claude CLI validate返回Invalid API key，未通过；未发现CodeBuddy CLI。独立安装包无软链接，不含work/.git/node_modules/原片截图；旧Skill ZIP可生成。
+1.7.1：Codex app-server skills/list 实际返回启用的 newspaper-video:newspaper-video，pluginId为newspaper-video@swainwong-newspaper，路径指向1.7.1缓存。当时旧Claude CLI返回Invalid API key；后续确认该版没有plugin命令，此结果不能视为清单验证。WorkBuddy随包CLI与临时新版Claude的后续实测见1.8记录。独立安装包无软链接，不含work/.git/node_modules/原片截图；旧Skill ZIP可生成。
 
 已从Codex 1.7.1安装缓存复制模板到独立目录，使用独立npm缓存完成npm ci；TypeScript检查通过，Chrome实际渲染第0帧并查看，主体示例图片可见。这是旧模板安装可运行性检查，不是13种新配方实现或视听验收。默认用户npm缓存曾报权限错误，改用临时缓存，未修改用户缓存权限。
+
+
+## 1.8.0 可执行动效与平台原生验证
+
+2026-11-17：13个参考配方全部接入可运行模板（11个画面组件、2种转场），包含共用字段校验、互斥/区域/焦点检查及实际时间线哈希绑定。32项Python回归、52组真实Remotion组件运行断言、Node 22.19.0下TypeScript及字段校验通过。检查板支持1–8项，超过4项分页且保留全局状态；阶段曲线和检查板使用参考截图中的深色教学板层次。
+
+通过motion_demo.py生成独立合成测试工程，实际输出77.013秒、540×960、30fps H.264/AAC样片。文件SHA-256：`beadcaded4aead3b8d32203cadb5038aeaecd7c57cb4c85288b0419db9ab75ab`；完整解码无错误。11个组件的中间/落稳帧已抽查；深色板修订后重新渲染并查看，另核两种转场切镜帧的全屏覆盖。4个GIF均通过解码及帧数核对，见仓库showcase/motion-1.8/manifest.json。声音为原创程序合成候选，无旁白/BGM；未完成正常速度连续观看、真实听音或作者验收。
+
+Claude Code 2.1.326在临时隔离配置下对1.8.0独立发布包原生strict验证通过；WorkBuddy随包CLI 2.165.0对六个清单返回valid true、无warning。旧全局Claude CLI未替换。详见[平台记录](platform-validation-20261117.md)，其中清楚区分插件清单验证与用户账户实际调用/渲染；后二者仍未完成。
+
+README已同步接口、模块输入输出、组合流程、平台限制及可播放测试预览。
+
+
+Codex CLI实际安装`newspaper-video@swainwong-newspaper` 1.8.0；新启动app-server的skills/list返回启用入口`newspaper-video:newspaper-video`，路径位于1.8.0缓存。保留指向唯一源码的本地兼容链接，不在缓存中开发。焦点冲突检查新增实际组件时序推导，拒绝借缩短计划落稳时码隐藏并发；原件连续变焦区间也从时间线直接核对转场。

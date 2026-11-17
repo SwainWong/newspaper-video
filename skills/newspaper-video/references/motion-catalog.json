@@ -211,65 +211,75 @@
   },
   "split": {
     "name": "红蓝双区关系",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "两方立场/互补职能/不等关系",
-    "use": "left,right,relation,atLeft,atRight,atRelation",
+    "use": "Scene.motion[]",
     "constraints": "先两边后关系符号；VS/+/<必须与语义一致；不是默认敌我编码",
     "sound": "paper",
     "evidence": "5:83–88.75;5:119–121.75;IMG_4801–4803",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "stage-curve": {
     "name": "分阶段教学曲线",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "解释阶段模型",
-    "use": "segments[{label,points,at,color}],schematic:true",
+    "use": "Scene.motion[]",
     "constraints": "明确示意；各段保留已画轨迹；禁止伪装真实行情",
     "sound": "none",
     "evidence": "6:36–41.75;IMG_4794",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "checklist": {
     "name": "检查板逐项勾选",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "有定义且可验证的条件组",
-    "use": "items[{label,explanation,pass,at}],denominator",
-    "constraints": "先解释后勾选再更新计数；未知不是通过；超过4个解释卡分屏",
+    "use": "Scene.motion[]",
+    "constraints": "1–8个真实条件，最多4张解释卡每页，持续显示全局状态与通过数；未知不算通过",
     "sound": "tick",
     "evidence": "6:54–59.75;IMG_4795",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "market-line": {
     "name": "行情线与基准",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "实际时序数据及比较基准",
-    "use": "points[{time,value}],domain,source,baseline,callouts",
+    "use": "Scene.motion[]",
     "constraints": "按真实时间横轴；同轴；终点/基准/差值按VO分步；不得用手绘近似真实数据",
     "sound": "tick",
     "evidence": "6:68–73.75;IMG_4796–4797",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "chapter-tint": {
     "name": "章节纸面色层",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "background",
     "match": "章节情绪改变",
-    "use": "color,opacity,at,duration",
+    "use": "Scene.motion[]",
     "constraints": "保持纸纹和文字对比；原件区不染色；颜色不替代事实",
     "sound": "none",
     "evidence": "7:82–87.75;IMG_4808",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "color-wipe": {
     "name": "整屏色块遮挡转场",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "transition",
     "match": "论点或章节明确切换",
-    "use": "color,direction,start,covered,end",
+    "use": "FilmProps.transitions[]",
     "constraints": "完全遮住旧内容后换场；同区一次一种转场；禁与证据变焦并发",
     "sound": "whoosh",
     "evidence": "7:82.5–83;7:86–86.25;7:160.75–161.25",
@@ -277,14 +287,16 @@
       "evidence",
       "cut",
       "iris"
-    ]
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "iris": {
     "name": "圆形收放遮挡",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "transition",
     "match": "解释层次深入",
-    "use": "center,start,covered,end",
+    "use": "FilmProps.transitions[]",
     "constraints": "字幕区保留；旧新内容仅在覆盖时换；禁止连续滥用",
     "sound": "whoosh",
     "evidence": "5:117.75–118.5",
@@ -292,76 +304,90 @@
       "evidence",
       "cut",
       "color-wipe"
-    ]
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "calendar-flip": {
     "name": "日历翻页计数",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "月份/天数流逝",
-    "use": "from,to,unit,start,end",
+    "use": "Scene.motion[]",
     "constraints": "翻页中间数字非实测状态；终值可读；不每页打响",
     "sound": "paper",
     "evidence": "7:83.5–85.75",
     "excludes": [
       "metric"
-    ]
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "film-frame": {
     "name": "胶片容器",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "历史事件/视频引用",
-    "use": "media,label,source,in,out",
+    "use": "Scene.motion[]",
     "constraints": "黑白孔边为装饰；不暗示档案真伪；孔边不持续闪烁",
     "sound": "paper",
     "evidence": "6:89.08 overview;7:60.46 overview",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "keyword": {
     "name": "关键词纸片组",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "annotation",
     "match": "论点重音/结论",
-    "use": "words[{text,color,at,rotation}],subject",
+    "use": "Scene.motion[]",
     "constraints": "按短语出现；不逐字弹跳；不能复制全部字幕",
     "sound": "paper",
     "evidence": "IMG_4804–4806;7:159–160.5",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "threshold": {
     "name": "阈值进度条",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "票数/配额距门槛",
-    "use": "value,total,threshold,unit,at,source",
+    "use": "Scene.motion[]",
     "constraints": "阈值先交代；数值条长同轴；未达到不显示成功",
     "sound": "tick",
     "evidence": "7:178–183.75",
     "excludes": [
       "data"
-    ]
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "icon-metaphor": {
     "name": "图标隐喻",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "content",
     "match": "抽象影响的辅助说明",
-    "use": "icon,meaning,caption,at",
+    "use": "Scene.motion[]",
     "constraints": "不得冒充数据/真实证据；避开额外无意义箭头",
     "sound": "paper",
     "evidence": "IMG_4806 screenshot-only",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   },
   "date-tiles": {
     "name": "日期字块",
-    "status": "recipe",
+    "status": "implemented",
     "zone": "annotation",
     "match": "日期成为论述重音",
-    "use": "date,format,at",
+    "use": "Scene.motion[]",
     "constraints": "明确月日顺序/年份；不滚成随机数",
     "sound": "tick",
     "evidence": "IMG_4808 screenshot-only",
-    "excludes": []
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
   }
 }
