@@ -6,16 +6,16 @@
 
 [下载最新 Skill 安装包](https://github.com/SwainWong/newspaper-video/releases/latest)。
 
-**当前 V4.1 已收到新一轮返修意见，V5 正在制作。** Skill 1.5 加入按口播语义选择图形、数据比较、固定频道IP、素材时效和真实声词时序检查；不再用增加照片数量替代分析。
+两条实例已更新为 **V5 英语审阅版**，采用 Skill 1.5.1：按口播推进照片、数据和关系图；头尾复用固定 SwainTalk Logo＋slogan，并加入真实旁白停顿。APEC 用 IMF 同口径预测数据作动态图表，历史会议随实际词时码切换；黄仁勋篇补上 SEC 原件放大高亮和政策、供应链关系动画。两片均加强了 BGM 律动并保留口播避让。
 
-点击下方封面播放。已完成技术解码、旁白转录核对和最终文件抽帧检查；正常速度全片观看、真实听音及作者验收仍待完成。中性模板样片不含配音或频道品牌。
+点击下方封面播放。已完成技术解码、旁白转录核对、实际品牌停顿检测及最终文件抽帧检查；正常速度全片观看、真实听音及作者验收仍待完成。中性模板样片不含配音或频道品牌。
 
 ## 两个竖屏制作实例
 
 | 选题 | 视频与资料 | 规格 |
 | --- | --- | --- |
-| 黄仁勋辞任、美国两党政策争论及 AI 行业影响 | [![播放黄仁勋专题](showcase/huang-cover.png)](showcase/huang.mp4) [播放 MP4](showcase/huang.mp4) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [事实来源](showcase/huang-sources.md) · [图片署名](showcase/huang-image-credits.md) · [字幕](showcase/huang-subtitles.srt) | 2:57.643，1080×1920，30 fps |
-| APEC 2026 中美俄深圳会晤前瞻 | [![播放 APEC 专题](showcase/apec-cover.png)](showcase/apec.mp4) [播放 MP4](showcase/apec.mp4) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [事实来源](showcase/apec-sources.md) · [图片署名](showcase/apec-image-credits.md) · [字幕](showcase/apec-subtitles.srt) | 2:57.534，1080×1920，30 fps |
+| 黄仁勋辞任、美国两党政策争论及 AI 行业影响 | [![播放黄仁勋专题](showcase/huang-cover.png)](showcase/huang.mp4) [播放 MP4](showcase/huang.mp4) · [标题](showcase/huang-title.txt) · [描述](showcase/huang-description.md) · [事实来源](showcase/huang-sources.md) · [图片署名](showcase/huang-image-credits.md) · [字幕](showcase/huang-subtitles.srt) | 2:59.243，1080×1920，30 fps |
+| APEC 2026 中美俄深圳会晤前瞻 | [![播放 APEC 专题](showcase/apec-cover.png)](showcase/apec.mp4) [播放 MP4](showcase/apec.mp4) · [标题](showcase/apec-title.txt) · [描述](showcase/apec-description.md) · [事实来源](showcase/apec-sources.md) · [图片署名](showcase/apec-image-credits.md) · [字幕](showcase/apec-subtitles.srt) · [经济数据](showcase/apec-economy-data.csv) | 2:54.912，1080×1920，30 fps |
 
 [视频哈希与审查范围](showcase/manifest.json)。黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片的使用范围与未决事项详见各片署名清单，不代表取得全面转载授权。两片的可编辑工作工程及 VO/BGM/SFX 分轨保留在本地 `work/`，仓库提供通用模板和数据接口。
 

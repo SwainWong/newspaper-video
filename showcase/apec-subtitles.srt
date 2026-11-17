@@ -1,5 +1,5 @@
 1
-00:00:00,000 --> 00:00:00,933
+00:00:00,000 --> 00:00:00,900
 Three leaders.
 
 2
@@ -11,7 +11,7 @@ Three nuclear powers.
 One table in Shenzhen.
 
 4
-00:00:04,867 --> 00:00:07,400
+00:00:04,900 --> 00:00:07,400
 Xi Jinping, Donald Trump and Vladimir Putin
 
 5
@@ -23,19 +23,19 @@ are scheduled to meet on November
 nineteenth.
 
 7
-00:00:10,067 --> 00:00:12,433
+00:00:10,100 --> 00:00:12,433
 The image invites a historic comparison:
 
 8
-00:00:13,033 --> 00:00:15,367
+00:00:13,033 --> 00:00:15,333
 Yalta, Potsdam, and another moment when
 
 9
-00:00:15,367 --> 00:00:17,667
+00:00:15,333 --> 00:00:17,667
 powerful leaders negotiated the shape of
 
 10
-00:00:17,667 --> 00:00:18,133
+00:00:17,667 --> 00:00:18,100
 the world.
 
 11
@@ -43,297 +43,289 @@ the world.
 But what can this meeting actually change?
 
 12
-00:00:21,300 --> 00:00:22,333
+00:00:21,600 --> 00:00:22,633
 This is SwainTalk.
 
 13
-00:00:22,567 --> 00:00:24,167
+00:00:22,900 --> 00:00:24,500
 Follow the Tech, Follow the Money.
 
 14
-00:00:24,533 --> 00:00:27,400
+00:00:25,200 --> 00:00:27,033
 Start with nineteen forty-five.
 
 15
-00:00:27,400 --> 00:00:29,833
+00:00:27,933 --> 00:00:30,500
 At Yalta, Roosevelt, Churchill and Stalin
 
 16
-00:00:29,833 --> 00:00:32,133
+00:00:30,500 --> 00:00:32,800
 discussed the war’s final phase and the
 
 17
-00:00:32,133 --> 00:00:32,967
+00:00:32,800 --> 00:00:33,633
 postwar order.
 
 18
-00:00:33,700 --> 00:00:36,833
+00:00:34,400 --> 00:00:37,500
 At Potsdam, Truman and Stalin met Britain’s
 
 19
-00:00:36,833 --> 00:00:39,300
+00:00:37,500 --> 00:00:39,933
 leadership, with Attlee replacing Churchill
 
 20
-00:00:39,300 --> 00:00:40,133
+00:00:39,933 --> 00:00:40,800
 during the conference.
 
 21
-00:00:40,900 --> 00:00:43,467
+00:00:41,567 --> 00:00:44,100
 Germany had surrendered; occupation,
 
 22
-00:00:43,600 --> 00:00:45,900
+00:00:44,267 --> 00:00:46,567
 reparations and Europe’s future moved to
 
 23
-00:00:45,900 --> 00:00:46,900
+00:00:46,567 --> 00:00:47,533
 the center of the bargaining.
 
 24
-00:00:47,300 --> 00:00:49,700
+00:00:47,900 --> 00:00:50,433
 Those conferences belonged to a world war’s
 
 25
-00:00:49,700 --> 00:00:50,100
+00:00:50,433 --> 00:00:50,700
 ending.
 
 26
-00:00:50,100 --> 00:00:52,600
+00:00:51,200 --> 00:00:53,233
 Shenzhen brings together competing powers
 
 27
-00:00:52,600 --> 00:00:55,233
+00:00:53,233 --> 00:00:56,000
 inside an interdependent economy, with wars
 
 28
-00:00:55,233 --> 00:00:57,700
+00:00:56,000 --> 00:00:58,367
 and strategic disputes still unresolved.
 
 29
-00:00:57,733 --> 00:01:00,400
+00:00:58,800 --> 00:01:00,833
 Both bring major powers to the negotiating
 
 30
-00:01:00,400 --> 00:01:00,767
+00:01:00,833 --> 00:01:01,300
 table.
 
 31
-00:01:00,767 --> 00:01:03,333
+00:01:01,933 --> 00:01:04,000
 Today, their bargaining runs through trade
 
 32
-00:01:03,333 --> 00:01:05,700
+00:01:04,000 --> 00:01:06,467
 networks, technology controls and security
 
 33
-00:01:05,700 --> 00:01:08,067
+00:01:06,467 --> 00:01:08,600
 commitments that connect economies across
 
 34
-00:01:08,067 --> 00:01:08,433
+00:01:08,600 --> 00:01:09,167
 the globe.
 
 35
-00:01:08,967 --> 00:01:10,600
+00:01:09,500 --> 00:01:11,133
 Now look at the recent rhythm.
 
 36
-00:01:11,367 --> 00:01:14,133
+00:01:11,900 --> 00:01:14,667
 On September third, twenty twenty-five, Xi,
 
 37
-00:01:14,300 --> 00:01:16,900
+00:01:14,833 --> 00:01:17,400
 Putin and Kim Jong Un appeared together
 
 38
-00:01:16,900 --> 00:01:17,400
+00:01:17,400 --> 00:01:17,933
 in Beijing.
 
 39
-00:01:18,200 --> 00:01:20,567
+00:01:18,733 --> 00:01:21,100
 Separate bilateral talks surrounded that
 
 40
-00:01:20,567 --> 00:01:23,433
+00:01:21,100 --> 00:01:23,967
 public display: Xi met Putin on September
 
 41
-00:01:23,433 --> 00:01:25,833
+00:01:23,967 --> 00:01:26,333
 second and Kim on September fourth.
 
 42
-00:01:26,600 --> 00:01:28,267
+00:01:27,133 --> 00:01:28,800
 The public appearance and the surrounding
 
 43
-00:01:28,267 --> 00:01:30,233
+00:01:28,800 --> 00:01:30,767
 talks put Beijing at the center of
 
 44
-00:01:30,233 --> 00:01:31,433
+00:01:30,767 --> 00:01:31,933
 a busy diplomatic week.
 
 45
-00:01:31,767 --> 00:01:34,400
+00:01:32,233 --> 00:01:34,867
 In May twenty twenty-six, Trump and Putin
 
 46
-00:01:34,400 --> 00:01:36,867
+00:01:34,867 --> 00:01:37,333
 visited Beijing separately, less than a
 
 47
-00:01:36,867 --> 00:01:37,333
+00:01:37,333 --> 00:01:37,767
 week apart.
 
 48
-00:01:38,000 --> 00:01:40,200
+00:01:38,467 --> 00:01:40,633
 Xi and Trump met again in Washington
 
 49
-00:01:40,200 --> 00:01:40,900
+00:01:40,633 --> 00:01:41,333
 in September.
 
 50
-00:01:41,933 --> 00:01:44,067
+00:01:42,400 --> 00:01:44,533
 APEC now provides their next announced
 
 51
-00:01:44,067 --> 00:01:44,533
+00:01:44,533 --> 00:01:45,000
 encounter.
 
 52
-00:01:45,167 --> 00:01:47,300
+00:01:45,633 --> 00:01:47,733
 The diplomatic calendar continues with
 
 53
-00:01:47,300 --> 00:01:50,400
+00:01:47,733 --> 00:01:50,867
 December’s G20 in Miami, keeping economic
 
 54
-00:01:50,400 --> 00:01:52,633
+00:01:50,867 --> 00:01:53,100
 cooperation and friction in the spotlight.
 
 55
-00:01:53,000 --> 00:01:55,233
-That frequency suggests a relationship
+00:01:53,400 --> 00:01:54,867
+The growth paths are different.
 
 56
-00:01:55,233 --> 00:01:57,000
-requiring repeated maintenance.
+00:01:55,567 --> 00:01:58,233
+The IMF’s October forecast puts China’s
 
 57
-00:01:57,000 --> 00:01:59,467
-Trade disputes, technology restrictions and
+00:01:58,233 --> 00:02:00,433
+real GDP growth at four point five
 
 58
-00:01:59,467 --> 00:02:02,033
-supply-chain dependence give Washington and
+00:02:00,433 --> 00:02:03,067
+percent in twenty twenty-six; the United
 
 59
-00:02:02,033 --> 00:02:04,233
-Beijing reasons both to compete and to
+00:02:03,067 --> 00:02:05,867
+States at two point three; Russia at
 
 60
-00:02:04,233 --> 00:02:05,033
-keep talking.
+00:02:05,867 --> 00:02:06,833
+zero point nine.
 
 61
-00:02:05,033 --> 00:02:07,433
-For businesses, the practical prize is
+00:02:07,333 --> 00:02:09,300
+Predictable trade and investment rules
 
 62
-00:02:07,433 --> 00:02:10,233
-predictability: which goods can move, which
+00:02:09,300 --> 00:02:11,133
+matter when growth is under pressure.
 
 63
-00:02:10,233 --> 00:02:12,467
-investments can proceed, and how long any
-
-64
-00:02:12,467 --> 00:02:13,600
-agreement will last.
-
-65
-00:02:14,167 --> 00:02:16,567
+00:02:11,467 --> 00:02:13,400
 Russia adds a different set of priorities:
 
-66
-00:02:16,567 --> 00:02:18,533
+64
+00:02:13,400 --> 00:02:16,067
 the war in Ukraine, sanctions and its
 
-67
-00:02:18,533 --> 00:02:19,900
+65
+00:02:16,067 --> 00:02:17,233
 relationship with China.
 
-68
-00:02:19,933 --> 00:02:21,967
+66
+00:02:17,767 --> 00:02:19,467
 A useful outcome could be clearer
 
-69
-00:02:21,967 --> 00:02:24,300
+67
+00:02:19,467 --> 00:02:21,767
 negotiating channels, limited economic
 
-70
-00:02:24,300 --> 00:02:26,567
+68
+00:02:21,767 --> 00:02:23,800
 arrangements or steps toward reducing
 
-71
-00:02:26,567 --> 00:02:27,433
+69
+00:02:23,800 --> 00:02:24,833
 security risks.
 
-72
-00:02:27,600 --> 00:02:29,933
+70
+00:02:25,400 --> 00:02:27,400
 A sweeping bargain is harder: the three
 
-73
-00:02:29,933 --> 00:02:32,267
+71
+00:02:27,400 --> 00:02:29,700
 leaders’ priorities overlap only partly,
 
-74
-00:02:32,267 --> 00:02:34,867
+72
+00:02:29,967 --> 00:02:32,300
 and implementation extends far beyond their
 
-75
-00:02:34,867 --> 00:02:35,233
+73
+00:02:32,300 --> 00:02:32,600
 table.
 
-76
-00:02:35,567 --> 00:02:37,733
+74
+00:02:32,800 --> 00:02:35,133
 So judge Shenzhen by what follows the
 
-77
-00:02:37,733 --> 00:02:40,267
+75
+00:02:35,133 --> 00:02:37,500
 handshake: written commitments, concrete
 
-78
-00:02:40,267 --> 00:02:42,267
+76
+00:02:37,500 --> 00:02:39,533
 deadlines and changes on the ground.
 
-79
-00:02:42,833 --> 00:02:45,400
+77
+00:02:40,233 --> 00:02:43,033
 Yalta and Potsdam help frame the scale
 
-80
-00:02:45,400 --> 00:02:46,400
+78
+00:02:43,033 --> 00:02:43,800
 of the ambition.
 
-81
-00:02:47,100 --> 00:02:49,500
+79
+00:02:44,533 --> 00:02:47,333
 Today’s dense summit calendar reveals how
 
-82
-00:02:49,500 --> 00:02:51,867
+80
+00:02:47,333 --> 00:02:49,500
 urgently these powers need to manage their
 
-83
-00:02:51,867 --> 00:02:52,567
+81
+00:02:49,500 --> 00:02:49,900
 differences.
 
-84
-00:02:52,900 --> 00:02:54,500
+82
+00:02:50,900 --> 00:02:51,933
 This is SwainTalk.
 
-85
-00:02:54,500 --> 00:02:56,467
+83
+00:02:52,367 --> 00:02:54,200
 Follow the Tech, Follow the Money.

@@ -1,70 +1,122 @@
 {
-  "status": "V4.1 revision requested by owner; V5 in production under Skill 1.5.0",
-  "skill_version": "1.4.1",
+  "status": "V5 review candidates; owner full audiovisual review pending",
+  "skill_version": "1.5.1",
   "videos": {
     "huang": {
       "file": "huang.mp4",
-      "sha256": "c586ab84ccbffea93a0c9c83df2f14fa4dfa52077a8f1be8b2392f5fae520781",
-      "duration_seconds": 177.643,
-      "size_bytes": 29778641,
-      "timeline_frames": 5329,
+      "sha256": "dfa23e86ffc1a7f7a3dabe9db2ec20359d67b8ab9d5909590725dffe4d5237e8",
+      "duration_seconds": 179.243,
+      "size_bytes": 25593098,
+      "timeline_frames": 5377,
       "resolution": "1080x1920",
       "fps": 30,
       "main_language": "en",
       "subtitles": "en",
       "voice": "VoiceStudio / OmniVoice / The Anchor",
-      "native_generation_speed": {
-        "baseline": 0.82,
-        "selected_explanatory_sections": 0.94
-      },
       "post_synthesis_time_stretch": false,
-      "hook_before_brand": true,
-      "brand_transition_seconds": 18.5,
-      "brand_voice_at_close": true,
-      "bgm": "Original procedural instrumental music with narration ducking",
-      "sfx": "Original synthesized motion-linked effects",
+      "brand_profile": "swaintalk-v1",
+      "brand_voice_pauses": [
+        {
+          "role": "intro",
+          "side": "before",
+          "duration_seconds": 0.4,
+          "peak_dbfs": null,
+          "samples": 19200
+        },
+        {
+          "role": "intro",
+          "side": "after",
+          "duration_seconds": 0.4,
+          "peak_dbfs": null,
+          "samples": 19200
+        },
+        {
+          "role": "outro",
+          "side": "before",
+          "duration_seconds": 0.4,
+          "peak_dbfs": null,
+          "samples": 19200
+        },
+        {
+          "role": "outro",
+          "side": "after",
+          "duration_seconds": 0.4,
+          "peak_dbfs": null,
+          "samples": 19200
+        }
+      ],
+      "visual_method": "Narration-anchored evidence, comparisons and qualitative relationships",
+      "bgm": "Original rhythmic instrumental score with voice ducking",
+      "sfx": "Original animation-linked effects",
       "checks": {
         "full_decode": "PASS",
-        "asr_text_review": "completed",
-        "sampled_final_frame_review": "completed",
+        "review_plan": "PASS",
+        "voice_pause_samples": "PASS",
+        "asr_text_and_word_anchors": "Checked; estimated word timestamps are not listening acceptance",
+        "sampled_final_frames": "Inspected",
         "continuous_normal_speed_viewing": "PENDING",
         "real_listening": "PENDING",
         "owner_acceptance": "PENDING"
       },
-      "caption_timing": "ASR anchored with estimated subdivisions; final listening review pending",
-      "image_rights": "See huang-image-credits.md; no blanket reuse permission claimed"
+      "image_rights": "See huang-image-credits.md"
     },
     "apec": {
       "file": "apec.mp4",
-      "sha256": "f87f2285697d02ce7b15ec7ce0a3b37a387e0a7aabc9028b4fc5b098fab9e07e",
-      "duration_seconds": 177.534,
-      "size_bytes": 61396077,
-      "timeline_frames": 5326,
+      "sha256": "ec9a33c8ebf04efd9cd79283ded586323e593e04c00cd032b8e299f6c0d5b473",
+      "duration_seconds": 174.912,
+      "size_bytes": 30251378,
+      "timeline_frames": 5247,
       "resolution": "1080x1920",
       "fps": 30,
       "main_language": "en",
       "subtitles": "en",
       "voice": "VoiceStudio / OmniVoice / The Anchor",
-      "native_generation_speed": {
-        "baseline": 0.82,
-        "selected_explanatory_sections": 0.94
-      },
       "post_synthesis_time_stretch": false,
-      "hook_before_brand": true,
-      "brand_transition_seconds": 21.3,
-      "brand_voice_at_close": true,
-      "bgm": "Original procedural instrumental music with narration ducking",
-      "sfx": "Original synthesized motion-linked effects",
+      "brand_profile": "swaintalk-v1",
+      "brand_voice_pauses": [
+        {
+          "role": "intro",
+          "side": "before",
+          "duration_seconds": 0.4,
+          "peak_dbfs": -82.32238153057551,
+          "samples": 19200
+        },
+        {
+          "role": "intro",
+          "side": "after",
+          "duration_seconds": 0.4,
+          "peak_dbfs": -85.38768441924587,
+          "samples": 19200
+        },
+        {
+          "role": "outro",
+          "side": "before",
+          "duration_seconds": 0.4,
+          "peak_dbfs": -58.10237129710501,
+          "samples": 19200
+        },
+        {
+          "role": "outro",
+          "side": "after",
+          "duration_seconds": 0.4,
+          "peak_dbfs": -125.92107334710622,
+          "samples": 19200
+        }
+      ],
+      "visual_method": "Narration-anchored evidence, comparisons and qualitative relationships",
+      "bgm": "Original rhythmic instrumental score with voice ducking",
+      "sfx": "Original animation-linked effects",
       "checks": {
         "full_decode": "PASS",
-        "asr_text_review": "completed",
-        "sampled_final_frame_review": "completed",
+        "review_plan": "PASS",
+        "voice_pause_samples": "PASS",
+        "asr_text_and_word_anchors": "Checked; estimated word timestamps are not listening acceptance",
+        "sampled_final_frames": "Inspected",
         "continuous_normal_speed_viewing": "PENDING",
         "real_listening": "PENDING",
         "owner_acceptance": "PENDING"
       },
-      "caption_timing": "ASR anchored with estimated subdivisions; final listening review pending",
-      "image_rights": "See apec-image-credits.md; no blanket reuse permission claimed"
+      "image_rights": "See apec-image-credits.md"
     }
   }
 }

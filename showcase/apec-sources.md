@@ -1,4 +1,4 @@
-# APEC V4.1 — fact sources
+# APEC V5 — fact sources
 
 Reviewed November 16, 2026. Pre-meeting analysis.
 
@@ -17,3 +17,7 @@ Reviewed November 16, 2026. Pre-meeting analysis.
 
 
 [Image credits and reuse boundaries](apec-image-credits.md).
+
+## Economic comparison
+
+[IMF October 2026 World Economic Outlook](https://www.imf.org/-/media/files/publications/weo/2026/october/english/text.pdf), Table 1.1, printed page 10 / PDF page 26. Annual real GDP growth projections for 2026: China 4.5%, United States 2.3%, Russia 0.9%. Same vintage, unit and period; not economic size or the adjacent Q4/Q4 columns. See [machine-readable data](apec-economy-data.csv).

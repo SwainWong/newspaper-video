@@ -8,4 +8,6 @@ English narration: The Anchor, generated in VoiceStudio using the approved scrip
 
 #SwainTalk #Nvidia #JensenHuang #AI #Semiconductors
 
-[Fact sources](huang-sources.md) · [Image credits and licenses](huang-image-credits.md)
+[Fact sources](huang-sources.md) · [Image credits](huang-image-credits.md)
+
+V5 adds narration-anchored relationship animation, readable highlighted SEC evidence, fixed SwainTalk identity with voice pauses, and rhythmic BGM.

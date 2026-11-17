@@ -1,0 +1,10 @@
+country,year,real_gdp_annual_growth_percent,status,source_vintage,source_location
+China,2025,5.0,historical value/estimate in October 2026 vintage; not labelled forecast,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+China,2026,4.5,IMF projection,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+China,2027,4.0,IMF projection,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+United States,2025,2.3,historical value/estimate in October 2026 vintage; not labelled forecast,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+United States,2026,2.3,IMF projection,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+United States,2027,2.3,IMF projection,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+Russia,2025,1.0,historical value/estimate in October 2026 vintage; not labelled forecast,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+Russia,2026,0.9,IMF projection,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
+Russia,2027,0.9,IMF projection,October 2026,"Table 1.1, printed page 10, PDF page 26 (zero-based index 25); annual columns, NOT adjacent Q4/Q4 table"
