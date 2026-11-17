@@ -30,7 +30,7 @@
 
 [平台细节与官方文档](references/platforms.md)。格式适配不等于每个平台已完成端到端测试；已验证范围见上方记录。
 
-## 制作流程（1.5.0）
+## 制作流程（1.5.1）
 
 1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](references/production-workflow.md) 与 [声音模块](references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
 2. 复制工程：`python3 scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。
@@ -47,7 +47,7 @@
 - `assets/template/src/theme.json`：主要色彩、字幕和入场运动参数。
 - `assets/template/public/`：原创中性纸纹、图钉、胶带及示例插图。
 - `assets/template/examples/`：不同场景结构示例，含 `editorial-example.json` 和频道片头片尾示例。
-- `scripts/review_plan.py`：检查语义时间、数据口径、当期素材日期和品牌前后停顿记录；不替代实际看听。
+- `scripts/review_plan.py`：检查语义时间、数据口径、当期素材日期和品牌前后停顿记录；`brand_pause_check.py` 用 ffmpeg 另核实际 VO 分轨的停顿区间；不替代实际看听。
 - `scripts/preflight.py`：检查语言、字幕、声音选择及脚本批准哈希；不能替代真实用户批准。
 - `scripts/project.py`：创建工程、抽帧与渲染；`scripts/package.py`：打包跨平台 Skill。
 

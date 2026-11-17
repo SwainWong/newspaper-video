@@ -2,7 +2,7 @@
 name: newspaper-video
 description: 制作或修改旧报纸、照片拼贴、图钉胶带、动态数字与时间轴风格的 Remotion 讲解视频；使用内置素材、样式参数和可运行模板。适用于复用报纸拼贴视觉风格，不承担通用剪辑或发布账号操作。
 metadata:
-  version: "1.5.0"
+  version: "1.5.1"
 ---
 
 # 报纸拼贴视频
@@ -19,7 +19,7 @@ metadata:
 
 ## 语义、节奏与固定品牌
 
-制作前读 [语义动画与审查规范](references/semantic-motion.md)：同口径数据比较、按真实声词锚点推进、当前事件素材日期匹配、原件全貌→放大→黄笔→主语言摘要、手机尺寸避让。SwainTalk 使用内置固定品牌组合，头尾同字体/位置/Logo/slogan，品牌口播前后各至少0.4秒真实停顿。`review-plan.json` 是完整渲染前的记录门禁，不是视觉或听审证明。
+制作前读 [语义动画与审查规范](references/semantic-motion.md)：同口径数据比较、按真实声词锚点推进、当前事件素材日期匹配、原件全貌→放大→黄笔→主语言摘要、手机尺寸避让。SwainTalk 使用内置固定品牌组合，头尾同字体/位置/Logo/slogan，品牌口播前后各至少0.4秒真实停顿。`review-plan.json` 是完整渲染前的记录门禁；`brand_pause_check.py` 另核实际VO分轨停顿，记录与波形必须一致。两者都不是视觉或听审证明。
 
 ## 创建与编辑
 

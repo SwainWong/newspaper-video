@@ -38,3 +38,6 @@
 ## 1.5.0 validation
 
 Ten unittest cases pass, including rejecting early future-event reveals, critical estimated timing, unexplained long static holds, stale current-event photos, mismatched brand components/missing pauses, and incomplete chart measurement provenance. TypeScript compiled in a separate generated fixture project. Actual brand and synthetic data-comparison stills were rendered and inspected at 1080×1920; these are component checks, not full-video visual/listening acceptance. Original reference motion was re-sampled as described in origin-study.md. Inter font and OFL are bundled; SwainTalk logo retains canonical hash. Cross-client execution in Claude/WorkBuddy remains unverified.
+
+
+1.5.1 adds two waveform-backed tests: correctly placed silence passes, injected speech inside a declared pause fails, and a missing voice stem is not considered silence. Twelve unittest cases pass where ffmpeg is available; the two audio tests are explicitly skipped without ffmpeg, not reported as audio verification. This fixes the gap between plausible ASR timing records and actual voice samples.
