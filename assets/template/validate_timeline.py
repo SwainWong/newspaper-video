@@ -11,6 +11,16 @@ for field in ('masthead','eyebrow'):
  if not isinstance(data.get(field),str):err(f'{field} must be a string')
 scenes=data.get('scenes')
 if not isinstance(scenes,list) or not scenes:err('scenes must be a non-empty array');scenes=[]
+if data.get('music') and not (p/'public'/data['music']).is_file():err('missing music asset')
+if not isinstance(data.get('musicVolume',.08),(int,float)) or not 0<=data.get('musicVolume',.08)<=1:err('invalid musicVolume')
+envelope=data.get('musicEnvelope')
+if envelope is not None:
+ if not isinstance(envelope,list) or len(envelope)<2:err('musicEnvelope needs at least two points')
+ else:
+  previous=-1
+  for point in envelope:
+   if not isinstance(point,dict) or not isinstance(point.get('frame'),int) or point['frame']<=previous or not isinstance(point.get('gain'),(int,float)) or not 0<=point['gain']<=1:err('invalid musicEnvelope point');continue
+   previous=point['frame']
 expected=0;ids=set()
 for index,scene in enumerate(scenes):
  if not isinstance(scene,dict):err(f'index-{index}: scene must be an object');continue

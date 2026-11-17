@@ -4,6 +4,10 @@
 
 [20 秒静音样片](assets/previews/style-demo.mp4) · [样例画面](assets/previews/style-preview.png) · [参考风格研究](references/origin-study.md) · [验证记录](references/validation.md)
 
+[下载最新 Skill 安装包](https://github.com/SwainWong/newspaper-video/releases/latest)。
+
+**当前两条 V3 已被用户要求返修，尚不符合 1.4 的图片、语言、BGM/SFX 与钩子规范；英文新版等待脚本确认后制作。**
+
 中性样片不含配音或频道品牌。下面是用本 Skill 制作的两条 V3 中文候选片；点击封面播放。已做技术解码和分场抽帧检查，正常速度全片观看、真实听音及作者验收尚待完成。
 
 ## 两个竖屏制作实例
@@ -26,10 +30,10 @@
 
 [平台细节与官方文档](references/platforms.md)。格式适配不等于每个平台已完成端到端测试；已验证范围见上方记录。
 
-## 制作流程
+## 制作流程（1.4.0）
 
-1. 阅读 [SKILL.md](SKILL.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
-2. 复制工程：`python3 scripts/project.py create /absolute/path/my-video`。目标目录必须不存在。
+1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](references/production-workflow.md) 与 [声音模块](references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
+2. 复制工程：`python3 scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。
 3. 在新工程的 `src/timeline.json` 配场景、字幕、图片和音频；将媒体放入该工程的 `public/`。用 `src/theme.json` 调颜色、字幕和部分动画参数。[时间线字段说明](references/timeline.md)。
 4. 在新工程运行 `npm ci`、`npm run check`、`python3 validate_timeline.py src/timeline.json`，再回到本仓库通过 `python3 scripts/project.py still /absolute/path/my-video --frame 240` 和 `python3 scripts/project.py render /absolute/path/my-video` 输出静帧、MP4。
 5. 按正常速度查看成片并试听，核对字幕、证据停留、配音和素材使用范围。解码通过只说明文件技术上可读。
@@ -42,6 +46,7 @@
 - `assets/template/src/theme.json`：主要色彩、字幕和入场运动参数。
 - `assets/template/public/`：原创中性纸纹、图钉、胶带及示例插图。
 - `assets/template/examples/`：不同场景结构示例，含 `editorial-example.json` 和频道片头片尾示例。
+- `scripts/preflight.py`：检查语言、字幕、声音选择及脚本批准哈希；不能替代真实用户批准。
 - `scripts/project.py`：创建工程、抽帧与渲染；`scripts/package.py`：打包跨平台 Skill。
 
 [参考片分析](references/origin-study.md)列明了目前仍待做成可配置组件的效果。欢迎通过 Issues 报告实际环境、来源展示或视频排版问题。

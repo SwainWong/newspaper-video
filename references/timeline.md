@@ -17,3 +17,9 @@
 频道片头片尾可各用一个 `kind:"brand"` 场景，顶层 `slogan` 和可选 `logo` 复用；若要求口播，也要给两场分别配 `audio` 和同步 `captions`。见 `examples/brand-bookends.json`。
 
 示例包含 generic、beat-example、comparison-example、impact-example、layout-example。自定义主题在 src/theme.json；不支持字段不要仅写JSON，必须改实现并验证。
+
+## 1.4 音乐包络与制作入口
+
+全片可传 `musicEnvelope:[{frame:0,gain:0},{frame:15,gain:0.5},{frame:120,gain:0.2}]`。点至少两个，frame 为非负严格递增整数，gain 为 0–1；绝对帧位置，线性插值并乘 musicVolume。根据真实旁白设计压低/恢复，不能称为自动侧链。
+
+执行 create/still/render 前必须有已确认 brief 和当前批准脚本。still/render 还检查 BGM、SFX 声明以及首镜不是品牌。纯技术示例 JSON 是组件输入示例，不是可跳过审批的生产工程。完整规则见 production-workflow.md 与 audio-production.md。
