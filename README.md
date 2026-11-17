@@ -48,7 +48,7 @@
 
 黄仁勋专题将个人关系报道、政治行动记录和未来影响分析分开；APEC 专题是 2026 年 11 月 16 日制作的会前预告，后续正式结果需另行更新。第三方图片使用范围与未决事项见署名清单，不代表取得全面转载授权。可编辑工程及 VO/BGM/SFX 分轨保留在本地 `work/`；仓库提供通用模板和数据接口。
 
-## 安装插件（1.9.0）
+## 安装插件（1.9.1）
 
 源码只维护在 `skills/newspaper-video/`。根目录旧入口为兼容链接；安装缓存是分发副本，不在其中开发。
 
@@ -74,7 +74,7 @@ WorkBuddy：自定义市场的桌面入口依客户端而定，未作保证。�
 
 ## 多版式动画与回归（1.9.0）
 
-版式模块接收脚本语义、真实媒体和时间锚，输出16种可编辑组合：斜照片与时间轴、文件与人物、大字年份、照片下方窄比较条、占据主画面的双色比较、中央关键词与图标、教学板和行情图。各子层可独立配置位置、字形、入场及二次移位，交给画面与字幕检查。[版式目录](skills/newspaper-video/references/collage-presets.md) · [完整接口与冲突条件](skills/newspaper-video/references/collage-api.md)。
+版式模块接收脚本语义、真实媒体和时间锚，输出16种可编辑组合：斜照片与时间轴、文件与人物、大字年份、照片下方窄比较条、占据主画面的双色比较、中央关键词与图标、教学板和行情图。各子层可独立配置位置、字形、入场及二次移位，交给画面与字幕检查。拼贴场景沿用全片真实频道Logo，避免在子层再添加重复文字水印。[版式目录](skills/newspaper-video/references/collage-presets.md) · [完整接口与冲突条件](skills/newspaper-video/references/collage-api.md)。
 
 比较模块分别实现4801与4803的构图。两侧色块带文字从屏幕外移入，两侧落稳后才出现关系徽章；标题可先画轮廓再填色。4806使用分开的短语纸片、钱包和投票箱。声音绑定节点的入场、落稳、填色或关系揭示，输出实际渲染的候选SFX；没有把参考混音中的峰值冒充已识别音效。
 
@@ -88,7 +88,7 @@ WorkBuddy：自定义市场的桌面入口依客户端而定，未作保证。�
 | --- | --- | --- |
 | ![4801构图](showcase/layout-1.9/photo-question-strip.gif) | ![4803构图](showcase/layout-1.9/opposed-hero-panels.gif) | ![4806构图](showcase/layout-1.9/central-phrase-ballot.gif) |
 
-## 制作流程（1.9.0）
+## 制作流程（1.9.1）
 
 1. 先确认主语言、独立字幕模式/语言、配音工具（系统声或需安装的 VoiceStudio）。缺项不得启动工程。调研后交中英文对照脚本与图片分镜，用户确认文件版本后才制作。阅读 [完整流程](skills/newspaper-video/references/production-workflow.md) 与 [声音模块](skills/newspaper-video/references/audio-production.md)。先核实文稿中的事实、角色身份、文件/帖子的来源；画面里让观众看得见谁发布、何时发布和原文关键句。
 2. 复制工程：`python3 skills/newspaper-video/scripts/project.py create /absolute/path/my-video --brief /absolute/path/review/production-brief.json`。目标目录必须不存在。

@@ -26,7 +26,7 @@ Optional `reposition:{from:[x,y],at,settle}` moves a whole node from one canvas 
 | `board` | Four-stage teaching, eight-condition explanation, or market comparison | `spec` validated by `validateReferenceBoard`; actual data/time domains, ordered stages and evidence-before-verdict. | Whole lifetime reserves focus. Do not advance check/count before the mini-plot is complete; do not use synthetic fixtures as reported data. |
 | `motion` | Existing1.8 semantic effect fits within a free composition | `spec` is a GraphicSpec or PaperSpec, rendered in the node box; nested media remain local. | Whole lifetime reserves focus. Scene-level transitions and background effects are not nested node effects. |
 
-`captionBox` is mandatory. `captionSize`, `translationSize`, `captionFont` are optional. `background:{file?,color?,opacity?}` is independent of node content; local files only. Native font fallback affects typography, so pin licensed fonts in the project when exact type is necessary. Box validation is conservative geometry, not glyph shaping or shadow inspection; inspect rendered text for actual overflow.
+`captionBox` is mandatory. `captionSize`, `translationSize`, `captionFont` are optional. `background:{file?,color?,opacity?}` is independent of node content; local files only. The global `FilmProps.logo` remains visible on collage story scenes from1.9.1; do not duplicate it in a text node. Native font fallback affects typography, so pin licensed fonts in the project when exact type is necessary. Box validation is conservative geometry, not glyph shaping or shadow inspection; inspect rendered text for actual overflow.
 
 ## Complementarity and conflict rules
 
