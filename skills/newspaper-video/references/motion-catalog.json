@@ -1,0 +1,405 @@
+{
+  "paper": {
+    "name": "静态报纸舞台",
+    "status": "implemented",
+    "zone": "background",
+    "match": "任何报纸场景",
+    "use": "theme/Paper",
+    "constraints": "背景装饰不得被当作数据",
+    "sound": "none",
+    "excludes": []
+  },
+  "title": {
+    "name": "标题纸条",
+    "status": "implemented",
+    "zone": "title",
+    "match": "本镜主题建立",
+    "use": "Scene.title/kicker",
+    "constraints": "不可承载整段口播",
+    "sound": "paper",
+    "excludes": []
+  },
+  "photo": {
+    "name": "照片弹簧拼贴",
+    "status": "implemented",
+    "zone": "content",
+    "match": "人物/事件需要可辨主体",
+    "use": "Scene.images/visualBeats/labels/attachment/layout",
+    "constraints": "最多两图；首镜首帧可见；附件随主体",
+    "sound": "paper",
+    "excludes": []
+  },
+  "metric": {
+    "name": "指标与计数",
+    "status": "implemented",
+    "zone": "content",
+    "match": "有来源的量值或年份",
+    "use": "Scene.metric/counter/metricBeats",
+    "constraints": "终值与单位明确，落稳留阅读时间",
+    "sound": "tick",
+    "excludes": [
+      "calendar-flip"
+    ]
+  },
+  "detail": {
+    "name": "说明纸卡",
+    "status": "implemented",
+    "zone": "annotation",
+    "match": "补充已有主体",
+    "use": "Scene.detail/detailDelay",
+    "constraints": "不遮挡主体和字幕",
+    "sound": "none",
+    "excludes": []
+  },
+  "notes": {
+    "name": "嵌套便签",
+    "status": "implemented",
+    "zone": "annotation",
+    "match": "有层级的解释",
+    "use": "Scene.nestedNotes",
+    "constraints": "层级不得冒充因果",
+    "sound": "paper",
+    "excludes": []
+  },
+  "comparison-legacy": {
+    "name": "旧比较条",
+    "status": "implemented",
+    "zone": "content",
+    "match": "兼容历史工程",
+    "use": "Scene.comparison",
+    "constraints": "新项目使用data；固定错峰不等于词锚",
+    "sound": "none",
+    "excludes": [
+      "data"
+    ]
+  },
+  "data": {
+    "name": "语义数据条",
+    "status": "implemented",
+    "zone": "content",
+    "match": "同口径定量比较",
+    "use": "Scene.analysis:data",
+    "constraints": "1–4行；零基线；rows.at来自VO",
+    "sound": "tick",
+    "excludes": [
+      "comparison-legacy",
+      "threshold"
+    ]
+  },
+  "timeline": {
+    "name": "横向时间轴",
+    "status": "implemented",
+    "zone": "content",
+    "match": "有先后关系的事件",
+    "use": "Scene.timeline",
+    "constraints": "日期准确；固定间距不代表真实比例",
+    "sound": "tick",
+    "excludes": []
+  },
+  "schedule": {
+    "name": "纵向日程轴",
+    "status": "implemented",
+    "zone": "content",
+    "match": "日期与议程",
+    "use": "Scene.editorial:schedule",
+    "constraints": "1–4项；明确已定/预期",
+    "sound": "tick",
+    "excludes": []
+  },
+  "document-legacy": {
+    "name": "旧文件推近",
+    "status": "implemented",
+    "zone": "content",
+    "match": "完整文件浏览",
+    "use": "Scene.editorial:document",
+    "constraints": "重点原文改用evidence",
+    "sound": "none",
+    "excludes": [
+      "evidence"
+    ]
+  },
+  "evidence": {
+    "name": "同源变焦黄笔摘要",
+    "status": "implemented",
+    "zone": "content",
+    "match": "解释真实原文",
+    "use": "Scene.analysis:evidence",
+    "constraints": "先全貌再变焦再高亮；原图坐标与哈希",
+    "sound": "paper",
+    "excludes": [
+      "document-legacy",
+      "color-wipe",
+      "iris"
+    ]
+  },
+  "relations-legacy": {
+    "name": "旧三角关系",
+    "status": "deprecated",
+    "zone": "content",
+    "match": "仅迁移旧项目",
+    "use": "Scene.editorial:relations",
+    "constraints": "缺边语义，禁止新生产使用",
+    "sound": "none",
+    "excludes": [
+      "relations"
+    ]
+  },
+  "relations": {
+    "name": "图片关系步骤",
+    "status": "implemented",
+    "zone": "content",
+    "match": "有明确方向的关系链",
+    "use": "Scene.analysis:relations",
+    "constraints": "每边标签；独立并列不能串因果",
+    "sound": "tick",
+    "excludes": [
+      "relations-legacy"
+    ]
+  },
+  "impact-legacy": {
+    "name": "装饰流向脉冲",
+    "status": "deprecated",
+    "zone": "content",
+    "match": "仅历史示例",
+    "use": "Scene.layout:impact",
+    "constraints": "无语义端点，禁止新生产使用",
+    "sound": "none",
+    "excludes": []
+  },
+  "brand": {
+    "name": "固定/通用品牌",
+    "status": "implemented",
+    "zone": "content",
+    "match": "钩子后或片尾身份",
+    "use": "Scene.kind/brandProfile",
+    "constraints": "SwainTalk不变形；VO两侧真实静音0.4s",
+    "sound": "none",
+    "excludes": []
+  },
+  "captions": {
+    "name": "短语字幕",
+    "status": "implemented",
+    "zone": "caption",
+    "match": "旁白同步",
+    "use": "Scene.captions",
+    "constraints": "绝对帧；禁止长段遮挡",
+    "sound": "none",
+    "excludes": []
+  },
+  "progress": {
+    "name": "顶部进度线",
+    "status": "implemented",
+    "zone": "background",
+    "match": "阅读进度",
+    "use": "NewspaperShort",
+    "constraints": "不当作叙事节点",
+    "sound": "none",
+    "excludes": []
+  },
+  "cut": {
+    "name": "场景硬切",
+    "status": "implemented",
+    "zone": "transition",
+    "match": "语义场景结束",
+    "use": "scenes.start/end",
+    "constraints": "避免切断阅读及SFX尾音",
+    "sound": "none",
+    "excludes": [
+      "color-wipe",
+      "iris"
+    ]
+  },
+  "split": {
+    "name": "红蓝双区关系",
+    "status": "implemented",
+    "zone": "content",
+    "match": "两方立场/互补职能/不等关系",
+    "use": "Scene.motion[]",
+    "constraints": "先两边后关系符号；VS/+/<必须与语义一致；不是默认敌我编码",
+    "sound": "paper",
+    "evidence": "5:83–88.75;5:119–121.75;IMG_4801–4803",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "stage-curve": {
+    "name": "分阶段教学曲线",
+    "status": "implemented",
+    "zone": "content",
+    "match": "解释阶段模型",
+    "use": "Scene.motion[]",
+    "constraints": "明确示意；各段保留已画轨迹；禁止伪装真实行情",
+    "sound": "none",
+    "evidence": "6:36–41.75;IMG_4794",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "checklist": {
+    "name": "检查板逐项勾选",
+    "status": "implemented",
+    "zone": "content",
+    "match": "有定义且可验证的条件组",
+    "use": "Scene.motion[]",
+    "constraints": "1–8个真实条件，最多4张解释卡每页，持续显示全局状态与通过数；未知不算通过",
+    "sound": "tick",
+    "evidence": "6:54–59.75;IMG_4795",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "market-line": {
+    "name": "行情线与基准",
+    "status": "implemented",
+    "zone": "content",
+    "match": "实际时序数据及比较基准",
+    "use": "Scene.motion[]",
+    "constraints": "按真实时间横轴；同轴；终点/基准/差值按VO分步；不得用手绘近似真实数据",
+    "sound": "tick",
+    "evidence": "6:68–73.75;IMG_4796–4797",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "chapter-tint": {
+    "name": "章节纸面色层",
+    "status": "implemented",
+    "zone": "background",
+    "match": "章节情绪改变",
+    "use": "Scene.motion[]",
+    "constraints": "保持纸纹和文字对比；原件区不染色；颜色不替代事实",
+    "sound": "none",
+    "evidence": "7:82–87.75;IMG_4808",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "color-wipe": {
+    "name": "整屏色块遮挡转场",
+    "status": "implemented",
+    "zone": "transition",
+    "match": "论点或章节明确切换",
+    "use": "FilmProps.transitions[]",
+    "constraints": "完全遮住旧内容后换场；同区一次一种转场；禁与证据变焦并发",
+    "sound": "whoosh",
+    "evidence": "7:82.5–83;7:86–86.25;7:160.75–161.25",
+    "excludes": [
+      "evidence",
+      "cut",
+      "iris"
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "iris": {
+    "name": "圆形收放遮挡",
+    "status": "implemented",
+    "zone": "transition",
+    "match": "解释层次深入",
+    "use": "FilmProps.transitions[]",
+    "constraints": "字幕区保留；旧新内容仅在覆盖时换；禁止连续滥用",
+    "sound": "whoosh",
+    "evidence": "5:117.75–118.5",
+    "excludes": [
+      "evidence",
+      "cut",
+      "color-wipe"
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "calendar-flip": {
+    "name": "日历翻页计数",
+    "status": "implemented",
+    "zone": "content",
+    "match": "月份/天数流逝",
+    "use": "Scene.motion[]",
+    "constraints": "翻页中间数字非实测状态；终值可读；不每页打响",
+    "sound": "paper",
+    "evidence": "7:83.5–85.75",
+    "excludes": [
+      "metric"
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "film-frame": {
+    "name": "胶片容器",
+    "status": "implemented",
+    "zone": "content",
+    "match": "历史事件/视频引用",
+    "use": "Scene.motion[]",
+    "constraints": "黑白孔边为装饰；不暗示档案真伪；孔边不持续闪烁",
+    "sound": "paper",
+    "evidence": "6:89.08 overview;7:60.46 overview",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "keyword": {
+    "name": "关键词纸片组",
+    "status": "implemented",
+    "zone": "annotation",
+    "match": "论点重音/结论",
+    "use": "Scene.motion[]",
+    "constraints": "按短语出现；不逐字弹跳；不能复制全部字幕",
+    "sound": "paper",
+    "evidence": "IMG_4804–4806;7:159–160.5",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "threshold": {
+    "name": "阈值进度条",
+    "status": "implemented",
+    "zone": "content",
+    "match": "票数/配额距门槛",
+    "use": "Scene.motion[]",
+    "constraints": "阈值先交代；数值条长同轴；未达到不显示成功",
+    "sound": "tick",
+    "evidence": "7:178–183.75",
+    "excludes": [
+      "data"
+    ],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "icon-metaphor": {
+    "name": "图标隐喻",
+    "status": "implemented",
+    "zone": "content",
+    "match": "抽象影响的辅助说明",
+    "use": "Scene.motion[]",
+    "constraints": "不得冒充数据/真实证据；避开额外无意义箭头",
+    "sound": "paper",
+    "evidence": "IMG_4806 screenshot-only",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "date-tiles": {
+    "name": "日期字块",
+    "status": "implemented",
+    "zone": "annotation",
+    "match": "日期成为论述重音",
+    "use": "Scene.motion[]",
+    "constraints": "明确月日顺序/年份；不滚成随机数",
+    "sound": "tick",
+    "evidence": "IMG_4808 screenshot-only",
+    "excludes": [],
+    "api": "references/motion-api.md",
+    "implementation": "assets/template/src/motion.tsx"
+  },
+  "collage": {
+    "name": "参考版式组合场景",
+    "status": "implemented",
+    "zone": "content",
+    "match": "照片/短语/比较/图表需非固定上中下排布",
+    "use": "Scene.collage",
+    "constraints": "子层按语义编组；逐层运动范围和字幕安全区校验；明确重叠原因；人物与证据不得遮挡",
+    "sound": "paper",
+    "excludes": [],
+    "api": "references/collage-api.md",
+    "implementation": "assets/template/src/collage.tsx"
+  }
+}

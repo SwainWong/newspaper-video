@@ -1,0 +1,38 @@
+{
+  "source_sha256": "bb53050c388fda22808f9cc331c7f6337ef5fdae17a0977e2253237ccbec6067",
+  "timeline_sha256": "199fb7e0e8d8335fa589150cc176c55b97b7cf1315a57e8407d65f9b1dc3a045",
+  "renderer_sha256": "ea3324c764a7d7d6c075dadda6c24b5f7406c159a92fab43e8d2d923770bb188",
+  "synthetic_media_and_data": true,
+  "duration_frames": 6400,
+  "fps": 30,
+  "size": [
+    540,
+    960
+  ],
+  "voice": false,
+  "music": false,
+  "sfx": false,
+  "continuous_viewing": false,
+  "listening": false,
+  "owner_acceptance": false,
+  "gifs": [
+    {
+      "file": "photo-question-strip.gif",
+      "start_seconds": 106.66666666666667,
+      "duration_seconds": 6,
+      "sha256": "61e08e0790dc1896dc77b439818705ed7ed4a8a8c9f8e7a5aaf7a1fc8f819c16"
+    },
+    {
+      "file": "opposed-hero-panels.gif",
+      "start_seconds": 133.33333333333334,
+      "duration_seconds": 6,
+      "sha256": "5ba093da2ce170c6b1b5ae4190bab29fa27ca4f62f976516361f463b019aba6a"
+    },
+    {
+      "file": "central-phrase-ballot.gif",
+      "start_seconds": 173.33333333333334,
+      "duration_seconds": 6,
+      "sha256": "cec41702aff74ef5acf5f6e2d44ec1443b2912645b6d4b4aa13e8c06b2ce1d9a"
+    }
+  ]
+}

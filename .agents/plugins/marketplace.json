@@ -1,0 +1,17 @@
+{
+  "name": "swainwong-newspaper",
+  "plugins": [
+    {
+      "name": "newspaper-video",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

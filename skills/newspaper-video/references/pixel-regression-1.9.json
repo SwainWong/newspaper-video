@@ -1,0 +1,146 @@
+{
+  "kind": "reference-region regression, not perceptual acceptance",
+  "cases": [
+    {
+      "id": "4801-v3",
+      "reference_sha256": "251ffca6ef96bfb382683f378b0e7e17a585b903ae49e86ab6854288e162209d",
+      "candidate_sha256": "73a5fc8ad4541df30a4c7de4015db5a49a37fcda4c39c3bb89f1e9dd0c2ca2ab",
+      "regions": [
+        {
+          "name": "headline",
+          "kind": "recreated_graphics",
+          "rect": [
+            45,
+            585,
+            970,
+            165
+          ],
+          "evaluated_pixels": 160050,
+          "mean_absolute_rgb_error": 43.109744871394355
+        },
+        {
+          "name": "answer",
+          "kind": "recreated_graphics",
+          "rect": [
+            75,
+            740,
+            830,
+            180
+          ],
+          "evaluated_pixels": 149400,
+          "mean_absolute_rgb_error": 46.81376840696118
+        },
+        {
+          "name": "compare",
+          "kind": "recreated_graphics",
+          "rect": [
+            40,
+            938,
+            1004,
+            240
+          ],
+          "evaluated_pixels": 240960,
+          "mean_absolute_rgb_error": 16.792117640548916
+        },
+        {
+          "name": "paper",
+          "kind": "reused_source_asset",
+          "rect": [
+            0,
+            1500,
+            1080,
+            400
+          ],
+          "evaluated_pixels": 432000,
+          "mean_absolute_rgb_error": 11.106421296296297
+        }
+      ]
+    },
+    {
+      "id": "4803-v3",
+      "reference_sha256": "99250389d80557750625d3dbd132b658c62e1ae814d012cb074cead0355b33a9",
+      "candidate_sha256": "92346d652ff128b926a891ba77e64a9efefb0241e5db6a9f71a928b18661e8c0",
+      "regions": [
+        {
+          "name": "label",
+          "kind": "recreated_graphics",
+          "rect": [
+            60,
+            155,
+            290,
+            100
+          ],
+          "evaluated_pixels": 29000,
+          "mean_absolute_rgb_error": 39.18690804597701
+        },
+        {
+          "name": "compare",
+          "kind": "recreated_graphics",
+          "rect": [
+            49,
+            304,
+            980,
+            428
+          ],
+          "evaluated_pixels": 419440,
+          "mean_absolute_rgb_error": 15.309334668446818
+        },
+        {
+          "name": "paper",
+          "kind": "reused_source_asset",
+          "rect": [
+            0,
+            1500,
+            1080,
+            400
+          ],
+          "evaluated_pixels": 432000,
+          "mean_absolute_rgb_error": 10.978648919753086
+        }
+      ]
+    },
+    {
+      "id": "4803-old-split",
+      "reference_sha256": "99250389d80557750625d3dbd132b658c62e1ae814d012cb074cead0355b33a9",
+      "candidate_sha256": "1a393ddaa33fb702297565e2c53d20c93e5d91c392b781d53971b94f1e21043d",
+      "regions": [
+        {
+          "name": "label",
+          "kind": "recreated_graphics",
+          "rect": [
+            60,
+            155,
+            290,
+            100
+          ],
+          "evaluated_pixels": 29000,
+          "mean_absolute_rgb_error": 51.84166666666667
+        },
+        {
+          "name": "compare",
+          "kind": "recreated_graphics",
+          "rect": [
+            49,
+            304,
+            980,
+            428
+          ],
+          "evaluated_pixels": 419440,
+          "mean_absolute_rgb_error": 97.83198232564054
+        },
+        {
+          "name": "paper",
+          "kind": "reused_source_asset",
+          "rect": [
+            0,
+            1500,
+            1080,
+            400
+          ],
+          "evaluated_pixels": 432000,
+          "mean_absolute_rgb_error": 10.978648919753086
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "file": "video/newspaper-origin-5.mp4",
+    "sha256": "85763f950bf77fbd3948fc7f5e712b927258226208a3361c737ab9c66bfc4232",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "29/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "260.416000"
+      }
+    }
+  },
+  {
+    "file": "video/newspaper-origin-6.mp4",
+    "sha256": "1bba285d01464061ef178ff2d3b14fa9bd99106e921c01af28617bceb754d055",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "29/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "194.347000"
+      }
+    }
+  },
+  {
+    "file": "video/newspaper-origin-7.mp4",
+    "sha256": "0c810499fcf3f83c13c544eb89264a9fbdb3f56603e058ca94e0814bc8d6828a",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1080,
+          "height": 1920,
+          "r_frame_rate": "29/1"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ],
+      "format": {
+        "duration": "290.207000"
+      }
+    }
+  },
+  {
+    "file": "screenshot/IMG_4793.PNG",
+    "sha256": "4d8a275650e9927b5c82cb35b97cb45a0ca40345a82dfcc631f0727c57de0816"
+  },
+  {
+    "file": "screenshot/IMG_4794.PNG",
+    "sha256": "138fa7509ef5fdadea6cc3737128459fd83bdc48665e2bb00f4c4703befc8258"
+  },
+  {
+    "file": "screenshot/IMG_4795.PNG",
+    "sha256": "bc827769f5f9f840d97d2efdf5a21098e2466b96670818766c7e44e4c9df55ab"
+  },
+  {
+    "file": "screenshot/IMG_4796.PNG",
+    "sha256": "1b5ec59eb6f6cdddf38e60e2e5df9f1d5205c18945fb0bbc3f1268cd1e036e0f"
+  },
+  {
+    "file": "screenshot/IMG_4797.PNG",
+    "sha256": "eb97dde1df8afe4591a5ca4859abbd2bbef128d41a906ec8ff094bcedcc04632"
+  },
+  {
+    "file": "screenshot/IMG_4798.PNG",
+    "sha256": "294940a561a19a3103749169a7516f42dc6787a3978eaeb8bfbfcb730f168867"
+  },
+  {
+    "file": "screenshot/IMG_4799.PNG",
+    "sha256": "83f735192baf40e82215892af3532e466574307b59a1d7ea1270984a6321595a"
+  },
+  {
+    "file": "screenshot/IMG_4800.PNG",
+    "sha256": "a4e03f4035ff40cb951a88cf763affd3cf5c33fff88d4d070647ee1e0b631284"
+  },
+  {
+    "file": "screenshot/IMG_4801.PNG",
+    "sha256": "2ec36bd7230813b9f4e922f9adb1c8cad1bec5d491dcc4658493e462f8e74b6b"
+  },
+  {
+    "file": "screenshot/IMG_4802.PNG",
+    "sha256": "59f68e465173f462b5452335e6e6de9a1061fcae2fe51c0dfae383430ecc5d67"
+  },
+  {
+    "file": "screenshot/IMG_4803.PNG",
+    "sha256": "315ef00a103fa99760957fe2c286449faf0de7b8594c6cf7ae3f015a415776fc"
+  },
+  {
+    "file": "screenshot/IMG_4804.PNG",
+    "sha256": "fd648a91d779e1e662a4619dfb965d34a186cffc46f9ac6a013bd4e706abebd3"
+  },
+  {
+    "file": "screenshot/IMG_4805.PNG",
+    "sha256": "455b9813101f63d26501b46af61797044e32ad1f646085ef83d65cbe749f008b"
+  },
+  {
+    "file": "screenshot/IMG_4806.PNG",
+    "sha256": "62a26985ca56df045c779608a045ab161114ca98f8b3d7fc3df62ce0a2febcad"
+  },
+  {
+    "file": "screenshot/IMG_4807.PNG",
+    "sha256": "94d6ec66bbaeb48c6e27eb72d48dbcc16cc787505c8c540878f4d5203f6e64a1"
+  },
+  {
+    "file": "screenshot/IMG_4808.PNG",
+    "sha256": "dcc2b9493350818b4a1ee00fec30b89e7edd0929551c6794fefb23b0f8a1b597"
+  }
+]
