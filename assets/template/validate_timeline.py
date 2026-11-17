@@ -78,8 +78,16 @@ for index,scene in enumerate(scenes):
    d=analysis.get('data',{})
    if not all(d.get(k) for k in ('file','publisher','published','documentLabel','summary','crop','imageWidth','imageHeight')):err(f'{sid}: evidence identity/crop/summary missing')
    if not (p/'public'/d.get('file','')).is_file():err(f'{sid}: evidence original screenshot missing')
-   if not isinstance(d.get('focusAt'),int) or d.get('summaryAt',-1)<d.get('focusAt',0):err(f'{sid}: evidence requires whole-page then focused summary')
-  elif not 1<=len(analysis.get('steps',[]))<=4 or any(not isinstance(r.get('at'),int) or not 0<=r['at']<end-start for r in analysis.get('steps',[])):err(f'{sid}: invalid relationship steps')
+   duration=d.get('zoomFrames',24);focus=d.get('focusAt',-1);crop=d.get('crop',{})
+   if not isinstance(duration,int) or not 12<=duration<=45 or not isinstance(focus,int) or focus<12 or focus+duration>=end-start:err(f'{sid}: evidence needs whole-page hold and continuous zoom')
+   elif d.get('summaryAt',-1)<focus+duration or any(m.get('at',-1)<focus+duration for m in d.get('marks',[])):err(f'{sid}: evidence marks/summary must follow zoom arrival')
+   if not all(isinstance(crop.get(k),(int,float)) for k in ('x','y','width','height')) or crop.get('x',-1)<0 or crop.get('y',-1)<0 or crop.get('width',0)<=0 or crop.get('height',0)<=0 or crop.get('x',0)+crop.get('width',0)>d.get('imageWidth',0) or crop.get('y',0)+crop.get('height',0)>d.get('imageHeight',0):err(f'{sid}: evidence crop outside source')
+  else:
+   steps=analysis.get('steps',[])
+   if not 1<=len(steps)<=4 or any(not isinstance(r.get('at'),int) or not 0<=r['at']<end-start for r in steps):err(f'{sid}: invalid relationship steps')
+   for i,step in enumerate(steps):
+    if i and not step.get('edgeFromPrevious','').strip():err(f'{sid}: relation connector needs semantic label')
+    if step.get('image') and not (p/'public'/step['image']).is_file():err(f'{sid}: relationship image missing')
  editorial=scene.get('editorial')
  if editorial is not None:
   if not isinstance(editorial,dict) or editorial.get('type') not in ('document','schedule','relations'):err(f'{sid}: invalid editorial type')

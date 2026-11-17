@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Img, staticFile, interpolate, delayRender, continueRender, cancelRender} from 'remotion';
 
+import {evidenceCamera} from './evidence-camera';
+
 const ink='#18313a', red='#ae342c', cream='#f4eddb', yellow='#efd164';
 const ramp=(f:number,at:number,d=18)=>interpolate(f,[at,at+d],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
 
@@ -28,18 +30,29 @@ export const DataComparison:React.FC<{data:DataComparisonSpec;frame:number}>=({d
  </div>;
 };
 
-export type EvidenceFocusSpec={file:string;publisher:string;published:string;documentLabel:string;imageWidth:number;imageHeight:number;crop:{x:number;y:number;width:number;height:number};focusAt:number;marks:{x:number;y:number;width:number;height:number;at:number}[];summary:string;summaryAt:number};
-/** All crop/mark coordinates refer to the original screenshot, in source pixels. */
+export type EvidenceFocusSpec={file:string;publisher:string;published:string;documentLabel:string;imageWidth:number;imageHeight:number;crop:{x:number;y:number;width:number;height:number};focusAt:number;zoomFrames?:number;marks:{x:number;y:number;width:number;height:number;at:number}[];summary:string;summaryAt:number};
+/** A persistent source plane; camera and highlights share the same coordinates. */
 export const EvidenceFocus:React.FC<{data:EvidenceFocusSpec;frame:number}>=({data,frame})=>{
- const focus=frame>=data.focusAt;const scale=Math.min(900/data.crop.width,600/data.crop.height);const ox=(900-data.crop.width*scale)/2,oy=(600-data.crop.height*scale)/2;
+ const duration=data.zoomFrames??24;
+ if(duration<12)throw Error('Evidence zoom must be a visible continuous move');
+ const camera=evidenceCamera(data.imageWidth,data.imageHeight,data.crop,(frame-data.focusAt)/duration);
+ const arrived=data.focusAt+duration;
+ const outline=frame>=data.focusAt-12&&frame<arrived;
  return <div style={{position:'absolute',left:65,top:370,width:950,color:ink,fontFamily:'Arial'}}>
   <div style={{fontSize:32,fontWeight:800,background:ink,color:cream,padding:20}}>{data.publisher} · {data.documentLabel}<div style={{fontSize:26,fontWeight:400,marginTop:10}}>{data.published}</div></div>
-  <div style={{position:'relative',marginTop:20,width:900,height:focus?600:760,border:'15px solid '+cream,background:'white',overflow:'hidden',boxShadow:'5px 8px 14px #0004'}}>
-   {!focus?<Img src={staticFile(data.file)} style={{width:'100%',height:'100%',objectFit:'contain'}}/>:<><Img src={staticFile(data.file)} style={{position:'absolute',left:ox-data.crop.x*scale,top:oy-data.crop.y*scale,width:data.imageWidth*scale,height:data.imageHeight*scale}}/>{data.marks.map((m,i)=><div key={i} style={{position:'absolute',left:ox+(m.x-data.crop.x)*scale,top:oy+(m.y-data.crop.y)*scale,width:m.width*scale*ramp(frame,m.at,16),height:m.height*scale,background:'#ffd934',opacity:.5,mixBlendMode:'multiply'}}/>)}</>}
-  </div>{frame>=data.summaryAt&&<div style={{marginTop:25,padding:25,background:yellow,fontSize:43,fontWeight:700,lineHeight:1.3}}><div style={{fontSize:25,marginBottom:12}}>KEY POINT · EDITORIAL SUMMARY</div>{data.summary}</div>}
+  <div style={{position:'relative',marginTop:20,width:900,height:camera.height,border:'15px solid '+cream,background:'white',overflow:'hidden',boxShadow:'5px 8px 14px #0004'}}>
+   <div style={{position:'absolute',left:0,top:0,width:data.imageWidth,height:data.imageHeight,transformOrigin:'0 0',transform:`translate(${camera.x}px,${camera.y}px) scale(${camera.scale})`}}>
+    <Img src={staticFile(data.file)} style={{position:'absolute',left:0,top:0,width:data.imageWidth,height:data.imageHeight}}/>
+    {outline&&<div style={{position:'absolute',left:data.crop.x,top:data.crop.y,width:data.crop.width,height:data.crop.height,boxSizing:'border-box',border:`${3/camera.scale}px solid ${red}`,opacity:1-camera.progress}}/>}
+    {data.marks.map((m,i)=><div key={i} style={{position:'absolute',left:m.x,top:m.y,width:m.width*ramp(frame,Math.max(m.at,arrived),16),height:m.height,background:'#ffd934',opacity:.5,mixBlendMode:'multiply'}}/>)}
+   </div>
+  </div>{frame>=Math.max(data.summaryAt,arrived)&&<div style={{marginTop:25,padding:25,background:yellow,fontSize:43,fontWeight:700,lineHeight:1.3}}><div style={{fontSize:25,marginBottom:12}}>KEY POINT · EDITORIAL SUMMARY</div>{data.summary}</div>}
  </div>;
 };
 
-export type RelationStep={at:number;heading:string;detail:string;color?:string};
-/** Relations are qualitative; no fake quantitative arrow thickness or percentages. */
-export const RelationSteps:React.FC<{steps:RelationStep[];frame:number}>=({steps,frame})=><div style={{position:'absolute',left:80,top:410,width:920,fontFamily:'Arial',color:ink}}>{steps.slice(0,4).map((s,i)=><React.Fragment key={i}>{i>0&&<div style={{height:65,fontSize:50,textAlign:'center',opacity:ramp(frame,s.at)}}>↓</div>}<div style={{padding:'24px 30px',minHeight:145,background:cream,borderLeft:'14px solid '+(s.color??red),boxShadow:'4px 7px 13px #0003',opacity:ramp(frame,s.at),transform:`translateX(${(1-ramp(frame,s.at))*30}px)`}}><div style={{fontSize:43,fontWeight:800}}>{s.heading}</div><div style={{fontSize:34,lineHeight:1.3,marginTop:15}}>{s.detail}</div></div></React.Fragment>)}</div>;
+export type RelationStep={at:number;heading:string;detail:string;color?:string;image?:string;imageFit?:'cover'|'contain';edgeFromPrevious?:string};
+/** Every connector describes a relation between its two adjacent visible cards. */
+export const RelationSteps:React.FC<{steps:RelationStep[];frame:number}>=({steps,frame})=>{
+ if(steps.length>4||steps.some((s,i)=>i>0&&!s.edgeFromPrevious?.trim()))throw Error('Every relation needs an explicit connecting label');
+ return <div style={{position:'absolute',left:80,top:380,width:920,fontFamily:'Arial',color:ink}}>{steps.map((s,i)=><React.Fragment key={i}>{i>0&&<div style={{height:72,fontSize:30,textAlign:'center',opacity:ramp(frame,s.at),display:'flex',alignItems:'center',justifyContent:'center',gap:16}}><span style={{fontSize:42}}>↓</span><span style={{background:cream,padding:'3px 16px'}}>{s.edgeFromPrevious}</span></div>}<div style={{padding:'20px 24px',minHeight:175,boxSizing:'border-box',background:cream,boxShadow:'4px 7px 13px #0003',opacity:ramp(frame,s.at),transform:`translateX(${(1-ramp(frame,s.at))*30}px)`,display:'flex',gap:24,alignItems:'center'}}>{s.image&&<Img src={staticFile(s.image)} style={{width:165,height:145,objectFit:s.imageFit??'contain',flexShrink:0}}/>}<div><div style={{fontSize:40,fontWeight:800,color:s.color??ink}}>{s.heading}</div><div style={{fontSize:32,lineHeight:1.25,marginTop:10}}>{s.detail}</div></div></div></React.Fragment>)}</div>;
+};

@@ -32,7 +32,7 @@
 
 新增入口选择与脚本哈希批准检查，未批准不得建制作工程；脚本改变即失效。新增旁白过程话语审核、图片语义规则、钩子顺序、主语言/字幕/异语划词翻译、VoiceStudio 选择与试音、BGM/SFX 合同。包装命令检查音乐/音效声明与首镜钩子。新增可编辑 musicEnvelope，TypeScript 检查通过（本轮运行环境 Node 18.20.8，复用已安装依赖，未声称独立安装/新渲染）。单元测试覆盖缺批准不建项目、脚本变动失效与选择缺项；结构验证不认证真实批准消息，也不替代逐句/图片/听音审核。
 
-当前 V3 两片被用户要求返修，不能作为 1.4 视听验收证据。英文 V4 审稿文件在本机审稿目录，未获得用户批准，因此未生成新版视频。Claude/WorkBuddy 仍未做端到端实测。
+1.4.0发布时的 V3 两片被用户要求返修，不能作为 1.4 视听验收证据。该阶段英文 V4 审稿文件尚待批准；之后的制作记录见后续版本。Claude/WorkBuddy 仍未做端到端实测。
 
 
 ## 1.5.0 validation
@@ -41,3 +41,10 @@ Ten unittest cases pass, including rejecting early future-event reveals, critica
 
 
 1.5.1 adds two waveform-backed tests: correctly placed silence passes, injected speech inside a declared pause fails, and a missing voice stem is not considered silence. Twelve unittest cases pass where ffmpeg is available; the two audio tests are explicitly skipped without ffmpeg, not reported as audio verification. This fixes the gap between plausible ASR timing records and actual voice samples.
+
+
+## 1.6.0 连续变焦与图像叙事检查
+
+16个unittest用例通过，新增图片覆盖不足、文档冒充实质图片、悬空关系线、换源硬切和高亮早于摄影机落稳等负例。隔离工程中TypeScript通过；摄影机几何函数实际检查起终位置、中间连续性及越界拒绝。用真实原件渲染0/30/42/54/84帧并查看：整页、定位框、中途表格位置、局部、黄笔及编辑摘要保持同一图像坐标。源文件的5帧检查不是正常速度全片观看。
+
+GIF工具已从20秒模板样片生成三段270×480、12fps、每段3秒的GIF，分别完整解码并核对36帧，清单包含来源和产物SHA。这验证生成流程，不等同于两部新闻片的GIF或完整视听验收；最终影片及GIF状态以showcase/manifest.json为准。CLI完整render强制检查1.6视觉计划，旧记录可单独检查历史合同但不能绕过新制作门禁。

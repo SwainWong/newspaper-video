@@ -32,8 +32,10 @@
 `Scene.analysis` 与原有 images/editorial/comparison/detail 等内容区互斥：
 - `{type:"data",data:{title,unit,period,status,source,domain:[min,max],precision?,rows:[{label,value,at,color?}],summary?,summaryAt?}}`，同轴数据条，最多4行，domain必须包含零，at为场景内配音词锚帧。
 - `{type:"evidence",data:{file,publisher,published,documentLabel,imageWidth,imageHeight,crop:{x,y,width,height},focusAt,marks:[{x,y,width,height,at}],summary,summaryAt}}`，所有坐标以原图像素为准，focusAt之后放大，再按marks.at黄笔高亮。
-- `{type:"relations",steps:[{at,heading,detail,color?}]}`，最多4步，不把定性关系画成虚假比例。
+- `{type:"relations",steps:[{at,heading,detail,color?,image?,imageFit?,edgeFromPrevious?}]}`，最多4步；从第二步起edgeFromPrevious必填，说明与前一步的关系。image用于节点实质图片，imageFit可contain/cover。不把定性关系画成虚假比例。
 
 独立工程也可直接导入这些组件，传场景局部frame。现有照片/标题/字幕容器不要与analysis重复叠放。声音停顿仍需编辑真实音轨；组件不会自动创造静音或重新对齐字幕。
 
 `Scene.audioOffsetFrames`（非负整数，默认0）可推迟旁白起点，配合场景末端空帧形成真实品牌停顿。字幕仍用全片绝对帧，必须同步偏移；验证器会检查偏移加WAV时长不超过镜头。也可在独立混音中插入静音后导入。
+
+1.6证据摄影机：`EvidenceFocus.data.zoomFrames`默认24（12–45帧），`focusAt`是连续变焦开始，整页至少先停留12帧。`marks[].at`与`summaryAt`不早于focusAt+zoomFrames。原件在同一DOM图像平面上做连续translate/scale；坐标均为原图像素，crop必须在原图范围内。源代码几何函数见`evidence-camera.ts`。
