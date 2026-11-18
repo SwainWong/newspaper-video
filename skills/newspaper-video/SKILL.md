@@ -2,7 +2,7 @@
 name: newspaper-video
 description: 制作或修改旧报纸、照片拼贴、图钉胶带、动态数字与时间轴风格的 Remotion 讲解视频；使用内置素材、样式参数和可运行模板。适用于复用报纸拼贴视觉风格，不承担通用剪辑或发布账号操作。
 metadata:
-  version: "1.9.1"
+  version: "1.9.2"
 ---
 
 # 报纸拼贴视频

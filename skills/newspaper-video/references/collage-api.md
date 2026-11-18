@@ -53,3 +53,22 @@ The template renders these cues directly. Plan `child_sounds` must exactly match
 Generate with `python3 scripts/collage_demo.py /NEW_DIR`, install dependencies, then `npm run check`, `node scripts/validate-motion.cjs src/timeline.json`, `python3 validate_timeline.py src/timeline.json`, and `python3 SKILL_ROOT/scripts/motion_gate.py motion-plan.json --timeline src/timeline.json`. `tests/collage_runtime.cjs` runs actual SSR and malformed/conflict cases against that project. Synthetic fixtures may be rendered directly for component review; production still follows explicit script/voice approval and review-plan gates.
 
 Use `pixel_compare.py` with explicit source/candidate crops and regenerated hashes. Separate copied paper/photos from recreated graphics. Record each region's error, not an invented overall pixel-perfect score. Review entrance/middle/settled frames and readable phone-size output. Decoding, SSR and per-pixel differences do not establish continuous viewing, real listening or owner acceptance.
+
+### Event-anchored line charts
+
+`line-chart` accepts optional `revealStops:[{at,x}]`. Supply 2–64 stops: `at` is an integer **scene-local frame**, strictly increasing within the inclusive `drawAt`–`drawSettle` interval; `x` is normalized 0–1, nondecreasing, with first x=0 and last x=1. The visible horizontal extent interpolates linearly between stops, holds across equal x values, and clamps outside the first/last stop. Stops may sit inside the draw interval; focus remains reserved through `drawSettle`, which also remains the draw sound anchor. Without stops, the original eased reveal remains unchanged. Stop x values locate observations on the actual data axis, not evenly spaced narrative beats.
+
+Optional `xLabels:[{x,label}]` adds 1–8 static axis ticks using increasing normalized positions and 1–16 character single-line labels. Charts with ticks must be at least 240×260; conservative character-width checks reject overlapping labels or labels outside the chart. Date labels should use the same time-to-x mapping as observations. Ticks reserve additional space above the footer.
+
+Optional `connectionLabel` supplies 1–64 nonblank, single-line characters after `unit`; omission preserves `观测点直线连接`. English episodes can set `connectionLabel:"Observed points joined"`. This describes straight connections between observations, not unobserved intraday behavior.
+
+```json
+{
+  "drawAt": 20, "drawSettle": 100,
+  "revealStops": [{"at":20,"x":0},{"at":50,"x":0.5},{"at":70,"x":0.5},{"at":100,"x":1}],
+  "xLabels": [{"x":0,"label":"Nov 02"},{"x":0.5,"label":"Nov 09"},{"x":1,"label":"Nov 16"}],
+  "connectionLabel": "Observed points joined"
+}
+```
+
+This partial configuration requires the existing node geometry, actual points, domain, source, title, unit and lifetime. Event timing must come from the approved narration; these controls do not verify dates or prices. Existing geometry, focus, caption and source requirements remain in force.

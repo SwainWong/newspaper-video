@@ -180,5 +180,56 @@ test('travel and landing sounds are not interchangeable',()=>{
  const c=scene([text('a',[100,100,200,100])]);c.sounds=[{nodeId:'a',anchor:'entry',kind:'paper',file:'sfx/paper.wav',gain:.2,tailFrames:5,license:'CC0'}];rejects(c,/travel cue/);
  c.sounds[0].kind='whoosh';assert.deepEqual(api.validateCollage(c,120),[]);c.sounds[0].anchor='settle';rejects(c,/landing cue/);
 });
+const chart = () => ({...text('chart',[60,100,900,600]),kind:'line-chart',
+  points:[{x:0,y:10},{x:.5,y:30},{x:1,y:20}],domain:[0,40],source:'Synthetic test observations',
+  title:'Observed price',unit:'USD',drawAt:20,drawSettle:100});
+const clipWidth = html => Number(html.match(/data-chart-reveal="true"[^>]*width="([^"]+)"/)[1]);
+test('chart event stops interpolate in x, hold, and clamp actual visible SVG',()=>{
+ const n=chart();n.revealStops=[{at:30,x:0},{at:50,x:.25},{at:70,x:.25},{at:90,x:1}];
+ const c=scene([n]);assert.deepEqual(api.validateCollage(c,120),[]);
+ for(const [frame,fraction] of [[20,0],[30,0],[40,.125],[50,.25],[60,.25],[70,.25],[80,.625],[90,1],[110,1]])
+  assert.equal(clipWidth(render(c,frame)),810*fraction,`visible clip at frame ${frame}`);
+ assert.equal(render(c,50),render(c,60),'hold must retain identical rendered chart');
+ assert.notEqual(render(c,40),render(c,80),'reveal must change rendered clipping');
+ assert.equal(api.movingEnd(n),100,'stops do not weaken reserved motion focus');
+ assert.equal(api.soundAt(n,'draw'),100,'draw sound retains declared settlement anchor');
+});
+test('chart without stops retains legacy eased reveal and connection label',()=>{
+ const c=scene([chart()]);assert.equal(clipWidth(render(c,60)),810*.875);
+ assert.match(render(c,60),/观测点直线连接/);
+});
+test('chart rejects malformed or reversing event stop schedules',()=>{
+ const valid=[{at:20,x:0},{at:60,x:.4},{at:100,x:1}];
+ for(const bad of [null,[],[valid[0]],Array(65).fill(valid[0]),
+  [{at:19,x:0},valid[2]],[valid[0],{at:101,x:1}],
+  [valid[0],{at:20,x:.4},valid[2]],[valid[0],{at:20.5,x:.4},valid[2]],
+  [valid[0],{at:50,x:.8},{at:60,x:.4},valid[2]],
+  [{at:20,x:.1},valid[2]],[valid[0],{at:100,x:.9}],
+  [valid[0],{at:60,x:1.2},valid[2]],[valid[0],null,valid[2]],
+  [valid[0],{at:60,x:NaN},valid[2]]]){
+  const n=chart();n.revealStops=bad;rejects(scene([n]),/revealStops/);
+ }
+});
+test('chart date ticks and explicit English footer render independently of reveal',()=>{
+ const n=chart();n.xLabels=[{x:0,label:'Nov 02'},{x:.5,label:'Nov 09'},{x:1,label:'Nov 16'}];
+ n.connectionLabel='Observed points joined';const c=scene([n]);
+ assert.deepEqual(api.validateCollage(c,120),[]);
+ const html=render(c,20);assert.match(html,/Nov 02/);assert.match(html,/Nov 09/);assert.match(html,/Nov 16/);
+ assert.match(html,/USD · Observed points joined/);assert.doesNotMatch(html,/观测点直线连接/);
+ assert.match(html,/y="500" font-size="17" text-anchor="start">Nov 02/);
+ assert.match(html,/text-anchor="end">Nov 16/);
+});
+test('chart rejects unreadable or malformed date labels and footers',()=>{
+ for(const bad of [null,[],[{x:-.1,label:'Nov 02'}],[{x:0,label:''}],
+  [{x:0,label:'x'.repeat(17)}],[{x:0,label:'Nov\n02'}],
+  [{x:.5,label:'Nov 09'},{x:.4,label:'Nov 02'}],
+  [{x:.5,label:'Nov 09'},{x:.51,label:'Nov 10'}]]){
+  const n=chart();n.xLabels=bad;rejects(scene([n]),/xLabels/);
+ }
+ const small=chart();small.box[3]=250;small.xLabels=[{x:0,label:'Nov 02'}];rejects(scene([small]),/xLabels/);
+ for(const bad of [null,'','x'.repeat(65),'two\nlines']){
+  const n=chart();n.connectionLabel=bad;rejects(scene([n]),/connectionLabel/);
+ }
+});
 console.log(`Collage runtime: ${passed} passed, ${failures.length} failed. SSR is not audiovisual acceptance.`);
 if(failures.length)process.exitCode=1;
