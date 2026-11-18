@@ -72,3 +72,13 @@ Optional `connectionLabel` supplies 1–64 nonblank, single-line characters afte
 ```
 
 This partial configuration requires the existing node geometry, actual points, domain, source, title, unit and lifetime. Event timing must come from the approved narration; these controls do not verify dates or prices. Existing geometry, focus, caption and source requirements remain in force.
+
+### Chart typography and caption wrapping
+
+Charts accept optional `axisFontSize` (16–40, default 17), `titleFontSize` (20–48, default 28), `sourceFontSize` (16–36, default 20), and `footerFontSize` (16–36, default 21). Omission retains existing font sizes and plot geometry. An explicit axis size applies to both dates and y-axis numbers; tick spacing uses that size with conservative Latin/full-width character estimates. Larger typography reserves left/top/bottom space and must leave at least 120×80 pixels for the plot. This is a geometry check, not a substitute for inspecting rendered glyphs at phone size.
+
+For a 970×660 chart, `axisFontSize:30, titleFontSize:36, sourceFontSize:26, footerFontSize:28` is a useful review starting point. Shorten source wording if necessary and verify it remains inside the card.
+
+Use exported `lineChartLayout(node)` when placing external observed-point markers. It returns chart-local `left`, `right`, `top`, `bottom`, font sizes (`axis`, `title`, `source`, `footer`) and text baselines. A normalized data point maps to `boxX + left + x * (right-left)` and `boxY + bottom - (y-domainMin)/(domainMax-domainMin) * (bottom-top)`. Do not retain old hardcoded margins after changing typography. With the example sizes, domain `[145,225]` and date labels, margins are left 74.5, right 935, top 78, bottom 504.15.
+
+Main captions and translations preserve explicit newline characters through inherited `white-space:pre-line`. Automatic wrapping still applies to long lines; newline preservation does not ensure the caption fits its declared box.

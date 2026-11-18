@@ -15,7 +15,7 @@ export type CollageNode=Base & (
  | {kind:'compare';variant:'strip'|'hero';left:{title:string;detail:string;color:string};right:{title:string;detail:string;color:string};relation:'VS'|'+'|'<'|'>'|'=';relationMeaning:string;leftAt:number;leftSettle:number;rightAt:number;rightSettle:number;relationAt:number;relationSettle:number;titleSize:number;detailSize:number;badgeSize:number;badgeColor?:string;fontFamily?:string;badgeRotation?:number}
  | {kind:'icon';symbol:'wallet'|'television'|'ballot';tile:string;ink?:string;caption?:string;captionColor?:string}
  | {kind:'timeline';items:{label:string;detail:string;at:number}[];fontSize:number;color?:string}
- | {kind:'line-chart';points:{x:number;y:number}[];domain:[number,number];source:string;title:string;unit:string;color?:string;drawAt:number;drawSettle:number;revealStops?:{at:number;x:number}[];xLabels?:{x:number;label:string}[];connectionLabel?:string;annotation?:string}
+ | {kind:'line-chart';points:{x:number;y:number}[];domain:[number,number];source:string;title:string;unit:string;color?:string;drawAt:number;drawSettle:number;revealStops?:{at:number;x:number}[];xLabels?:{x:number;label:string}[];connectionLabel?:string;axisFontSize?:number;titleFontSize?:number;sourceFontSize?:number;footerFontSize?:number;annotation?:string}
  | {kind:'board';spec:ReferenceBoardSpec}
  | {kind:'motion';spec:GraphicSpec|PaperSpec}
 );
@@ -38,6 +38,15 @@ const chartProgress=(n:Extract<CollageNode,{kind:'line-chart'}>,frame:number):nu
  for(let i=1;i<stops.length;i++)if(frame<=stops[i].at){const a=stops[i-1],b=stops[i];return a.x+(b.x-a.x)*progress(frame,a.at,b.at);}
  return stops[stops.length-1].x;
 };
+// Shared with callers placing observed-point markers; coordinates are local to the chart box.
+export function lineChartLayout(n:Extract<CollageNode,{kind:'line-chart'}>){
+ const axis=n.axisFontSize??17,title=n.titleFontSize??28,source=n.sourceFontSize??20,footer=n.footerFontSize??21;
+ const sourceExtra=Math.max(0,source-20)*1.25,footerExtra=Math.max(0,footer-21)*1.25;
+ const left=n.axisFontSize===undefined?55:Math.max(55,16+Math.max(...n.domain.map(v=>String(v).length))*axis*.65);
+ const top=70+Math.max(0,title-28),bottom=n.box[3]-(n.xLabels?124:100)-(n.xLabels?Math.max(0,axis-17)*1.2:0)-sourceExtra-footerExtra;
+ return {left,right:n.box[2]-35,top,bottom,axis,title,source,footer,titleY:36+Math.max(0,title-28),tickY:bottom+axis+7,footerY:n.box[3]-62-sourceExtra,sourceY:n.box[3]-26};
+}
+const labelWidth=(text:string,size:number)=>Array.from(text).reduce((sum,c)=>sum+(c.charCodeAt(0)>255?1:.65)*size,0);
 const local=(s:unknown):s is string=>typeof s==='string'&&s.trim().length>0&&!/^(?:[a-z][a-z0-9+.-]*:|[./\\]|public\/)/i.test(s)&&!s.split('/').some(x=>!x||x.startsWith('.'))&&!/[\\\x00-\x1f]/.test(s);
 const finite=(v:unknown):v is number=>typeof v==='number'&&Number.isFinite(v);
 const boxOK=(b:unknown):b is Box=>Array.isArray(b)&&b.length===4&&b.every(finite)&&b[0]>=0&&b[1]>=0&&b[2]>0&&b[3]>0&&b[0]+b[2]<=1080&&b[1]+b[3]<=1920;
@@ -111,12 +120,15 @@ export function validateCollage(c:Collage,duration:number):string[]{
      if(!Array.isArray(stops)||stops.length<2||stops.length>64||stops.some((s,i)=>!s||!Number.isInteger(s.at)||s.at<n.drawAt||s.at>n.drawSettle||!finite(s.x)||s.x<0||s.x>1||(i>0&&(s.at<=stops[i-1].at||s.x<stops[i-1].x)))||stops[0]?.x!==0||stops[stops.length-1]?.x!==1)fail(n.id+': revealStops need 2..64 increasing frames within draw interval, nondecreasing normalized x, endpoints 0 and 1');
     }
     if(n.connectionLabel!==undefined&&(typeof n.connectionLabel!=='string'||!n.connectionLabel.trim()||n.connectionLabel.length>64||/[\r\n]/.test(n.connectionLabel)))fail(n.id+': connectionLabel needs 1..64 characters on one line');
+    for(const [key,min,max] of [['axisFontSize',16,40],['titleFontSize',20,48],['sourceFontSize',16,36],['footerFontSize',16,36]] as const)if(n[key]!==undefined&&(!finite(n[key])||n[key]!<min||n[key]!>max))fail(n.id+': '+key+' must be '+min+'..'+max);
+    const layout=lineChartLayout(n);
+    if([n.axisFontSize,n.titleFontSize,n.sourceFontSize,n.footerFontSize].some(v=>v!==undefined)&&(layout.right-layout.left<120||layout.bottom-layout.top<80))fail(n.id+': chart typography leaves insufficient plot space');
     if(n.xLabels!==undefined){
      const labels=n.xLabels;
      if(!Array.isArray(labels)||labels.length<1||labels.length>8||n.box[2]<240||n.box[3]<260||labels.some((t,i)=>!t||!finite(t.x)||t.x<0||t.x>1||typeof t.label!=='string'||!t.label.trim()||t.label.length>16||/[\r\n]/.test(t.label)||(i>0&&t.x<=labels[i-1].x)))fail(n.id+': xLabels need 1..8 increasing normalized positions and 1..16 character labels in a chart at least 240 by 260');
      else {
-      // Conservative 17px per character also accommodates full-width date labels.
-      const spans=labels.map(t=>{const width=t.label.length*17,cx=55+t.x*(n.box[2]-90);return t.x===0?[cx,cx+width]:t.x===1?[cx-width,cx]:[cx-width/2,cx+width/2];});
+      // Legacy bounds remain unchanged; explicit axis size uses script-aware text estimates.
+      const spans=labels.map(t=>{const width=n.axisFontSize===undefined?t.label.length*17:labelWidth(t.label,layout.axis),cx=layout.left+t.x*(layout.right-layout.left);return t.x===0?[cx,cx+width]:t.x===1?[cx-width,cx]:[cx-width/2,cx+width/2];});
       if(spans.some((s,i)=>s[0]<0||s[1]>n.box[2]||(i>0&&s[0]<spans[i-1][1]+8)))fail(n.id+': xLabels need readable spacing within chart bounds');
      }
     }
@@ -170,10 +182,10 @@ export const CollageStage:React.FC<{data:Collage;frame:number;duration:number}>=
  else if(n.kind==='icon')child=<Icon n={n}/>;
  else if(n.kind==='timeline')child=<Timeline n={n} frame={frame}/>;
  else if(n.kind==='line-chart'){
-  const left=55,top=70,bottom=h-(n.xLabels?124:100),p=chartProgress(n,frame);
+  const layout=lineChartLayout(n),{left,top,bottom}=layout,p=chartProgress(n,frame);
   const xy=(pt:{x:number;y:number})=>[left+pt.x*(w-left-35),bottom-(pt.y-n.domain[0])/(n.domain[1]-n.domain[0])*(bottom-top)];
   const pts=n.points.map(pt=>xy(pt).join(',')).join(' ');
-  child=<svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{background:'#f6efd9',fontFamily:serif}}><text x={20} y={36} fontSize={28} fontWeight={700}>{n.title}</text>{[0,.25,.5,.75,1].map(q=><line key={q} x1={left} x2={w-35} y1={top+q*(bottom-top)} y2={top+q*(bottom-top)} stroke="#c7c0af" strokeDasharray="3 5"/>)}<path d={`M${left} ${top}V${bottom}H${w-35}`} fill="none" stroke="#6f6655"/><svg data-chart-reveal="true" x={left} y={top} width={(w-left-35)*p} height={bottom-top+4} viewBox={`${left} ${top} ${(w-left-35)*p||.001} ${bottom-top+4}`} overflow="hidden"><polyline points={pts} fill="none" stroke={n.color??'#b7241c'} strokeWidth={7} strokeLinejoin="round"/></svg><text x={4} y={top+16} fontSize={17}>{n.domain[1]}</text><text x={10} y={bottom} fontSize={17}>{n.domain[0]}</text><g>{n.xLabels?.map((tick,i)=><g key={i}><line x1={left+tick.x*(w-left-35)} x2={left+tick.x*(w-left-35)} y1={bottom} y2={bottom+5} stroke="#6f6655"/><text x={left+tick.x*(w-left-35)} y={bottom+24} fontSize={17} textAnchor={tick.x===0?'start':tick.x===1?'end':'middle'}>{tick.label}</text></g>)}</g><text x={20} y={h-62} fontSize={21}>{n.unit} · {n.connectionLabel??'观测点直线连接'}</text><text x={20} y={h-26} fontSize={20}>{n.source}</text>{n.annotation&&frame>=n.drawSettle&&<g transform={`translate(${w-170} 40) rotate(-5)`}><rect width={150} height={75} fill="#b5281e"/><text x={75} y={54} fontSize={48} fill="#fff3d8" textAnchor="middle">{n.annotation}</text></g>}</svg>;
+  child=<svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{background:'#f6efd9',fontFamily:serif}}><text x={20} y={layout.titleY} fontSize={layout.title} fontWeight={700}>{n.title}</text>{[0,.25,.5,.75,1].map(q=><line key={q} x1={left} x2={w-35} y1={top+q*(bottom-top)} y2={top+q*(bottom-top)} stroke="#c7c0af" strokeDasharray="3 5"/>)}<path d={`M${left} ${top}V${bottom}H${w-35}`} fill="none" stroke="#6f6655"/><svg data-chart-reveal="true" x={left} y={top} width={(w-left-35)*p} height={bottom-top+4} viewBox={`${left} ${top} ${(w-left-35)*p||.001} ${bottom-top+4}`} overflow="hidden"><polyline points={pts} fill="none" stroke={n.color??'#b7241c'} strokeWidth={7} strokeLinejoin="round"/></svg><text x={n.axisFontSize===undefined?4:left-8} textAnchor={n.axisFontSize===undefined?undefined:'end'} y={top+layout.axis-1} fontSize={layout.axis}>{n.domain[1]}</text><text x={n.axisFontSize===undefined?10:left-8} textAnchor={n.axisFontSize===undefined?undefined:'end'} y={bottom} fontSize={layout.axis}>{n.domain[0]}</text><g>{n.xLabels?.map((tick,i)=><g key={i}><line x1={left+tick.x*(w-left-35)} x2={left+tick.x*(w-left-35)} y1={bottom} y2={bottom+5} stroke="#6f6655"/><text x={left+tick.x*(w-left-35)} y={layout.tickY} fontSize={layout.axis} textAnchor={tick.x===0?'start':tick.x===1?'end':'middle'}>{tick.label}</text></g>)}</g><text x={20} y={layout.footerY} fontSize={layout.footer}>{n.unit} · {n.connectionLabel??'观测点直线连接'}</text><text x={20} y={layout.sourceY} fontSize={layout.source}>{n.source}</text>{n.annotation&&frame>=n.drawSettle&&<g transform={`translate(${w-170} 40) rotate(-5)`}><rect width={150} height={75} fill="#b5281e"/><text x={75} y={54} fontSize={48} fill="#fff3d8" textAnchor="middle">{n.annotation}</text></g>}</svg>;
  }
  else if(n.kind==='board')child=<ReferenceBoard spec={n.spec} frame={frame-n.at} width={w} height={h}/>;
  else if(n.kind==='motion')child=<div style={{width:900,height:900,transformOrigin:'0 0',transform:`scale(${w/900},${h/900})`}}>{['split','stage-curve','checklist','market-line','threshold'].includes(n.spec.effect)?<GraphicMotion spec={n.spec as GraphicSpec} frame={frame-n.at} duration={n.end-n.at}/>:<PaperMotion spec={n.spec as PaperSpec} frame={frame-n.at} duration={n.end-n.at}/>}</div>;
