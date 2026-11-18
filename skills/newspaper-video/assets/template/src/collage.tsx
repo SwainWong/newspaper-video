@@ -15,7 +15,7 @@ export type CollageNode=Base & (
  | {kind:'compare';variant:'strip'|'hero';left:{title:string;detail:string;color:string};right:{title:string;detail:string;color:string};relation:'VS'|'+'|'<'|'>'|'=';relationMeaning:string;leftAt:number;leftSettle:number;rightAt:number;rightSettle:number;relationAt:number;relationSettle:number;titleSize:number;detailSize:number;badgeSize:number;badgeColor?:string;fontFamily?:string;badgeRotation?:number}
  | {kind:'icon';symbol:'wallet'|'television'|'ballot';tile:string;ink?:string;caption?:string;captionColor?:string}
  | {kind:'timeline';items:{label:string;detail:string;at:number}[];fontSize:number;color?:string}
- | {kind:'line-chart';points:{x:number;y:number}[];domain:[number,number];source:string;title:string;unit:string;color?:string;drawAt:number;drawSettle:number;annotation?:string}
+ | {kind:'line-chart';points:{x:number;y:number}[];domain:[number,number];source:string;title:string;unit:string;color?:string;drawAt:number;drawSettle:number;revealStops?:{at:number;x:number}[];xLabels?:{x:number;label:string}[];connectionLabel?:string;annotation?:string}
  | {kind:'board';spec:ReferenceBoardSpec}
  | {kind:'motion';spec:GraphicSpec|PaperSpec}
 );
@@ -31,6 +31,13 @@ const sans='"PingFang SC", "Heiti SC", "Noto Sans CJK SC", sans-serif';
 const clamp=(v:number)=>Math.max(0,Math.min(1,v));
 const progress=(f:number,a:number,b:number)=>a===b?(f>=a?1:0):clamp((f-a)/(b-a));
 const ease=(v:number)=>1-Math.pow(1-v,3);
+// Stop times are scene-local frames, like drawAt/drawSettle. Equal x values hold the reveal.
+const chartProgress=(n:Extract<CollageNode,{kind:'line-chart'}>,frame:number):number=>{
+ const stops=n.revealStops;if(!stops)return ease(progress(frame,n.drawAt,n.drawSettle));
+ if(frame<=stops[0].at)return stops[0].x;
+ for(let i=1;i<stops.length;i++)if(frame<=stops[i].at){const a=stops[i-1],b=stops[i];return a.x+(b.x-a.x)*progress(frame,a.at,b.at);}
+ return stops[stops.length-1].x;
+};
 const local=(s:unknown):s is string=>typeof s==='string'&&s.trim().length>0&&!/^(?:[a-z][a-z0-9+.-]*:|[./\\]|public\/)/i.test(s)&&!s.split('/').some(x=>!x||x.startsWith('.'))&&!/[\\\x00-\x1f]/.test(s);
 const finite=(v:unknown):v is number=>typeof v==='number'&&Number.isFinite(v);
 const boxOK=(b:unknown):b is Box=>Array.isArray(b)&&b.length===4&&b.every(finite)&&b[0]>=0&&b[1]>=0&&b[2]>0&&b[3]>0&&b[0]+b[2]<=1080&&b[1]+b[3]<=1920;
@@ -99,6 +106,20 @@ export function validateCollage(c:Collage,duration:number):string[]{
     if(!Array.isArray(n.domain)||n.domain.length!==2||!n.domain.every(finite)||n.domain[0]>=n.domain[1]||!n.title?.trim()||!n.source?.trim()||!n.unit?.trim())fail(n.id+': chart domain/source/title/unit required');
     if(!Array.isArray(n.points)||n.points.length<2||n.points.some((p,i)=>!finite(p.x)||!finite(p.y)||p.x<0||p.x>1||p.y<n.domain[0]||p.y>n.domain[1]||(i>0&&p.x<=n.points[i-1].x)))fail(n.id+': increasing normalized x and bounded observed y required');
     if(!Number.isInteger(n.drawAt)||!Number.isInteger(n.drawSettle)||!(n.at<=n.drawAt&&n.drawAt<n.drawSettle&&n.drawSettle<n.end))fail(n.id+': chart draw time invalid');
+    if(n.revealStops!==undefined){
+     const stops=n.revealStops;
+     if(!Array.isArray(stops)||stops.length<2||stops.length>64||stops.some((s,i)=>!s||!Number.isInteger(s.at)||s.at<n.drawAt||s.at>n.drawSettle||!finite(s.x)||s.x<0||s.x>1||(i>0&&(s.at<=stops[i-1].at||s.x<stops[i-1].x)))||stops[0]?.x!==0||stops[stops.length-1]?.x!==1)fail(n.id+': revealStops need 2..64 increasing frames within draw interval, nondecreasing normalized x, endpoints 0 and 1');
+    }
+    if(n.connectionLabel!==undefined&&(typeof n.connectionLabel!=='string'||!n.connectionLabel.trim()||n.connectionLabel.length>64||/[\r\n]/.test(n.connectionLabel)))fail(n.id+': connectionLabel needs 1..64 characters on one line');
+    if(n.xLabels!==undefined){
+     const labels=n.xLabels;
+     if(!Array.isArray(labels)||labels.length<1||labels.length>8||n.box[2]<240||n.box[3]<260||labels.some((t,i)=>!t||!finite(t.x)||t.x<0||t.x>1||typeof t.label!=='string'||!t.label.trim()||t.label.length>16||/[\r\n]/.test(t.label)||(i>0&&t.x<=labels[i-1].x)))fail(n.id+': xLabels need 1..8 increasing normalized positions and 1..16 character labels in a chart at least 240 by 260');
+     else {
+      // Conservative 17px per character also accommodates full-width date labels.
+      const spans=labels.map(t=>{const width=t.label.length*17,cx=55+t.x*(n.box[2]-90);return t.x===0?[cx,cx+width]:t.x===1?[cx-width,cx]:[cx-width/2,cx+width/2];});
+      if(spans.some((s,i)=>s[0]<0||s[1]>n.box[2]||(i>0&&s[0]<spans[i-1][1]+8)))fail(n.id+': xLabels need readable spacing within chart bounds');
+     }
+    }
    }else if(n.kind==='board')errors.push(...validateReferenceBoard(n.spec,n.end-n.at).map(x=>n.id+': '+x));
    else if(n.kind==='motion')errors.push(...validateMotion({id:n.id,start:0,end:n.end-n.at,box:[0,0,900,900],...n.spec}).map(x=>n.id+': '+x));
    else fail('unknown collage node kind');
@@ -149,10 +170,10 @@ export const CollageStage:React.FC<{data:Collage;frame:number;duration:number}>=
  else if(n.kind==='icon')child=<Icon n={n}/>;
  else if(n.kind==='timeline')child=<Timeline n={n} frame={frame}/>;
  else if(n.kind==='line-chart'){
-  const left=55,top=70,bottom=h-100,p=ease(progress(frame,n.drawAt,n.drawSettle));
+  const left=55,top=70,bottom=h-(n.xLabels?124:100),p=chartProgress(n,frame);
   const xy=(pt:{x:number;y:number})=>[left+pt.x*(w-left-35),bottom-(pt.y-n.domain[0])/(n.domain[1]-n.domain[0])*(bottom-top)];
   const pts=n.points.map(pt=>xy(pt).join(',')).join(' ');
-  child=<svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{background:'#f6efd9',fontFamily:serif}}><text x={20} y={36} fontSize={28} fontWeight={700}>{n.title}</text>{[0,.25,.5,.75,1].map(q=><line key={q} x1={left} x2={w-35} y1={top+q*(bottom-top)} y2={top+q*(bottom-top)} stroke="#c7c0af" strokeDasharray="3 5"/>)}<path d={`M${left} ${top}V${bottom}H${w-35}`} fill="none" stroke="#6f6655"/><svg x={left} y={top} width={(w-left-35)*p} height={bottom-top+4} viewBox={`${left} ${top} ${(w-left-35)*p||.001} ${bottom-top+4}`} overflow="hidden"><polyline points={pts} fill="none" stroke={n.color??'#b7241c'} strokeWidth={7} strokeLinejoin="round"/></svg><text x={4} y={top+16} fontSize={17}>{n.domain[1]}</text><text x={10} y={bottom} fontSize={17}>{n.domain[0]}</text><text x={20} y={h-62} fontSize={21}>{n.unit} · 观测点直线连接</text><text x={20} y={h-26} fontSize={20}>{n.source}</text>{n.annotation&&frame>=n.drawSettle&&<g transform={`translate(${w-170} 40) rotate(-5)`}><rect width={150} height={75} fill="#b5281e"/><text x={75} y={54} fontSize={48} fill="#fff3d8" textAnchor="middle">{n.annotation}</text></g>}</svg>;
+  child=<svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{background:'#f6efd9',fontFamily:serif}}><text x={20} y={36} fontSize={28} fontWeight={700}>{n.title}</text>{[0,.25,.5,.75,1].map(q=><line key={q} x1={left} x2={w-35} y1={top+q*(bottom-top)} y2={top+q*(bottom-top)} stroke="#c7c0af" strokeDasharray="3 5"/>)}<path d={`M${left} ${top}V${bottom}H${w-35}`} fill="none" stroke="#6f6655"/><svg data-chart-reveal="true" x={left} y={top} width={(w-left-35)*p} height={bottom-top+4} viewBox={`${left} ${top} ${(w-left-35)*p||.001} ${bottom-top+4}`} overflow="hidden"><polyline points={pts} fill="none" stroke={n.color??'#b7241c'} strokeWidth={7} strokeLinejoin="round"/></svg><text x={4} y={top+16} fontSize={17}>{n.domain[1]}</text><text x={10} y={bottom} fontSize={17}>{n.domain[0]}</text><g>{n.xLabels?.map((tick,i)=><g key={i}><line x1={left+tick.x*(w-left-35)} x2={left+tick.x*(w-left-35)} y1={bottom} y2={bottom+5} stroke="#6f6655"/><text x={left+tick.x*(w-left-35)} y={bottom+24} fontSize={17} textAnchor={tick.x===0?'start':tick.x===1?'end':'middle'}>{tick.label}</text></g>)}</g><text x={20} y={h-62} fontSize={21}>{n.unit} · {n.connectionLabel??'观测点直线连接'}</text><text x={20} y={h-26} fontSize={20}>{n.source}</text>{n.annotation&&frame>=n.drawSettle&&<g transform={`translate(${w-170} 40) rotate(-5)`}><rect width={150} height={75} fill="#b5281e"/><text x={75} y={54} fontSize={48} fill="#fff3d8" textAnchor="middle">{n.annotation}</text></g>}</svg>;
  }
  else if(n.kind==='board')child=<ReferenceBoard spec={n.spec} frame={frame-n.at} width={w} height={h}/>;
  else if(n.kind==='motion')child=<div style={{width:900,height:900,transformOrigin:'0 0',transform:`scale(${w/900},${h/900})`}}>{['split','stage-curve','checklist','market-line','threshold'].includes(n.spec.effect)?<GraphicMotion spec={n.spec as GraphicSpec} frame={frame-n.at} duration={n.end-n.at}/>:<PaperMotion spec={n.spec as PaperSpec} frame={frame-n.at} duration={n.end-n.at}/>}</div>;
