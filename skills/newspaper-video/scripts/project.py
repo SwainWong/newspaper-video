@@ -23,7 +23,7 @@ def main():
  if data.get('scenes',[{}])[0].get('kind')=='brand':p.error('Start with the episode hook before the brand transition.')
  if a.action=='render':
   subprocess.run([sys.executable,str(ROOT/'scripts/motion_gate.py'),str(dest/'motion-plan.json'),'--timeline',str(dest/'src/timeline.json')],check=True)
-  subprocess.run([sys.executable,str(ROOT/'scripts/review_plan.py'),str(dest/'review-plan.json'),'--require-visual'],check=True)
+  subprocess.run([sys.executable,str(ROOT/'scripts/review_plan.py'),str(dest/'review-plan.json'),'--require-visual','--require-production'],check=True)
   if data.get('brandProfile')=='swaintalk-v1':
    plan=json.loads((dest/'review-plan.json').read_text())
    if not plan.get('voice_stem'):p.error('review-plan voice_stem path required for actual brand pause verification')

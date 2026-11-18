@@ -265,5 +265,25 @@ test('film caption preserves explicit newlines for caption and translation',()=>
  assert.match(html,/text-align:center;white-space:pre-line/);
  assert.match(html,/First line\nSecond line/);assert.match(html,/Uno\nDos/);
 });
+test('entity card renders left text and complete right image with provenance',()=>{
+ const n={...text('entity',[60,100,900,260]),kind:'entity-item',name:'Example',detail:'A short description',image:{file:'example.png',kind:'logo',identity:'Example organization',sourceUrl:'https://example.org/brand',license:'Test fixture'}};
+ assert.deepEqual(api.validateCollage(scene([n]),120),[]);
+ const html=render(scene([n]),50);assert.ok(html.indexOf('A short description')<html.indexOf('alt="Example organization"'));assert.match(html,/object-fit:contain/);
+ n.image.sourceUrl='';rejects(scene([n]),/provenance/);n.image.sourceUrl='https://example.org';n.imageWidth=80;rejects(scene([n]),/geometry/);
+});
+test('events point to observed values and wait for anchored reveal',()=>{
+ const n=chart();n.points=[{x:0,y:1},{x:.5,y:2},{x:1,y:3}];n.domain=[0,4];n.eventMarkers=[{pointIndex:1,label:'Event',date:'Jan 02',at:100}];
+ assert.deepEqual(api.validateCollage(scene([n]),120),[]);
+ assert.doesNotMatch(render(scene([n]),90),/data-event-point/);
+ const html=render(scene([n]),110),l=api.lineChartLayout(n),x=l.left+.5*(l.right-l.left),y=l.bottom-.5*(l.bottom-l.top);
+ assert.match(html,new RegExp('x1="'+x+'" x2="'+x+'" y1="'+l.bottom+'" y2="'+y+'"'));assert.match(html,/stroke-dasharray="7 6"/);
+ n.eventMarkers[0].pointIndex=8;rejects(scene([n]),/actual point/);
+ n.eventMarkers[0].pointIndex=1;n.eventMarkers[0].at=0;rejects(scene([n]),/marker/);
+});
+test('nearby date labels can use separate rows',()=>{
+ const n=chart();n.xLabels=[{x:.4,label:'Jan 01'},{x:.41,label:'Jan 02',row:1}];
+ assert.deepEqual(api.validateCollage(scene([n]),120),[]);const html=render(scene([n]),100);assert.match(html,/Jan 02/);
+ n.xLabels[1].row=0;rejects(scene([n]),/spacing/);
+});
 console.log(`Collage runtime: ${passed} passed, ${failures.length} failed. SSR is not audiovisual acceptance.`);
 if(failures.length)process.exitCode=1;

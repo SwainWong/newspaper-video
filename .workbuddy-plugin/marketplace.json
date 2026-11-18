@@ -7,7 +7,7 @@
     {
       "name": "newspaper-video",
       "source": "./",
-      "version": "1.9.3",
+      "version": "1.9.4",
       "description": "Editable newspaper collage videos with executable motion components"
     }
   ],

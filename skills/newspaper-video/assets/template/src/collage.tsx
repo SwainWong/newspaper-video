@@ -13,9 +13,10 @@ export type CollageNode=Base & (
  | {kind:'text';text:string;style:TypeStyle;inkReveal?:{at:number;settle:number;outlineColor:string}}
  | {kind:'photo';file:string;fit?:'cover'|'contain';border?:number;paper?:string;label?:string;labelSize?:number;attachment?:'pin'|'tape'|'none';grayscale?:boolean;video?:boolean}
  | {kind:'compare';variant:'strip'|'hero';left:{title:string;detail:string;color:string};right:{title:string;detail:string;color:string};relation:'VS'|'+'|'<'|'>'|'=';relationMeaning:string;leftAt:number;leftSettle:number;rightAt:number;rightSettle:number;relationAt:number;relationSettle:number;titleSize:number;detailSize:number;badgeSize:number;badgeColor?:string;fontFamily?:string;badgeRotation?:number}
+ | {kind:'entity-item';name:string;detail:string;image:{file:string;kind:'logo'|'portrait'|'icon';identity:string;sourceUrl:string;license:string};fontSize?:number;detailSize?:number;imageWidth?:number}
  | {kind:'icon';symbol:'wallet'|'television'|'ballot';tile:string;ink?:string;caption?:string;captionColor?:string}
  | {kind:'timeline';items:{label:string;detail:string;at:number}[];fontSize:number;color?:string}
- | {kind:'line-chart';points:{x:number;y:number}[];domain:[number,number];source:string;title:string;unit:string;color?:string;drawAt:number;drawSettle:number;revealStops?:{at:number;x:number}[];xLabels?:{x:number;label:string}[];connectionLabel?:string;axisFontSize?:number;titleFontSize?:number;sourceFontSize?:number;footerFontSize?:number;annotation?:string}
+ | {kind:'line-chart';points:{x:number;y:number}[];domain:[number,number];source:string;title:string;unit:string;color?:string;drawAt:number;drawSettle:number;revealStops?:{at:number;x:number}[];xLabels?:{x:number;label:string;row?:0|1}[];eventMarkers?:{pointIndex:number;label:string;date:string;at:number;row?:0|1}[];connectionLabel?:string;axisFontSize?:number;titleFontSize?:number;sourceFontSize?:number;footerFontSize?:number;annotation?:string}
  | {kind:'board';spec:ReferenceBoardSpec}
  | {kind:'motion';spec:GraphicSpec|PaperSpec}
 );
@@ -43,7 +44,8 @@ export function lineChartLayout(n:Extract<CollageNode,{kind:'line-chart'}>){
  const axis=n.axisFontSize??17,title=n.titleFontSize??28,source=n.sourceFontSize??20,footer=n.footerFontSize??21;
  const sourceExtra=Math.max(0,source-20)*1.25,footerExtra=Math.max(0,footer-21)*1.25;
  const left=n.axisFontSize===undefined?55:Math.max(55,16+Math.max(...n.domain.map(v=>String(v).length))*axis*.65);
- const top=70+Math.max(0,title-28),bottom=n.box[3]-(n.xLabels?124:100)-(n.xLabels?Math.max(0,axis-17)*1.2:0)-sourceExtra-footerExtra;
+ const extraRows=Math.max(0,...(n.xLabels??[]).map(t=>t.row??0),...(n.eventMarkers??[]).map(t=>t.row??0));
+ const top=70+Math.max(0,title-28),bottom=n.box[3]-(n.xLabels?124:100)-(n.xLabels?Math.max(0,axis-17)*1.2:0)-sourceExtra-footerExtra-extraRows*(axis+8)-(n.eventMarkers?.length?(2+Math.max(0,...n.eventMarkers.map(t=>t.row??0)))*(axis+8):0);
  return {left,right:n.box[2]-35,top,bottom,axis,title,source,footer,titleY:36+Math.max(0,title-28),tickY:bottom+axis+7,footerY:n.box[3]-62-sourceExtra,sourceY:n.box[3]-26};
 }
 const labelWidth=(text:string,size:number)=>Array.from(text).reduce((sum,c)=>sum+(c.charCodeAt(0)>255?1:.65)*size,0);
@@ -55,7 +57,7 @@ export function movingEnd(n:CollageNode):number{
  if(n.reposition)return Math.max(n.reposition.settle,movingEnd({...n,reposition:undefined}));
  if(n.kind==='text'&&n.inkReveal)return Math.max(n.settle,n.inkReveal.settle);
  if(n.kind==='compare')return n.relationSettle;
- if(n.kind==='line-chart')return n.drawSettle;
+ if(n.kind==='line-chart')return Math.max(n.drawSettle,...(n.eventMarkers??[]).map(m=>m.at+1));
  if(n.kind==='timeline')return Math.max(n.settle,...n.items.map(i=>i.at+12));
  // Complex boards, inner motion and video have their own timed reveals: reserve whole lifetime conservatively.
  if(n.kind==='board'||n.kind==='motion'||(n.kind==='photo'&&n.video))return n.end;
@@ -101,6 +103,11 @@ export function validateCollage(c:Collage,duration:number):string[]{
     if(!local(n.file))fail(n.id+': photo asset required');
     if(n.fit&&!['contain','cover'].includes(n.fit))fail(n.id+': invalid media fit');
     if(n.border!==undefined&&(!finite(n.border)||n.border<0||n.border>40))fail(n.id+': border invalid');
+   }else if(n.kind==='entity-item'){
+    const fs=n.fontSize??40,ds=n.detailSize??28,iw=n.imageWidth??180,tw=n.box[2]-iw-72;
+    if(!n.name?.trim()||!n.detail?.trim()||!n.image||!local(n.image.file)||!['logo','portrait','icon'].includes(n.image.kind)||!n.image.identity?.trim()||!/^https?:\/\//.test(n.image.sourceUrl)||!n.image.license?.trim())fail(n.id+': entity identity and asset provenance required');
+    if(![fs,ds,iw].every(finite)||fs<28||ds<24||iw<144||iw>n.box[2]*.45||n.box[3]<192||iw>n.box[3]-48||tw<180)fail(n.id+': entity text/image geometry unreadable');
+    if(labelWidth(n.name,fs)>tw||Math.ceil(labelWidth(n.detail,ds)/tw)*ds*1.3+fs*1.2+56>n.box[3])fail(n.id+': entity text exceeds available geometry');
    }else if(n.kind==='compare'){
     if(!['strip','hero'].includes(n.variant)||!['VS','+','<','>','='].includes(n.relation)||!n.relationMeaning?.trim())fail(n.id+': relation semantics required');
     for(const s of [n.left,n.right])if(!s||typeof s.title!=='string'||!s.title.trim()||typeof s.detail!=='string'||!/^#[0-9a-f]{6}$/i.test(s.color))fail(n.id+': compare side required');
@@ -122,14 +129,23 @@ export function validateCollage(c:Collage,duration:number):string[]{
     if(n.connectionLabel!==undefined&&(typeof n.connectionLabel!=='string'||!n.connectionLabel.trim()||n.connectionLabel.length>64||/[\r\n]/.test(n.connectionLabel)))fail(n.id+': connectionLabel needs 1..64 characters on one line');
     for(const [key,min,max] of [['axisFontSize',16,40],['titleFontSize',20,48],['sourceFontSize',16,36],['footerFontSize',16,36]] as const)if(n[key]!==undefined&&(!finite(n[key])||n[key]!<min||n[key]!>max))fail(n.id+': '+key+' must be '+min+'..'+max);
     const layout=lineChartLayout(n);
-    if([n.axisFontSize,n.titleFontSize,n.sourceFontSize,n.footerFontSize].some(v=>v!==undefined)&&(layout.right-layout.left<120||layout.bottom-layout.top<80))fail(n.id+': chart typography leaves insufficient plot space');
+    if(([n.axisFontSize,n.titleFontSize,n.sourceFontSize,n.footerFontSize].some(v=>v!==undefined)||n.eventMarkers?.length)&&(layout.right-layout.left<120||layout.bottom-layout.top<80))fail(n.id+': chart typography leaves insufficient plot space');
+    if(n.eventMarkers!==undefined){
+     if(!Array.isArray(n.eventMarkers)||n.eventMarkers.length>8)fail(n.id+': eventMarkers must be an array of at most 8');
+     else for(const m of n.eventMarkers){
+      if(!Number.isInteger(m.pointIndex)||m.pointIndex<0||m.pointIndex>=n.points.length||!Number.isInteger(m.at)||m.at<n.drawAt||m.at>=n.end||!m.label?.trim()||!m.date?.trim()||/[\r\n]/.test(m.label+m.date)||![0,1].includes(m.row??0))fail(n.id+': marker needs actual point index, label/date, bounded at and row');
+      else if(chartProgress(n,m.at)+.0001<n.points[m.pointIndex].x)fail(n.id+': marker precedes observed point reveal');
+     }
+     const spans=n.eventMarkers.map(m=>{const x=layout.left+(n.points[m.pointIndex]?.x??0)*(layout.right-layout.left),width=Math.max(labelWidth(m.label??'',layout.axis),labelWidth(m.date??'',layout.axis));return {x:x-width/2,end:x+width/2,row:m.row??0};});
+     if(spans.some((a,i)=>a.x<0||a.end>n.box[2]||spans.slice(i+1).some(b=>a.row===b.row&&a.x<b.end+8&&b.x<a.end+8)))fail(n.id+': event marker labels overlap or escape chart');
+    }
     if(n.xLabels!==undefined){
      const labels=n.xLabels;
-     if(!Array.isArray(labels)||labels.length<1||labels.length>8||n.box[2]<240||n.box[3]<260||labels.some((t,i)=>!t||!finite(t.x)||t.x<0||t.x>1||typeof t.label!=='string'||!t.label.trim()||t.label.length>16||/[\r\n]/.test(t.label)||(i>0&&t.x<=labels[i-1].x)))fail(n.id+': xLabels need 1..8 increasing normalized positions and 1..16 character labels in a chart at least 240 by 260');
+     if(!Array.isArray(labels)||labels.length<1||labels.length>8||n.box[2]<240||n.box[3]<260||labels.some((t,i)=>!t||!finite(t.x)||t.x<0||t.x>1||![0,1].includes(t.row??0)||typeof t.label!=='string'||!t.label.trim()||t.label.length>16||/[\r\n]/.test(t.label)||(i>0&&t.x<=labels[i-1].x)))fail(n.id+': xLabels need 1..8 increasing normalized positions and 1..16 character labels in a chart at least 240 by 260');
      else {
       // Legacy bounds remain unchanged; explicit axis size uses script-aware text estimates.
       const spans=labels.map(t=>{const width=n.axisFontSize===undefined?t.label.length*17:labelWidth(t.label,layout.axis),cx=layout.left+t.x*(layout.right-layout.left);return t.x===0?[cx,cx+width]:t.x===1?[cx-width,cx]:[cx-width/2,cx+width/2];});
-      if(spans.some((s,i)=>s[0]<0||s[1]>n.box[2]||(i>0&&s[0]<spans[i-1][1]+8)))fail(n.id+': xLabels need readable spacing within chart bounds');
+      if(spans.some((s,i)=>s[0]<0||s[1]>n.box[2]||spans.slice(0,i).some((b,j)=>(labels[j].row??0)===(labels[i].row??0)&&s[0]<b[1]+8)))fail(n.id+': xLabels need readable spacing within chart bounds');
      }
     }
    }else if(n.kind==='board')errors.push(...validateReferenceBoard(n.spec,n.end-n.at).map(x=>n.id+': '+x));
@@ -179,13 +195,14 @@ export const CollageStage:React.FC<{data:Collage;frame:number;duration:number}>=
  let child:React.ReactNode;
  if(n.kind==='text')child=<TextNode n={n} frame={frame}/>;
  else if(n.kind==='compare')child=<Comparison n={n} frame={frame}/>;
+ else if(n.kind==='entity-item')child=<div style={{display:'flex',alignItems:'center',gap:24,padding:24,boxSizing:'border-box',width:w,height:h,background:'#f6efd9',border:'2px solid #554b38',fontFamily:serif}}><div style={{flex:1,minWidth:0}}><div style={{fontSize:n.fontSize??40,fontWeight:700,lineHeight:1.2}}>{n.name}</div><div style={{fontSize:n.detailSize??28,lineHeight:1.3,marginTop:8,overflowWrap:'anywhere'}}>{n.detail}</div></div><Img src={staticFile(n.image.file)} alt={n.image.identity} style={{width:n.imageWidth??180,height:n.imageWidth??180,objectFit:'contain',flexShrink:0}}/></div>;
  else if(n.kind==='icon')child=<Icon n={n}/>;
  else if(n.kind==='timeline')child=<Timeline n={n} frame={frame}/>;
  else if(n.kind==='line-chart'){
   const layout=lineChartLayout(n),{left,top,bottom}=layout,p=chartProgress(n,frame);
   const xy=(pt:{x:number;y:number})=>[left+pt.x*(w-left-35),bottom-(pt.y-n.domain[0])/(n.domain[1]-n.domain[0])*(bottom-top)];
   const pts=n.points.map(pt=>xy(pt).join(',')).join(' ');
-  child=<svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{background:'#f6efd9',fontFamily:serif}}><text x={20} y={layout.titleY} fontSize={layout.title} fontWeight={700}>{n.title}</text>{[0,.25,.5,.75,1].map(q=><line key={q} x1={left} x2={w-35} y1={top+q*(bottom-top)} y2={top+q*(bottom-top)} stroke="#c7c0af" strokeDasharray="3 5"/>)}<path d={`M${left} ${top}V${bottom}H${w-35}`} fill="none" stroke="#6f6655"/><svg data-chart-reveal="true" x={left} y={top} width={(w-left-35)*p} height={bottom-top+4} viewBox={`${left} ${top} ${(w-left-35)*p||.001} ${bottom-top+4}`} overflow="hidden"><polyline points={pts} fill="none" stroke={n.color??'#b7241c'} strokeWidth={7} strokeLinejoin="round"/></svg><text x={n.axisFontSize===undefined?4:left-8} textAnchor={n.axisFontSize===undefined?undefined:'end'} y={top+layout.axis-1} fontSize={layout.axis}>{n.domain[1]}</text><text x={n.axisFontSize===undefined?10:left-8} textAnchor={n.axisFontSize===undefined?undefined:'end'} y={bottom} fontSize={layout.axis}>{n.domain[0]}</text><g>{n.xLabels?.map((tick,i)=><g key={i}><line x1={left+tick.x*(w-left-35)} x2={left+tick.x*(w-left-35)} y1={bottom} y2={bottom+5} stroke="#6f6655"/><text x={left+tick.x*(w-left-35)} y={layout.tickY} fontSize={layout.axis} textAnchor={tick.x===0?'start':tick.x===1?'end':'middle'}>{tick.label}</text></g>)}</g><text x={20} y={layout.footerY} fontSize={layout.footer}>{n.unit} · {n.connectionLabel??'观测点直线连接'}</text><text x={20} y={layout.sourceY} fontSize={layout.source}>{n.source}</text>{n.annotation&&frame>=n.drawSettle&&<g transform={`translate(${w-170} 40) rotate(-5)`}><rect width={150} height={75} fill="#b5281e"/><text x={75} y={54} fontSize={48} fill="#fff3d8" textAnchor="middle">{n.annotation}</text></g>}</svg>;
+  child=<svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{background:'#f6efd9',fontFamily:serif}}><text x={20} y={layout.titleY} fontSize={layout.title} fontWeight={700}>{n.title}</text>{[0,.25,.5,.75,1].map(q=><line key={q} x1={left} x2={w-35} y1={top+q*(bottom-top)} y2={top+q*(bottom-top)} stroke="#c7c0af" strokeDasharray="3 5"/>)}<path d={`M${left} ${top}V${bottom}H${w-35}`} fill="none" stroke="#6f6655"/><svg data-chart-reveal="true" x={left} y={top} width={(w-left-35)*p} height={bottom-top+4} viewBox={`${left} ${top} ${(w-left-35)*p||.001} ${bottom-top+4}`} overflow="hidden"><polyline points={pts} fill="none" stroke={n.color??'#b7241c'} strokeWidth={7} strokeLinejoin="round"/></svg><text x={n.axisFontSize===undefined?4:left-8} textAnchor={n.axisFontSize===undefined?undefined:'end'} y={top+layout.axis-1} fontSize={layout.axis}>{n.domain[1]}</text><text x={n.axisFontSize===undefined?10:left-8} textAnchor={n.axisFontSize===undefined?undefined:'end'} y={bottom} fontSize={layout.axis}>{n.domain[0]}</text><g>{n.xLabels?.map((tick,i)=><g key={i}><line x1={left+tick.x*(w-left-35)} x2={left+tick.x*(w-left-35)} y1={bottom} y2={bottom+5} stroke="#6f6655"/><text x={left+tick.x*(w-left-35)} y={layout.tickY+(tick.row??0)*(layout.axis+8)} fontSize={layout.axis} textAnchor={tick.x===0?'start':tick.x===1?'end':'middle'}>{tick.label}</text></g>)}</g>{n.eventMarkers?.map((m,i)=>{if(frame<m.at)return null;const [mx,my]=xy(n.points[m.pointIndex]),ty=layout.tickY+(Math.max(0,...(n.xLabels??[]).map(t=>t.row??0))+1+(m.row??0)*2)*(layout.axis+8);return <g key={i} data-event-point={m.pointIndex}><line x1={mx} x2={mx} y1={bottom} y2={my} stroke={n.color??'#b7241c'} strokeDasharray="7 6" strokeWidth={2}/><circle cx={mx} cy={my} r={7} fill={n.color??'#b7241c'}/><text x={mx} y={ty} textAnchor="middle" fontSize={layout.axis}>{m.label}</text><text x={mx} y={ty+layout.axis+5} textAnchor="middle" fontSize={layout.axis}>{m.date}</text></g>;})}<text x={20} y={layout.footerY} fontSize={layout.footer}>{n.unit} · {n.connectionLabel??'观测点直线连接'}</text><text x={20} y={layout.sourceY} fontSize={layout.source}>{n.source}</text>{n.annotation&&frame>=n.drawSettle&&<g transform={`translate(${w-170} 40) rotate(-5)`}><rect width={150} height={75} fill="#b5281e"/><text x={75} y={54} fontSize={48} fill="#fff3d8" textAnchor="middle">{n.annotation}</text></g>}</svg>;
  }
  else if(n.kind==='board')child=<ReferenceBoard spec={n.spec} frame={frame-n.at} width={w} height={h}/>;
  else if(n.kind==='motion')child=<div style={{width:900,height:900,transformOrigin:'0 0',transform:`scale(${w/900},${h/900})`}}>{['split','stage-curve','checklist','market-line','threshold'].includes(n.spec.effect)?<GraphicMotion spec={n.spec as GraphicSpec} frame={frame-n.at} duration={n.end-n.at}/>:<PaperMotion spec={n.spec as PaperSpec} frame={frame-n.at} duration={n.end-n.at}/>}</div>;

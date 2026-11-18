@@ -44,3 +44,7 @@ brief 最小结构：
 ```json
 {"main_language":"en","subtitles":{"mode":"single","languages":["en"]},"language_choice_evidence":"用户原消息引用","voice_tool":"VoiceStudio","voice_choice_evidence":"用户选择引用","script_file":"script.md","script_review":{"status":"pass"},"script_approval":{"sha256":"实际已确认文件哈希","user_message":"真实批准消息引用"}}
 ```
+
+## 1.9.4 来源与返修
+
+所有归因句遵循 [来源生产合同](source-production-contract.md)，从原件核验到可见媒体绑定后才能完整渲染。口播与字幕禁用分号。实体条目核身份和素材出处并检查小屏辨识。读音返修须协调脚本、配音、字幕和声词锚点，并真实试听。时间线中的新闻/政府/X 归因必须列入 sourceClaimIds，不能因验证器无法自动识别语义而省略声明。
