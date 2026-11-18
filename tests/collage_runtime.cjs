@@ -14,8 +14,8 @@ const dependencyRoot = path.resolve(process.argv[3] || root);
 const projectRequire = Module.createRequire(path.join(dependencyRoot, 'package.json'));
 const esbuild = projectRequire('esbuild');
 const output = esbuild.buildSync({
-  stdin: {contents: `export {CollageStage, validateCollage, motionBounds, movingEnd, soundAt} from './src/collage';
-export {createElement} from 'react'; export {renderToStaticMarkup} from 'react-dom/server';`,
+  stdin: {contents: `export {CollageStage, validateCollage, motionBounds, movingEnd, soundAt, lineChartLayout} from './src/collage';
+export {NewspaperShort} from './src/template'; export {createElement} from 'react'; export {renderToStaticMarkup} from 'react-dom/server';`,
     resolveDir: root, sourcefile: 'collage-runtime-entry.tsx', loader: 'tsx'},
   bundle: true, platform: 'node', format: 'cjs', packages: 'external', write: false, logLevel: 'silent',
 });
@@ -32,9 +32,10 @@ function test(name, run) {
   try { run(); passed++; console.log(`PASS ${name}`); }
   catch (e) { failures.push(name); console.error(`FAIL ${name}: ${e.stack || e}`); }
 }
-function render(data, frame, duration = 120) {
+function render(data, frame, duration = 120, film = false) {
+  const component=film?api.NewspaperShort:api.CollageStage;
   const video = {id: 'collage-runtime', width: 1080, height: 1920, fps: 30, durationInFrames: duration,
-    defaultProps: {}, props: {}, component: api.CollageStage};
+    defaultProps: {}, props: {}, component};
   const manager = {compositions: [video], folders: [], canvasContent: {type: 'composition', compositionId: video.id},
     currentCompositionMetadata: video, currentAssetMetadata: null};
   return api.renderToStaticMarkup(api.createElement(Internals.CompositionManager.Provider, {value: manager},
@@ -42,7 +43,7 @@ function render(data, frame, duration = 120) {
       api.createElement(Internals.CanUseRemotionHooks.Provider, {value: true},
         api.createElement(Internals.TimelineContext.Provider, {value: {frame: {[video.id]: frame},
           audioAndVideoTags: {current: []}, isPlaying: () => false, isInsideFreeze: false}},
-          api.createElement(api.CollageStage, {data, frame, duration}))))));
+          api.createElement(component, film?data:{data, frame, duration}))))));
 }
 const text = (id, box, extra = {}) => ({id, kind: 'text', text: id, box, at: 0, settle: 12, end: 120,
   role: 'primary', meaning: 'Synthetic runtime geometry probe', style: {fontSize: 40}, ...extra});
@@ -230,6 +231,39 @@ test('chart rejects unreadable or malformed date labels and footers',()=>{
  for(const bad of [null,'','x'.repeat(65),'two\nlines']){
   const n=chart();n.connectionLabel=bad;rejects(scene([n]),/connectionLabel/);
  }
+});
+test('large chart typography renders requested fonts and shared marker geometry',()=>{
+ const n=chart();n.box=[55,370,970,660];n.domain=[145,225];n.points=[{x:0,y:215.38},{x:1,y:156.14}];
+ Object.assign(n,{axisFontSize:30,titleFontSize:36,sourceFontSize:26,footerFontSize:28,
+  xLabels:[{x:0,label:'Oct 28'},{x:6/19,label:'Nov 03'},{x:12/19,label:'Nov 09'},{x:1,label:'Nov 16'}]});
+ assert.deepEqual(api.validateCollage(scene([n]),120),[]);
+ const layout=api.lineChartLayout(n);assert.equal(layout.left,74.5);assert.equal(layout.top,78);
+ assert.ok(Math.abs(layout.bottom-504.15)<1e-9);assert.equal(layout.right,935);
+ const html=render(scene([n]),100);
+ assert.match(html,/font-size="36" font-weight="700">Observed price/);
+ assert.match(html,/font-size="30" text-anchor="start">Oct 28/);
+ assert.match(html,/font-size="26">Synthetic test observations/);assert.match(html,/font-size="28">USD/);
+ assert.match(html,/x="66.5" text-anchor="end"[^>]*font-size="30">225/);
+ assert.equal(clipWidth(html),860.5);
+});
+test('chart typography rejects invalid sizes and insufficient plot space',()=>{
+ for(const [key,min,max] of [['axisFontSize',16,40],['titleFontSize',20,48],['sourceFontSize',16,36],['footerFontSize',16,36]]){
+  for(const value of [null,NaN,Infinity,'30',min-1,max+1]){const n=chart();n[key]=value;rejects(scene([n]),new RegExp(key));}
+ }
+ const n=chart();n.box[3]=260;Object.assign(n,{axisFontSize:40,titleFontSize:48,sourceFontSize:36,footerFontSize:36,xLabels:[{x:0,label:'A'}]});
+ rejects(scene([n]),/insufficient plot space/);
+});
+test('date tick collision validation uses selected font size',()=>{
+ const n=chart();n.xLabels=[{x:.4,label:'Nov 09'},{x:.55,label:'Nov 10'}];
+ n.axisFontSize=16;assert.deepEqual(api.validateCollage(scene([n]),120),[]);
+ n.axisFontSize=40;rejects(scene([n]),/readable spacing/);
+});
+test('film caption preserves explicit newlines for caption and translation',()=>{
+ const data={masthead:'TEST',eyebrow:'TEST',scenes:[{id:'caption',start:0,end:120,title:'Test',kicker:'Test',kind:'story',
+  collage:scene([]),captions:[{start:0,end:120,text:'First line\nSecond line',translation:'Uno\nDos'}]}]};
+ const html=render(data,40,120,true);
+ assert.match(html,/text-align:center;white-space:pre-line/);
+ assert.match(html,/First line\nSecond line/);assert.match(html,/Uno\nDos/);
 });
 console.log(`Collage runtime: ${passed} passed, ${failures.length} failed. SSR is not audiovisual acceptance.`);
 if(failures.length)process.exitCode=1;
