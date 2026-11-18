@@ -65,3 +65,6 @@ SwainTalk 项目固定使用 `BrandLockup` 和 `public/brand/`。原透明 Logo 
 - 每张关系图列 `relationship_maps:[{id,nodes:[{id}],edges:[{from,to,label,direction}]}]`；direction是forward/both/none。记录所有实际线条，不能遗漏装饰主干。
 
 GitHub README 不依赖内嵌 MP4 播放。每片从最终、已绑定hash的MP4挑3–5个3–5秒片段，覆盖钩子、证据连续放大、图片关系/数据分析；转成约270–320px宽、12fps的循环GIF。用Markdown图片直接展示，旁边给完整MP4下载/打开入口及封面、标题、描述、字幕、来源。保留片段起止秒、原视频SHA、GIF SHA的索引。GIF只展示动画，不是配音或全片验收；不要用旧版GIF代表新版。使用 `scripts/showcase_gifs.py` 从清单生成并验证每个片段。
+
+
+1.9.4 的实体条目与折线图事件标记遵循 [Collage API](collage-api.md)。公司、人物和产品介绍逐项检查身份、真实图像来源及手机尺寸辨识，不以实体 Logo 代替报道原件。事件 marker 从横轴连至实际观测点，出现时刻对应口播，时序关联不证明因果；归因来源遵循 [生产合同](source-production-contract.md)。

@@ -51,7 +51,81 @@ def check_visual(d, root):
    if edge.get('from') not in node_ids or edge.get('to') not in node_ids or edge.get('from')==edge.get('to') or not edge.get('label') or edge.get('direction') not in ('forward','both','none'):errors.append('every relationship edge needs distinct endpoints, semantic label and direction')
  return errors
 
-def check(path, require_visual=False):
+def check_production(d, root):
+ """Bind declared evidence and narration to actual timeline; no authenticity inference."""
+ errors=[]
+ if d.get('production_contract')!='1.9.4':return ['production_contract 1.9.4 required']
+ try:
+  path=(root/d.get('timeline_file','src/timeline.json')).resolve()
+  if not path.is_relative_to(root.resolve()):return ['timeline outside project']
+  timeline=json.loads(path.read_text())
+ except (OSError,ValueError,TypeError):return ['readable timeline required']
+ scenes={s['id']:s for s in timeline.get('scenes',[])}
+ if not scenes or max(s['end'] for s in scenes.values())!=d.get('duration_frames'):errors.append('production duration differs from timeline')
+ for rec in d.get('scene_inventory',[]):
+  s=scenes.get(rec.get('id'),{})
+  if (s.get('start'),s.get('end'))!=(rec.get('start'),rec.get('end')):errors.append('inventory scene differs from timeline')
+ # Text inspection cannot determine whether an undeclared claim is attributed; editorial review remains mandatory.
+ def strings(v):
+  if isinstance(v,str):yield v
+  elif isinstance(v,list):
+   for x in v:yield from strings(x)
+  elif isinstance(v,dict):
+   for k,x in v.items():
+    if k in ('text','translation','narration','spoken_text'):yield from strings(x)
+    elif isinstance(x,(dict,list)):yield from strings(x)
+ for text in strings(timeline):
+  if ';' in text or '；' in text:errors.append('semicolon in narration/caption: split into natural spoken sentences')
+ script=d.get('narration_file')
+ try:
+  sp=(root/script).resolve()
+  if not sp.is_relative_to(root.resolve()):raise ValueError()
+  narration=sp.read_text()
+  if ';' in narration or '；' in narration:errors.append('semicolon in narration file')
+ except (OSError,ValueError,TypeError):errors.append('narration_file required inside project')
+ claims=d.get('attributed_claims')
+ if not isinstance(claims,list):errors.append('attributed_claims array required, empty only when no attributed claims');claims=[]
+ ids=[c.get('id') for c in claims if isinstance(c,dict)]
+ if len(ids)!=len(set(ids)) or any(not x for x in ids):errors.append('unique claim ids required')
+ linked={i for s in scenes.values() for i in s.get('sourceClaimIds',[])}
+ if linked!=set(ids):errors.append('sourceClaimIds must exactly match attributed_claims')
+ for c in claims:
+  try:
+   scene=scenes[c['scene_id']];nodes={n['id']:n for n in scene.get('collage',{}).get('nodes',[])};node=nodes[c['node_id']]
+   if c['id'] not in scene.get('sourceClaimIds',[]):raise ValueError('claim not linked to scene')
+   if c.get('kind') not in ('news','government','x') or not c.get('claim') or c.get('verified') is not True:raise ValueError('verified attributed claim required')
+   if not c.get('publisher') or not c.get('url','').startswith(('https://','http://')):raise ValueError('publisher and original URL required')
+   date.fromisoformat(c['date'])
+   a,b=c['from'],c['until']
+   if not scene['start']+node['at']<=a<b<=scene['start']+node['end']:raise ValueError('source visibility differs from timeline')
+   form=c['evidence_form']
+   if c['kind']=='x' and form!='original-post':raise ValueError('X requires verified visible original post')
+   if form=='quote':
+    if node.get('kind')!='text' or not c.get('quote') or c['quote'] not in node.get('text',''):raise ValueError('verified short original quote must be rendered')
+   elif form in ('screenshot','original-post','briefing-photo'):
+    if node.get('kind')!='photo' or node.get('file')!=c.get('file'):raise ValueError('visible original source media required')
+    media=(root/'public'/c['file']).resolve()
+    if not media.is_relative_to((root/'public').resolve()) or not media.is_file() or hashlib.sha256(media.read_bytes()).hexdigest()!=c.get('sha256'):raise ValueError('source media hash mismatch')
+    if form=='briefing-photo' and (c['kind']!='government' or c.get('same_event') is not True):raise ValueError('government briefing photo requires same event verification')
+   else:raise ValueError('original evidence form required, logos and summaries are not evidence')
+   visible=' '.join(n.get('text','') for n in nodes.values() if n.get('kind')=='text' and scene['start']+n['at']<=a and scene['start']+n['end']>=b)
+   if not all(c[k] in visible for k in ('publisher','date','url')):raise ValueError('publisher/date/URL must be visible with evidence')
+  except (KeyError,TypeError,ValueError,OSError) as e:errors.append(f"claim {c.get('id')}: {e}")
+ entities=d.get('entity_checks',[])
+ for sid,s in scenes.items():
+  for n in s.get('collage',{}).get('nodes',[]):
+   if n.get('kind')=='entity-item':
+    matches=[r for r in entities if r.get('scene_id')==sid and r.get('node_id')==n['id']]
+    if len(matches)!=1 or any(matches[0].get(k) is not True for k in ('identity_verified','asset_provenance_checked','small_format_reviewed','text_image_match')):errors.append(f"{sid}/{n['id']}: entity visualization checklist required")
+   if n.get('kind')=='line-chart':
+    for marker in n.get('eventMarkers',[]):
+     at=s['start']+marker['at']
+     if not any(b.get('at')==at and marker['label'] in b.get('anchor',{}).get('text','') for b in d.get('beats',[])):errors.append('chart marker needs matching spoken anchor at actual timeline frame')
+ for c in d.get('pronunciation_corrections',[]):
+  if not all(c.get(k) for k in ('term','spoken_form','voice_sha256','script_sha256')) or c.get('listening_verified') is not True or c.get('captions_retimed') is not True:errors.append('pronunciation correction requires revised voice/script hashes, listening and caption retiming')
+ return errors
+
+def check(path, require_visual=False, require_production=False):
  p=Path(path);errors=[]
  try:d=json.loads(p.read_text())
  except (OSError,ValueError) as e:return [str(e)]
@@ -94,8 +168,11 @@ def check(path, require_visual=False):
   for o in occ:
    if o.get('voice_start',0)-o.get('start',0)<.4*fps or o.get('end',0)-o.get('voice_end',0)<.4*fps:errors.append(f'{o.get("role")}: 0.4s voice pauses required before and after')
  if require_visual or d.get('visual_contract')=='1.6':errors.extend(check_visual(d,p.parent))
+ if require_production or d.get('production_contract'):
+  try:errors.extend(check_production(d,p.parent))
+  except (KeyError,TypeError,ValueError,AttributeError) as e:errors.append('malformed production schema: '+str(e))
  return errors
 
 if __name__=='__main__':
- parser=argparse.ArgumentParser();parser.add_argument('plan',type=Path);parser.add_argument('--require-visual',action='store_true');args=parser.parse_args();errors=check(args.plan,args.require_visual)
+ parser=argparse.ArgumentParser();parser.add_argument('plan',type=Path);parser.add_argument('--require-visual',action='store_true');parser.add_argument('--require-production',action='store_true');args=parser.parse_args();errors=check(args.plan,args.require_visual,args.require_production)
  print(json.dumps({'status':'FAIL' if errors else 'PASS','scope':'production records only; visual and listening review separate','errors':errors},ensure_ascii=False,indent=2));raise SystemExit(bool(errors))

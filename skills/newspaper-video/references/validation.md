@@ -72,3 +72,7 @@ README已同步接口、模块输入输出、组合流程、平台限制及可�
 
 
 Codex CLI实际安装`newspaper-video@swainwong-newspaper` 1.8.0；新启动app-server的skills/list返回启用入口`newspaper-video:newspaper-video`，路径位于1.8.0缓存。保留指向唯一源码的本地兼容链接，不在缓存中开发。焦点冲突检查新增实际组件时序推导，拒绝借缩短计划落稳时码隐藏并发；原件连续变焦区间也从时间线直接核对转场。
+
+## 1.9.4 source and entity contracts
+
+The package passes 61 Python unittest cases, 47 collage runtime/SSR cases on a freshly generated 16-preset fixture, and TypeScript `tsc --noEmit` using Node 22.19.0 and the template's pinned dependencies. New fixtures cover actual observed-point event guides and timed visibility, staggered labels, entity geometry/provenance, visible source media/hash/credit binding, X original-post requirements, same-event briefing declarations, semicolon rejection, entity checks and spoken marker anchors. Fixtures are synthetic and contain no episode assets. These checks do not establish original-source authenticity, phone-size human readability, full-speed viewing or listening acceptance.

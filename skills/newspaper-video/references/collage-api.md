@@ -82,3 +82,11 @@ For a 970×660 chart, `axisFontSize:30, titleFontSize:36, sourceFontSize:26, foo
 Use exported `lineChartLayout(node)` when placing external observed-point markers. It returns chart-local `left`, `right`, `top`, `bottom`, font sizes (`axis`, `title`, `source`, `footer`) and text baselines. A normalized data point maps to `boxX + left + x * (right-left)` and `boxY + bottom - (y-domainMin)/(domainMax-domainMin) * (bottom-top)`. Do not retain old hardcoded margins after changing typography. With the example sizes, domain `[145,225]` and date labels, margins are left 74.5, right 935, top 78, bottom 504.15.
 
 Main captions and translations preserve explicit newline characters through inherited `white-space:pre-line`. Automatic wrapping still applies to long lines; newline preservation does not ensure the caption fits its declared box.
+
+## 实体条目与事件标记（1.9.4）
+
+`entity-item` 沿用节点通用 box/at/settle/end/role/meaning。额外必填 `name, detail, image: {file,kind,identity,sourceUrl,license}`，kind 为 logo/portrait/icon。文本在左，图像在右，以 contain 保留完整主体。可选 `fontSize`（默认40，至少28）、`detailSize`（默认28，至少24）、`imageWidth`（默认180，至少144）。文字、图像尺寸及整卡运动会被检查；还须实际缩小到手机尺寸检查身份和细节。
+
+`line-chart.eventMarkers` 为最多8项的数组，每项 `{pointIndex,label,date,at,row?:0|1}`。pointIndex 是 points 的实际索引，at 为场景内帧；事件不可早于该观测点被曲线揭示。标记绘制圆点及从横轴到该点的竖虚线，下方标注事件及日期。`xLabels` 也支持 row:0/1，需错开临近标签；同一行重叠、越界或剩余绘图区不足会失败。事件标签及日期的行高计入图表高度，避免与单位及来源脚注重叠。标签字号沿用 axisFontSize。
+
+事件必须对齐真实口播锚点；观测点连线仅表示数据走势，不自动推断事件造成价格变化。来源与制作记录见 [生产合同](source-production-contract.md)。

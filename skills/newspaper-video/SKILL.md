@@ -2,7 +2,7 @@
 name: newspaper-video
 description: 制作或修改旧报纸、照片拼贴、图钉胶带、动态数字与时间轴风格的 Remotion 讲解视频；使用内置素材、样式参数和可运行模板。适用于复用报纸拼贴视觉风格，不承担通用剪辑或发布账号操作。
 metadata:
-  version: "1.9.3"
+  version: "1.9.4"
 ---
 
 # 报纸拼贴视频
@@ -46,6 +46,10 @@ python3 "<SKILL_ROOT>/scripts/project.py" render .
 ```
 
 `--browser /absolute/path/to/chrome` 可加在 still/render 命令后。不同主机字体可能不同；若用户提供授权字体，把字体包含到项目并实测排版。
+
+## 来源原件与可执行制作门禁（1.9.4）
+
+按 [来源、实体与口播合同](references/source-production-contract.md) 制作。新闻、政府及 X 归因句必须展示可核验原件或短原文引语，包含发布者、日期和原始链接。政府可使用同一事件的发布会照片；X 必须核实并展示原帖。摘要卡和 Logo 不构成报道证据，禁止伪造截图；缺来源则门禁失败或删去该句。实体条目使用左文右图的 `entity-item`，折线图事件使用实际观测点 `eventMarkers`，图表同步不代表因果。口播与字幕不用分号，限定语自然简短。改正读音后重做受影响配音、字幕时序并真实试听。
 
 ## 检查与交付
 

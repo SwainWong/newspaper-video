@@ -16,6 +16,7 @@ def check(data,root):
   if c.get('background',{}).get('file'):files.append(c['background']['file'])
   for n in c.get('nodes',[]):
    if n.get('kind')=='photo':files.append(n.get('file'))
+   if n.get('kind')=='entity-item':files.append(n.get('image',{}).get('file'))
    if n.get('kind')=='motion':
     spec=n.get('spec',{});d=spec.get('data',{})
     if spec.get('effect')=='film-frame':files.append(d.get('media',{}).get('src'))
